@@ -1,33 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Agro Care</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>🌱 Smart Agro Care</h1>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Soil Test</a>
+        <a href="#">Crop Disease</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
 <section class="hero">
-    <h2>Welcome to Smart Agro Care 🌱</h2>
 
-    <p>
-        Smart Agro Care is an intelligent farming website that helps farmers
-        detect crop diseases, analyze soil quality, and improve crop production.
-    </p>
+<h2>Village Crop Disease & Soil Quality Detection</h2>
 
-    <button onclick="checkSoil()">🌱 Check Soil</button>
+<p>
+Helping farmers identify crop diseases, analyze soil quality,
+and improve crop production using AI technology.
+</p>
 
-    <button onclick="cropDisease()">🍃 Detect Disease</button>
+<button onclick="checkSoil()">🌱 Check Soil</button>
+
+<button onclick="cropDisease()">🍃 Detect Disease</button>
+
 </section>
-<section class="soil-form">
-    <h2>🌱 Soil Testing</h2>
 
-    <form>
-        <input type="number" placeholder="Soil pH" required><br><br>
+<section class="cards">
 
-        <input type="number" placeholder="Nitrogen (N)" required><br><br>
+<div class="card">
+<h3>🌱 Soil Testing</h3>
+<p>Check soil pH, Nitrogen, Phosphorus and Potassium.</p>
+</div>
 
-        <input type="number" placeholder="Phosphorus (P)" required><br><br>
+<div class="card">
+<h3>🍃 Disease Detection</h3>
+<p>Upload crop images and identify diseases.</p>
+</div>
 
-        <input type="number" placeholder="Potassium (K)" required><br><br>
+<div class="card">
+<h3>💊 Fertilizer</h3>
+<p>Get fertilizer recommendations based on soil.</p>
+</div>
 
-        <input type="number" placeholder="Moisture (%)" required><br><br>
-
-        <input type="number" placeholder="Temperature (°C)" required><br><br>
-
-        <button type="button" onclick="soilResult()">
-            Analyze Soil
-        </button>
-    </form>
 </section>
+
+<footer>
+© 2026 Smart Agro Care | Developed by Siddhi
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
