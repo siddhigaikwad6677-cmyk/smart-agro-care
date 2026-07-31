@@ -1,1 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fertilizer Recommendation - Smart Agro Care</title>
 
+<link rel="stylesheet" href="style.css">
+
+<style>
+body{
+    font-family:Arial,sans-serif;
+    background:#f4fff4;
+    margin:0;
+}
+
+header{
+    background:#2e7d32;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+.container{
+    width:80%;
+    margin:30px auto;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+h2{
+    color:#2e7d32;
+}
+
+input,select{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    background:#2e7d32;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1b5e20;
+}
+
+.result{
+    margin-top:20px;
+    padding:20px;
+    background:#e8f5e9;
+    border-radius:10px;
+}
+
+footer{
+    background:#2e7d32;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:30px;
+}
+</style>
+
+<script>
+function recommendFertilizer(){
+
+document.getElementById("result").innerHTML=
+
+"<h3>Recommended Fertilizer</h3>" +
+
+"<p><b>Fertilizer:</b> NPK 19:19:19</p>" +
+
+"<p><b>Dosage:</b> 50 kg per hectare</p>" +
+
+"<p><b>Recommendation:</b> Apply during early crop growth and irrigate after application.</p>";
+
+}
+</script>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>🌱 Smart Agro Care</h1>
+
+<h2>Fertilizer Recommendation</h2>
+
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Enter Soil Details</h2>
+
+<select>
+
+<option>Select Crop</option>
+
+<option>Rice</option>
+
+<option>Wheat</option>
+
+<option>Sugarcane</option>
+
+<option>Cotton</option>
+
+<option>Tomato</option>
+
+<option>Potato</option>
+
+<option>Maize</option>
+
+</select>
+
+<input type="number" placeholder="Nitrogen (N)">
+
+<input type="number" placeholder="Phosphorus (P)">
+
+<input type="number" placeholder="Potassium (K)">
+
+<input type="number" placeholder="Soil pH">
+
+<button onclick="recommendFertilizer()">
+
+Get Recommendation
+
+</button>
+
+<div class="result" id="result">
+
+<h3>Recommendation Result</h3>
+
+<p>No recommendation available.</p>
+
+</div>
+
+<br>
+
+<a href="index.html">
+
+<button>⬅ Back to Home</button>
+
+</a>
+
+</div>
+
+</div>
+
+<footer>
+
+<p>© 2026 Smart Agro Care | Developed by Siddhi</p>
+
+</footer>
+
+</body>
+</html>
