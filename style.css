@@ -29,3 +29,19 @@ button{
 button:hover{
     background:darkgreen;
 }
+.soil-form{
+    background:white;
+    width:60%;
+    margin:40px auto;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 0 10px gray;
+}
+
+.soil-form input{
+    width:80%;
+    padding:12px;
+    font-size:16px;
+    border:1px solid gray;
+    border-radius:8px;
+}
