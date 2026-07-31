@@ -12,3 +12,6 @@ function checkSoil() {
 function cropDisease() {
     alert("Crop Disease Detection feature will be available soon.");
 }
+function soilResult() {
+    alert("✅ Soil Analysis Completed!\n\nYour soil appears suitable for farming.\nRecommended: Add organic compost and maintain proper irrigation.");
+}
