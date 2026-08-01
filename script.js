@@ -340,3 +340,13 @@ document.getElementById("result").innerHTML=`
 `;
 
 }
+function showLocation(){
+
+let state=document.getElementById("state").value;
+
+document.getElementById("locationResult").innerHTML=
+
+"✅ Recommended crops for "+state+
+" : Rice, Wheat, Sugarcane";
+
+}
