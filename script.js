@@ -178,3 +178,165 @@ document.getElementById("yieldResult").innerHTML=
 "<p><b>Approximate Production:</b> "+(total/1000).toFixed(2)+" Tonnes</p>";
 
 }
+function analyzeSoil(){
+
+let soil=document.getElementById("soilType").value;
+
+let ph=parseFloat(document.getElementById("ph").value);
+
+let crop="";
+let water="";
+let fertilizer="";
+let season="";
+let tips="";
+let quality="";
+
+if(soil=="Black Soil"){
+
+quality="Excellent";
+
+crop="Cotton, Soybean, Sugarcane";
+
+water="600-900 mm";
+
+fertilizer="NPK 19:19:19";
+
+season="Kharif";
+
+tips="Maintain proper drainage.";
+
+}
+
+else if(soil=="Red Soil"){
+
+quality="Good";
+
+crop="Groundnut, Millets, Potato";
+
+water="500-700 mm";
+
+fertilizer="Organic Compost";
+
+season="Rabi";
+
+tips="Add organic manure regularly.";
+
+}
+
+else if(soil=="Alluvial Soil"){
+
+quality="Excellent";
+
+crop="Rice, Wheat, Maize";
+
+water="800-1200 mm";
+
+fertilizer="DAP + Urea";
+
+season="Kharif & Rabi";
+
+tips="Keep soil moisture balanced.";
+
+}
+
+else if(soil=="Laterite Soil"){
+
+quality="Average";
+
+crop="Tea, Coffee, Cashew";
+
+water="1000-1500 mm";
+
+fertilizer="Compost + Potash";
+
+season="Monsoon";
+
+tips="Add organic matter frequently.";
+
+}
+
+else if(soil=="Sandy Soil"){
+
+quality="Average";
+
+crop="Watermelon, Carrot, Groundnut";
+
+water="Daily light irrigation";
+
+fertilizer="Organic Compost";
+
+season="Summer";
+
+tips="Water more frequently.";
+
+}
+
+else{
+
+quality="Good";
+
+crop="Rice, Wheat";
+
+water="700-900 mm";
+
+fertilizer="NPK";
+
+season="All Season";
+
+tips="Maintain soil moisture.";
+
+}
+
+document.getElementById("result").innerHTML=`
+
+<div class="result-card">
+
+<h3>🌱 Soil Quality</h3>
+
+<p>${quality}</p>
+
+</div>
+
+<div class="result-card">
+
+<h3>🌾 Best Crops</h3>
+
+<p>${crop}</p>
+
+</div>
+
+<div class="result-card">
+
+<h3>💧 Water Requirement</h3>
+
+<p>${water}</p>
+
+</div>
+
+<div class="result-card">
+
+<h3>🧪 Recommended Fertilizer</h3>
+
+<p>${fertilizer}</p>
+
+</div>
+
+<div class="result-card">
+
+<h3>📅 Best Season</h3>
+
+<p>${season}</p>
+
+</div>
+
+<div class="result-card">
+
+<h3>💡 Farming Tips</h3>
+
+<p>${tips}</p>
+
+</div>
+
+`;
+
+}
