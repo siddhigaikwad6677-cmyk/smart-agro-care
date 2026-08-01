@@ -128,3 +128,53 @@ function recommendFertilizer() {
 function sendMessage() {
     alert("Thank you! Your message has been sent successfully.");
 }
+function calculateYield(){
+
+let crop=document.getElementById("crop").value;
+let land=parseFloat(document.getElementById("land").value);
+
+let yieldPerAcre=0;
+
+switch(crop){
+
+case "rice":
+yieldPerAcre=2500;
+break;
+
+case "wheat":
+yieldPerAcre=1800;
+break;
+
+case "maize":
+yieldPerAcre=2200;
+break;
+
+case "sugarcane":
+yieldPerAcre=35000;
+break;
+
+case "cotton":
+yieldPerAcre=900;
+break;
+
+default:
+document.getElementById("yieldResult").innerHTML="<h3>Please select a crop.</h3>";
+return;
+
+}
+
+let total=yieldPerAcre*land;
+
+document.getElementById("yieldResult").innerHTML=
+
+"<h3>🌾 Crop Yield Prediction</h3>"+
+
+"<p><b>Selected Crop:</b> "+crop.toUpperCase()+"</p>"+
+
+"<p><b>Land Area:</b> "+land+" Acres</p>"+
+
+"<p><b>Estimated Yield:</b> "+total.toLocaleString()+" kg</p>"+
+
+"<p><b>Approximate Production:</b> "+(total/1000).toFixed(2)+" Tonnes</p>";
+
+}
