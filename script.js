@@ -378,3 +378,18 @@ speech.lang = "en-IN";
 window.speechSynthesis.speak(speech);
 
 }
+function changeLanguage(lang){
+
+if(lang=="mr"){
+
+alert("मराठी भाषा निवडली आहे.");
+
+}
+
+else{
+
+alert("English Selected.");
+
+}
+
+}
