@@ -203,3 +203,18 @@ border-radius:10px;
 color:#1b5e20;
 
 }
+.mic-btn{
+    background:#ff9800;
+    color:white;
+    border:none;
+    padding:12px 15px;
+    border-radius:50%;
+    font-size:22px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.mic-btn:hover{
+    background:#f57c00;
+    transform:scale(1.1);
+}
