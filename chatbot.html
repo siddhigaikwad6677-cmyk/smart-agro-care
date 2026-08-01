@@ -5,3 +5,205 @@
 <button>Send</button>
 
 <p>Example: How much water does rice need?</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Agro AI Assistant</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#d4fc79,#96e6a1);
+}
+
+header{
+    background:#1b5e20;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+.chat-container{
+    width:90%;
+    max-width:700px;
+    margin:30px auto;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.chat-box{
+    height:400px;
+    overflow-y:auto;
+    padding:20px;
+    background:#f5fff5;
+}
+
+.user{
+    text-align:right;
+    margin:15px 0;
+}
+
+.bot{
+    text-align:left;
+    margin:15px 0;
+}
+
+.user span{
+    background:#2e7d32;
+    color:white;
+    padding:10px 15px;
+    border-radius:15px;
+    display:inline-block;
+}
+
+.bot span{
+    background:#e8f5e9;
+    color:black;
+    padding:10px 15px;
+    border-radius:15px;
+    display:inline-block;
+}
+
+.input-area{
+    display:flex;
+    padding:15px;
+    background:white;
+}
+
+input{
+    flex:1;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #ccc;
+}
+
+button{
+    margin-left:10px;
+    padding:12px 20px;
+    background:#2e7d32;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1b5e20;
+}
+
+.quick{
+    text-align:center;
+    padding:15px;
+}
+
+.quick button{
+    margin:5px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>🤖 Smart Agro AI Assistant</h1>
+
+<p>Ask anything about farming</p>
+
+</header>
+
+<div class="chat-container">
+
+<div class="chat-box" id="chat">
+
+<div class="bot">
+<span>Hello Farmer 👨‍🌾<br>How can I help you today?</span>
+</div>
+
+</div>
+
+<div class="quick">
+
+<button onclick="quickQuestion('Best crop for black soil')">Black Soil</button>
+
+<button onclick="quickQuestion('How much water for rice')">Rice Water</button>
+
+<button onclick="quickQuestion('Best fertilizer')">Fertilizer</button>
+
+<button onclick="quickQuestion('Organic farming tips')">Organic Tips</button>
+
+</div>
+
+<div class="input-area">
+
+<input type="text" id="question" placeholder="Type your question...">
+
+<button onclick="reply()">Send</button>
+
+</div>
+
+</div>
+
+<script>
+
+function quickQuestion(text){
+
+document.getElementById("question").value=text;
+
+reply();
+
+}
+
+function reply(){
+
+let input=document.getElementById("question");
+
+let q=input.value.toLowerCase();
+
+if(q=="") return;
+
+let chat=document.getElementById("chat");
+
+chat.innerHTML+=`<div class="user"><span>${input.value}</span></div>`;
+
+let answer="Sorry, I don't know that answer yet.";
+
+if(q.includes("black soil"))
+answer="🌱 Black soil is best for Cotton, Soybean and Sugarcane.";
+
+else if(q.includes("rice"))
+answer="💧 Rice requires about 1200–1500 mm of water during one growing season.";
+
+else if(q.includes("fertilizer"))
+answer="🧪 Use fertilizers based on soil test results. A balanced NPK fertilizer is commonly recommended for many crops.";
+
+else if(q.includes("organic"))
+answer="🌿 Use compost, vermicompost, crop rotation and natural pesticides for healthy organic farming.";
+
+else if(q.includes("ph"))
+answer="🌡️ Most crops grow well in soil with a pH between 6.0 and 7.5.";
+
+setTimeout(function(){
+
+chat.innerHTML+=`<div class="bot"><span>${answer}</span></div>`;
+
+chat.scrollTop=chat.scrollHeight;
+
+},500);
+
+input.value="";
+
+}
+
+</script>
+
+</body>
+</html>
