@@ -156,3 +156,26 @@ document.getElementById("result").innerHTML=
 </div>
 </body>
 </html>
+<h2>🌾 Crop Yield Estimation</h2>
+
+<label>Select Crop</label>
+
+<select id="crop">
+    <option value="">--Select Crop--</option>
+    <option value="rice">Rice</option>
+    <option value="wheat">Wheat</option>
+    <option value="maize">Maize</option>
+    <option value="sugarcane">Sugarcane</option>
+    <option value="cotton">Cotton</option>
+</select>
+
+<label>Enter Land Area (Acres)</label>
+
+<input type="number" id="land" placeholder="Example: 2">
+
+<button onclick="calculateYield()">Calculate Yield</button>
+
+<div id="yieldResult" class="result">
+    <h3>Estimated Yield</h3>
+    <p>Your crop yield will appear here.</p>
+</div>
