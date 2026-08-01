@@ -393,3 +393,24 @@ alert("English Selected.");
 }
 
 }
+function recommend(){
+
+let district=document.getElementById("district").value;
+
+let crop="";
+
+if(district=="Kolhapur")
+
+crop="Sugarcane, Rice";
+
+else if(district=="Pune")
+
+crop="Wheat, Onion";
+
+else
+
+crop="Cotton";
+
+document.getElementById("crop").innerHTML=crop;
+
+}
