@@ -12,12 +12,98 @@ function signup() {
 
 // Soil Analysis
 function analyzeSoil() {
-    alert(
-        "Soil Analysis Complete!\n\n" +
-        "Soil Quality: Good\n" +
-        "Recommended Crop: Rice\n" +
-        "Recommended Fertilizer: NPK 19:19:19"
-    );
+
+let ph = parseFloat(document.getElementById("ph").value);
+
+let result = "";
+
+if(ph >= 6.0 && ph <= 7.5){
+
+result = `
+<h3>✅ Soil Quality : Excellent</h3>
+
+<h4>🌾 Best Crops</h4>
+<ul>
+<li>Rice</li>
+<li>Wheat</li>
+<li>Maize</li>
+<li>Sugarcane</li>
+</ul>
+
+<h4>💧 Water Requirement</h4>
+
+<ul>
+<li>Rice : 1200-1500 mm per season</li>
+<li>Wheat : 450-650 mm</li>
+<li>Maize : 500-800 mm</li>
+<li>Sugarcane : 1500-2500 mm</li>
+</ul>
+
+<h4>🧪 Recommendation</h4>
+
+Use Organic Compost + NPK 19:19:19
+`;
+
+}
+
+else if(ph < 6){
+
+result = `
+<h3>⚠ Acidic Soil</h3>
+
+<h4>🌱 Best Crops</h4>
+
+<ul>
+<li>Potato</li>
+<li>Tea</li>
+<li>Pineapple</li>
+</ul>
+
+<h4>💧 Water Requirement</h4>
+
+<ul>
+<li>Potato : 500-700 mm</li>
+<li>Tea : 1200-2500 mm</li>
+<li>Pineapple : 1000-1500 mm</li>
+</ul>
+
+<h4>Recommendation</h4>
+
+Add Lime to increase soil pH.
+`;
+
+}
+
+else{
+
+result = `
+<h3>⚠ Alkaline Soil</h3>
+
+<h4>🌾 Best Crops</h4>
+
+<ul>
+<li>Barley</li>
+<li>Cotton</li>
+<li>Mustard</li>
+</ul>
+
+<h4>💧 Water Requirement</h4>
+
+<ul>
+<li>Barley : 300-500 mm</li>
+<li>Cotton : 700-1300 mm</li>
+<li>Mustard : 250-400 mm</li>
+</ul>
+
+<h4>Recommendation</h4>
+
+Use Gypsum and Organic Manure.
+`;
+
+}
+
+document.getElementById("result").innerHTML = result;
+
 }
 
 // Crop Disease Detection
