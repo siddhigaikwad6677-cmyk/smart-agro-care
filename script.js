@@ -414,3 +414,43 @@ crop="Cotton";
 document.getElementById("crop").innerHTML=crop;
 
 }
+// Voice Recognition
+function startListening() {
+
+    if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+        alert("Speech Recognition is not supported in your browser.");
+        return;
+    }
+
+    const SpeechRecognition =
+        window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    const recognition = new SpeechRecognition();
+
+    recognition.lang = "en-IN";      // Indian English
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    recognition.start();
+
+    recognition.onstart = function () {
+        alert("🎤 Listening... Please speak.");
+    };
+
+    recognition.onresult = function (event) {
+
+        let speech = event.results[0][0].transcript;
+
+        document.getElementById("question").value = speech;
+
+        reply(); // Automatically send to chatbot
+
+    };
+
+    recognition.onerror = function (event) {
+
+        alert("Voice Error: " + event.error);
+
+    };
+
+}
