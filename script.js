@@ -367,3 +367,14 @@ reply();
 };
 
 }
+function speak(text){
+
+const speech = new SpeechSynthesisUtterance();
+
+speech.text = text;
+
+speech.lang = "en-IN";
+
+window.speechSynthesis.speak(speech);
+
+}
