@@ -179,3 +179,42 @@ document.getElementById("result").innerHTML=
     <h3>Estimated Yield</h3>
     <p>Your crop yield will appear here.</p>
 </div>
+<div class="card">
+
+<h2>🌱 Smart Soil Analysis</h2>
+
+<input type="number" id="ph" placeholder="Soil pH">
+
+<input type="number" id="nitrogen" placeholder="Nitrogen (N)">
+
+<input type="number" id="phosphorus" placeholder="Phosphorus (P)">
+
+<input type="number" id="potassium" placeholder="Potassium (K)">
+
+<select id="soilType">
+
+<option value="">Select Soil Type</option>
+
+<option>Black Soil</option>
+
+<option>Red Soil</option>
+
+<option>Alluvial Soil</option>
+
+<option>Laterite Soil</option>
+
+<option>Sandy Soil</option>
+
+<option>Clay Soil</option>
+
+</select>
+
+<button onclick="analyzeSoil()">
+
+Analyze Soil
+
+</button>
+
+<div id="result"></div>
+
+</div>
