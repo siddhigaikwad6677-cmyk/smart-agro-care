@@ -245,3 +245,24 @@ alert("Login Successful");
 window.location.href="home.html";
 
 }
+function signup(){
+
+let name=document.getElementById("name").value;
+
+let email=document.getElementById("signupEmail").value;
+
+let password=document.getElementById("signupPassword").value;
+
+if(name=="" || email=="" || password==""){
+
+alert("Please fill all details");
+
+return;
+
+}
+
+alert("Account Created Successfully");
+
+window.location.href="index.html";
+
+}
