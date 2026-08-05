@@ -203,3 +203,26 @@ alert("English Language Selected.");
 }
 
 }
+function previewImage(){
+
+let file=document.getElementById("cropImage").files[0];
+
+if(file){
+
+let reader=new FileReader();
+
+reader.onload=function(e){
+
+let img=document.getElementById("preview");
+
+img.src=e.target.result;
+
+img.style.display="block";
+
+}
+
+reader.readAsDataURL(file);
+
+}
+
+}
