@@ -1,162 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crop Disease Detection - Smart Agro Care</title>
+
+<title>Crop Disease Detection</title>
 
 <link rel="stylesheet" href="style.css">
 
-<style>
-body{
-    font-family:Arial,sans-serif;
-    background:#f4fff4;
-    margin:0;
-}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-header{
-    background:#2e7d32;
-    color:white;
-    text-align:center;
-    padding:20px;
-}
-
-.container{
-    width:80%;
-    margin:30px auto;
-}
-
-.card{
-    background:white;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.2);
-}
-
-h2{
-    color:#2e7d32;
-}
-
-input,select{
-    width:100%;
-    padding:12px;
-    margin:10px 0;
-    border:1px solid #ccc;
-    border-radius:8px;
-}
-
-button{
-    width:100%;
-    padding:14px;
-    background:#2e7d32;
-    color:white;
-    border:none;
-    border-radius:8px;
-    font-size:18px;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#1b5e20;
-}
-
-.result{
-    margin-top:20px;
-    padding:15px;
-    background:#e8f5e9;
-    border-radius:10px;
-}
-
-footer{
-    background:#2e7d32;
-    color:white;
-    text-align:center;
-    padding:15px;
-    margin-top:30px;
-}
-</style>
-
-<script>
-function detectDisease(){
-    document.getElementById("result").innerHTML=
-    "<h3>Detection Result</h3>" +
-    "<p><b>Disease:</b> Leaf Blight</p>" +
-    "<p><b>Confidence:</b> 95%</p>" +
-    "<p><b>Recommendation:</b> Spray a suitable fungicide and remove infected leaves.</p>";
-}
-</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 </head>
 
 <body>
 
 <header>
-<h1>🌿 Smart Agro Care</h1>
-<h2>Crop Disease Detection</h2>
+
+<div class="logo">
+
+🌾 Smart Agro Care
+
+</div>
+
+<nav>
+
+<a href="index.html">Home</a>
+
+<a href="soil.html">Soil</a>
+
+<a href="disease.html">Disease</a>
+
+<a href="fertilizer.html">Fertilizer</a>
+
+<a href="chatbot.html">AI Chatbot</a>
+
+<a href="contact.html">Contact</a>
+
+</nav>
+
 </header>
 
-<div class="container">
+<section class="disease-page">
 
-<div class="card">
+<h1>🌿 AI Crop Disease Detection</h1>
+
+<p>
+
+Upload a crop image to detect diseases and get treatment suggestions.
+
+</p>
+
+<div class="disease-container">
+
+<div class="upload-box">
+
+<img src="images/upload.png" width="120">
 
 <h2>Upload Crop Image</h2>
 
-<input type="file">
+<input type="file" id="cropImage">
 
-<h2>Select Crop</h2>
+<button onclick="detectDisease()">
 
-<select>
-<option>Select Crop</option>
-<option>Rice</option>
-<option>Wheat</option>
-<option>Sugarcane</option>
-<option>Cotton</option>
-<option>Tomato</option>
-<option>Potato</option>
-<option>Maize</option>
-</select>
+🔍 Detect Disease
 
-<button onclick="detectDisease()">Detect Disease</button>
-
-<div class="result" id="result">
-
-<h3>Result</h3>
-
-<p>No image analyzed yet.</p>
+</button>
 
 </div>
 
-<br>
+<div class="result-box">
 
-<a href="index.html">
-<button>⬅ Back to Home</button>
-</a>
+<h2>Detection Result</h2>
+
+<p><b>Disease:</b> <span id="disease">-</span></p>
+
+<p><b>Confidence:</b> <span id="accuracy">-</span></p>
+
+<p><b>Treatment:</b> <span id="treatment">-</span></p>
+
+<p><b>Prevention:</b> <span id="prevention">-</span></p>
 
 </div>
 
 </div>
 
-<footer>
+</section>
 
-<p>© 2026 Smart Agro Care | Developed by Siddhi</p>
+<script>
 
-</footer>
+function detectDisease(){
+
+document.getElementById("disease").innerHTML="Leaf Blight";
+
+document.getElementById("accuracy").innerHTML="97%";
+
+document.getElementById("treatment").innerHTML="Use Copper Fungicide once every 7 days.";
+
+document.getElementById("prevention").innerHTML="Avoid excess watering, remove infected leaves, and maintain proper spacing.";
+
+}
+
+</script>
 
 </body>
+
 </html>
-<h2>📷 Upload Crop Image</h2>
-
-<input type="file">
-
-<button onclick="detectDisease()">
-
-Detect Disease
-
-</button>
-<input type="file" accept="image/*">
-
-<button onclick="detectDisease()">
-
-Detect Disease
-
-</button>
