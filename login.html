@@ -1,121 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Smart Agro Care - Login</title>
 
 <link rel="stylesheet" href="style.css">
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-body{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
-url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1400&q=80");
-background-size:cover;
-background-position:center;
-}
-
-.login-box{
-width:380px;
-background:rgba(255,255,255,0.15);
-backdrop-filter:blur(10px);
-padding:35px;
-border-radius:20px;
-text-align:center;
-color:white;
-box-shadow:0 10px 30px rgba(0,0,0,.4);
-}
-
-.login-box h1{
-font-size:34px;
-margin-bottom:10px;
-}
-
-.login-box p{
-margin-bottom:25px;
-font-size:15px;
-}
-
-input{
-width:100%;
-padding:14px;
-margin:10px 0;
-border:none;
-border-radius:10px;
-font-size:16px;
-}
-
-button{
-width:100%;
-padding:14px;
-margin-top:15px;
-background:#2e7d32;
-color:white;
-font-size:18px;
-border:none;
-border-radius:10px;
-cursor:pointer;
-transition:.3s;
-}
-
-button:hover{
-background:#1b5e20;
-}
-
-.signup{
-margin-top:20px;
-font-size:15px;
-}
-
-.signup a{
-color:#ffff66;
-text-decoration:none;
-font-weight:bold;
-}
-
-.signup a:hover{
-text-decoration:underline;
-}
-</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 </head>
 
-<body>
+<body class="login-page">
+
+<div class="overlay">
+
+<div class="login-container">
+
+<div class="left-side">
+
+<h1>🌾 Smart Agro Care</h1>
+
+<h2>AI Powered Agriculture Solution</h2>
+
+<p>
+Helping Farmers with AI, Soil Analysis,
+Weather Forecast, Disease Detection,
+Crop Recommendation and Smart Farming.
+</p>
+
+<div class="features">
+
+<div class="feature">
+<i class="fa-solid fa-seedling"></i>
+<span>Soil Analysis</span>
+</div>
+
+<div class="feature">
+<i class="fa-solid fa-leaf"></i>
+<span>Disease Detection</span>
+</div>
+
+<div class="feature">
+<i class="fa-solid fa-cloud-sun"></i>
+<span>Weather Forecast</span>
+</div>
+
+<div class="feature">
+<i class="fa-solid fa-robot"></i>
+<span>AI Chatbot</span>
+</div>
+
+</div>
+
+</div>
+
+<div class="right-side">
 
 <div class="login-box">
 
-<h1>🌱 Smart Agro Care</h1>
+<h2>Welcome Back 👋</h2>
 
-<p>Farmer Login Portal</p>
+<p>Login to continue</p>
 
-<form action="index.html">
+<form>
 
-<input type="text" placeholder="Username" required>
+<div class="input-box">
 
-<input type="password" placeholder="Password" required>
+<i class="fa-solid fa-envelope"></i>
 
-<button type="submit">Login</button>
+<input type="email"
+placeholder="Email Address"
+required>
+
+</div>
+
+<div class="input-box">
+
+<i class="fa-solid fa-lock"></i>
+
+<input type="password"
+placeholder="Password"
+required>
+
+</div>
+
+<div class="remember">
+
+<label>
+
+<input type="checkbox">
+
+Remember Me
+
+</label>
+
+<a href="#">Forgot Password?</a>
+
+</div>
+
+<button class="login-btn">
+
+Login
+
+</button>
+
+<div class="social">
+
+<p>or continue with</p>
+
+<button type="button" class="google">
+
+<i class="fab fa-google"></i>
+
+Google
+
+</button>
+
+<button type="button" class="facebook">
+
+<i class="fab fa-facebook"></i>
+
+Facebook
+
+</button>
+
+</div>
+
+<p class="signup">
+
+Don't have an account?
+
+<a href="signup.html">
+
+Create Account
+
+</a>
+
+</p>
 
 </form>
 
-<div class="signup">
-Don't have an account?
-<a href="signup.html">Create Account</a>
+</div>
+
+</div>
+
 </div>
 
 </div>
 
 </body>
 </html>
-
