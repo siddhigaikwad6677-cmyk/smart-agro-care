@@ -3,14 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact - Smart Agro Care</title>
+<title>Contact Us | Smart Agro Care</title>
 
 <link rel="stylesheet" href="style.css">
 
 <style>
+
 body{
     font-family:Arial,sans-serif;
-    background:#f4fff4;
+    background:#f2fff2;
     margin:0;
 }
 
@@ -22,55 +23,54 @@ header{
 }
 
 .container{
-    width:80%;
+    width:90%;
+    max-width:900px;
     margin:30px auto;
 }
 
-.contact-box{
+.contact-card{
     background:white;
     padding:30px;
     border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
+}
+
+.contact-card h2{
+    color:#2e7d32;
+    text-align:center;
+}
+
+.contact-info{
+    margin-top:20px;
+    line-height:35px;
+    font-size:18px;
+}
+
+form{
+    margin-top:30px;
 }
 
 input,textarea{
     width:100%;
     padding:12px;
     margin:10px 0;
-    border:1px solid #ccc;
     border-radius:8px;
+    border:1px solid #ccc;
     font-size:16px;
 }
 
-textarea{
-    height:120px;
-}
-
 button{
-    width:100%;
-    padding:14px;
     background:#2e7d32;
     color:white;
     border:none;
+    padding:12px 25px;
     border-radius:8px;
-    font-size:18px;
     cursor:pointer;
+    font-size:16px;
 }
 
 button:hover{
     background:#1b5e20;
-}
-
-.info{
-    margin-top:30px;
-    background:#ffffff;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.2);
-}
-
-.info h2{
-    color:#2e7d32;
 }
 
 footer{
@@ -81,10 +81,6 @@ footer{
     margin-top:30px;
 }
 
-a{
-    color:#2e7d32;
-    text-decoration:none;
-}
 </style>
 
 </head>
@@ -92,33 +88,72 @@ a{
 <body>
 
 <header>
+
 <h1>📞 Contact Smart Agro Care</h1>
+
 <p>We're Here to Help Farmers</p>
+
 </header>
 
 <div class="container">
 
-<div class="contact-box">
+<div class="contact-card">
+
+<h2>Contact Information</h2>
+
+<div class="contact-info">
+
+<p>📍 Address : Kolhapur, Maharashtra, India</p>
+
+<p>📞 Phone : +91 9876543210</p>
+
+<p>📧 Email : smartagrocare@gmail.com</p>
+
+<p>🌐 Website : www.smartagrocare.com</p>
+
+<p>🕒 Working Hours : Monday - Saturday (9:00 AM - 6:00 PM)</p>
+
+</div>
 
 <h2>Send Us a Message</h2>
 
-<form>
+<form onsubmit="sendMessage(); return false;">
 
-<input type="text" placeholder="Full Name" required>
+<input type="text" id="name" placeholder="Enter Your Name" required>
 
-<input type="email" placeholder="Email Address" required>
+<input type="email" id="email" placeholder="Enter Your Email" required>
 
-<input type="tel" placeholder="Mobile Number" required>
+<input type="text" id="subject" placeholder="Subject" required>
 
-<input type="text" placeholder="Subject" required>
+<textarea id="message" rows="5" placeholder="Write Your Message" required></textarea>
 
-<textarea placeholder="Write your message here..." required></textarea>
-
-<button type="submit">Send Message</button>
+<button type="submit">📩 Send Message</button>
 
 </form>
 
 </div>
 
-<div class="info">
+</div>
 
+<footer>
+
+© 2026 Smart Agro Care | All Rights Reserved
+
+</footer>
+
+<script>
+
+function sendMessage(){
+
+let name=document.getElementById("name").value;
+
+alert("Thank you "+name+"! Your message has been sent successfully.");
+
+document.querySelector("form").reset();
+
+}
+
+</script>
+
+</body>
+</html>
