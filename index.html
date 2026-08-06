@@ -3,203 +3,250 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Smart Agro Care</title>
+<title>Smart Agro Care | Login</title>
 
 <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:url("images/farm.jpg") no-repeat center center/cover;
+
+}
+
+.overlay{
+
+position:absolute;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:rgba(0,0,0,.45);
+
+}
+
+.login-box{
+
+position:relative;
+
+width:420px;
+
+background:rgba(255,255,255,.15);
+
+backdrop-filter:blur(12px);
+
+padding:40px;
+
+border-radius:20px;
+
+text-align:center;
+
+color:white;
+
+box-shadow:0 10px 30px rgba(0,0,0,.4);
+
+z-index:1;
+
+}
+
+.logo{
+
+width:100px;
+
+margin-bottom:15px;
+
+}
+
+h1{
+
+margin-bottom:8px;
+
+font-size:32px;
+
+}
+
+.subtitle{
+
+margin-bottom:25px;
+
+color:#f1f1f1;
+
+}
+
+.input-box{
+
+margin:18px 0;
+
+}
+
+.input-box input{
+
+width:100%;
+
+padding:15px;
+
+border:none;
+
+border-radius:12px;
+
+font-size:16px;
+
+outline:none;
+
+}
+
+.login-btn{
+
+width:100%;
+
+padding:15px;
+
+margin-top:20px;
+
+background:#2e7d32;
+
+color:white;
+
+border:none;
+
+border-radius:12px;
+
+font-size:18px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.login-btn:hover{
+
+background:#1b5e20;
+
+transform:scale(1.03);
+
+}
+
+.links{
+
+margin-top:20px;
+
+}
+
+.links a{
+
+color:#fff;
+
+text-decoration:none;
+
+font-weight:bold;
+
+}
+
+.social{
+
+margin-top:25px;
+
+}
+
+.social img{
+
+width:40px;
+
+margin:0 10px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.social img:hover{
+
+transform:scale(1.2);
+
+}
+
+</style>
 
 </head>
 
 <body>
 
-<header>
+<div class="overlay"></div>
 
-<h1>🌱 Smart Agro Care</h1>
+<div class="login-box">
 
-<nav>
-<a href="index.html">Home</a>
-<a href="soil.html">Soil Test</a>
-<a href="disease.html">Disease Detection</a>
-<a href="fertilizer.html">Fertilizer</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
-  
-<<a href="soil.html">🌱 Soil</a>
+<img src="images/logo.png" class="logo">
 
-<a href="disease.html">🍃 Disease</a>
+<h1>🌾 Smart Agro Care</h1>
 
-<a href="fertilizer.html">🧪 Fertilizer</a>
+<p class="subtitle">AI Powered Smart Farming Solution</p>
 
-<a href="weather.html">🌦 Weather</a>
+<div class="input-box">
 
-<a href="news.html">📰 News</a>
+<input type="email" id="email" placeholder="📧 Email">
 
-<a href="market.html">💰 Market</a>
+</div>
 
-<a href="schemes.html">🚜 Schemes</a>
+<div class="input-box">
 
-<a href="contact.html">📞 Contact</a>
-  <select onchange="changeLanguage(this.value)">
+<input type="password" id="password" placeholder="🔒 Password">
 
-<option value="en">English</option>
+</div>
 
-<option value="mr">मराठी</option>
+<button class="login-btn" onclick="login()">
 
-</select>
-  /nav>
-
-</header>
-
-<section class="hero">
-
-<h2>Welcome to Smart Agro Care 👨‍🌾</h2>
-
-<p>
-An AI-powered agriculture platform that helps farmers analyze soil,
-detect crop diseases, and recommend fertilizers for better crop yield.
-</p>
-<section class="location">
-
-<h2>📍 Select Your Location</h2>
-
-<select id="state">
-
-<option>Maharashtra</option>
-
-<option>Karnataka</option>
-
-<option>Gujarat</option>
-
-<option>Punjab</option>
-
-<option>Tamil Nadu</option>
-
-</select>
-
-<select id="district">
-
-<option>Kolhapur</option>
-
-<option>Pune</option>
-
-<option>Sangli</option>
-
-<option>Satara</option>
-
-</select>
-
-<button onclick="showLocation()">
-
-Find Crops
+🚀 Login
 
 </button>
 
-<p id="locationResult"></p>
+<div class="links">
 
-</section>
-<a href="soil.html">
-<button>🌱 Soil Test</button>
-</a>
+<p>Don't have an account?</p>
 
-<a href="disease.html">
-<button>🍃 Detect Disease</button>
-</a>
+<a href="signup.html">Create Account</a>
 
-</section>
-
-<section class="cards">
-
-<div class="card">
-<h3>🌱 Soil Testing</h3>
-<p>
-Check soil pH, Nitrogen, Phosphorus, Potassium,
-Moisture, and Organic Carbon.
-</p>
 </div>
 
-<div class="card">
-<h3>🍃 Disease Detection</h3>
-<p>
-Upload crop images to identify diseases and get treatment suggestions.
-</p>
+<div class="social">
+
+<p style="margin-bottom:10px;">Or Continue With</p>
+
+<img src="images/google.png">
+
+<img src="images/facebook.png">
+
+<img src="images/apple.png">
+
 </div>
 
-<div class="card">
-<h3>💊 Fertilizer Recommendation</h3>
-<p>
-Receive fertilizer recommendations based on soil nutrient values.
-</p>
 </div>
 
-</section>
-
-<section style="padding:40px;text-align:center;">
-
-<h2>Why Choose Smart Agro Care?</h2>
-
-<p>
-✔ AI-Based Crop Disease Detection<br><br>
-
-✔ Soil Health Analysis<br><br>
-
-✔ Fertilizer Recommendation<br><br>
-
-✔ Easy to Use Interface<br><br>
-
-✔ Supports Smart Farming
-</p>
-
-</section>
-
-<footer>
-
-<p>© 2026 Smart Agro Care | Developed by Siddhi</p>
-
-</footer>
+<script src="script.js"></script>
 
 </body>
 </html>
-<a href="weather.html">
-<button>🌦 Weather Forecast</button>
-</a>
-<section class="tips">
-
-<h2>🌱 Organic Farming Tips</h2>
-
-<div class="card">
-
-✔ Use Organic Compost
-
-</div>
-
-<div class="card">
-
-✔ Practice Crop Rotation
-
-</div>
-
-<div class="card">
-
-✔ Use Natural Pesticides
-
-</div>
-
-<div class="card">
-
-✔ Save Rain Water
-
-</div>
-
-</section>
-<select>
-
-<option>English</option>
-
-<option>मराठी</option>
-
-</select>
-<button onclick="window.print()">
-
-📄 Download Report
-
-</button>
- 
