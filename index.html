@@ -1,252 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Smart Agro Care | Login</title>
+
+<title>Smart Agro Care</title>
 
 <link rel="stylesheet" href="style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-body{
-
-height:100vh;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-background:url("images/farm.jpg") no-repeat center center/cover;
-
-}
-
-.overlay{
-
-position:absolute;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-height:100%;
-
-background:rgba(0,0,0,.45);
-
-}
-
-.login-box{
-
-position:relative;
-
-width:420px;
-
-background:rgba(255,255,255,.15);
-
-backdrop-filter:blur(12px);
-
-padding:40px;
-
-border-radius:20px;
-
-text-align:center;
-
-color:white;
-
-box-shadow:0 10px 30px rgba(0,0,0,.4);
-
-z-index:1;
-
-}
-
-.logo{
-
-width:100px;
-
-margin-bottom:15px;
-
-}
-
-h1{
-
-margin-bottom:8px;
-
-font-size:32px;
-
-}
-
-.subtitle{
-
-margin-bottom:25px;
-
-color:#f1f1f1;
-
-}
-
-.input-box{
-
-margin:18px 0;
-
-}
-
-.input-box input{
-
-width:100%;
-
-padding:15px;
-
-border:none;
-
-border-radius:12px;
-
-font-size:16px;
-
-outline:none;
-
-}
-
-.login-btn{
-
-width:100%;
-
-padding:15px;
-
-margin-top:20px;
-
-background:#2e7d32;
-
-color:white;
-
-border:none;
-
-border-radius:12px;
-
-font-size:18px;
-
-cursor:pointer;
-
-transition:.3s;
-
-}
-
-.login-btn:hover{
-
-background:#1b5e20;
-
-transform:scale(1.03);
-
-}
-
-.links{
-
-margin-top:20px;
-
-}
-
-.links a{
-
-color:#fff;
-
-text-decoration:none;
-
-font-weight:bold;
-
-}
-
-.social{
-
-margin-top:25px;
-
-}
-
-.social img{
-
-width:40px;
-
-margin:0 10px;
-
-cursor:pointer;
-
-transition:.3s;
-
-}
-
-.social img:hover{
-
-transform:scale(1.2);
-
-}
-
-</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 </head>
 
 <body>
 
+<header>
+
+<div class="logo">
+
+🌾 Smart Agro Care
+
+</div>
+
+<nav>
+
+<a href="#">Home</a>
+
+<a href="#">Soil</a>
+
+<a href="#">Disease</a>
+
+<a href="#">Weather</a>
+
+<a href="#">Market</a>
+
+<a href="#">AI Chatbot</a>
+
+<a href="#">Contact</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
 <div class="overlay"></div>
 
-<div class="login-box">
+<div class="hero-left">
 
-<img src="images/logo.png" class="logo">
+<h4>AI Powered Agriculture Portal</h4>
 
-<h1>🌾 Smart Agro Care</h1>
+<h1>
 
-<p class="subtitle">AI Powered Smart Farming Solution</p>
+SMART<br>
 
-<div class="input-box">
+AGRO CARE
 
-<input type="email" id="email" placeholder="📧 Email">
+</h1>
+
+<h3>
+
+AI Powered Agriculture Solution
+
+</h3>
+
+<p>
+
+Empowering farmers with technology,
+
+weather prediction,
+
+soil analysis,
+
+crop disease detection
+
+and AI recommendations.
+
+</p>
+
+<div class="tags">
+
+<span>🌱 Healthy Soil</span>
+
+<span>🌾 Healthy Crop</span>
+
+<span>🍃 Healthy Life</span>
 
 </div>
 
-<div class="input-box">
+<a href="login.html" class="btn">
 
-<input type="password" id="password" placeholder="🔒 Password">
+Get Started
+
+</a>
 
 </div>
 
-<button class="login-btn" onclick="login()">
+<div class="hero-right">
 
-🚀 Login
+<img src="images/farmer.png">
+
+</div>
+
+</section>
+
+<section class="login-section">
+
+<div class="login-card">
+
+<h2>
+
+Welcome Back 👋
+
+</h2>
+
+<p>
+
+Login to your account
+
+</p>
+
+<input type="email"
+
+placeholder="Email Address">
+
+<input type="password"
+
+placeholder="Password">
+
+<div class="remember">
+
+<label>
+
+<input type="checkbox">
+
+Remember Me
+
+</label>
+
+<a href="#">
+
+Forgot Password?
+
+</a>
+
+</div>
+
+<button>
+
+Login
 
 </button>
 
-<div class="links">
-
-<p>Don't have an account?</p>
-
-<a href="signup.html">Create Account</a>
-
-</div>
-
 <div class="social">
 
-<p style="margin-bottom:10px;">Or Continue With</p>
+<button>
 
-<img src="images/google.png">
+Google
 
-<img src="images/facebook.png">
+</button>
 
-<img src="images/apple.png">
+<button>
+
+Facebook
+
+</button>
+
+<button>
+
+Apple
+
+</button>
 
 </div>
 
+<p>
+
+Don't have an account?
+
+<a href="signup.html">
+
+Create Account
+
+</a>
+
+</p>
+
 </div>
 
-<script src="script.js"></script>
-
-</body>
-</html>
+</section>
