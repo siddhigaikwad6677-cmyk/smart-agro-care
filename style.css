@@ -247,3 +247,28 @@ color:#2e7d32;
 font-weight:bold;
 
 }
+/* Signup Page */
+
+input[type=file]{
+padding:10px;
+width:100%;
+border:2px dashed #66bb6a;
+border-radius:10px;
+background:#f8fff8;
+}
+
+.login-btn:hover{
+background:#1b5e20;
+transform:scale(1.03);
+transition:.3s;
+}
+
+.signup a{
+text-decoration:none;
+color:#2e7d32;
+font-weight:bold;
+}
+
+.signup a:hover{
+color:#1b5e20;
+}
