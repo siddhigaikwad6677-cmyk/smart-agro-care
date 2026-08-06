@@ -1,97 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fertilizer Recommendation - Smart Agro Care</title>
+
+<title>Fertilizer Recommendation</title>
 
 <link rel="stylesheet" href="style.css">
 
-<style>
-body{
-    font-family:Arial,sans-serif;
-    background:#f4fff4;
-    margin:0;
-}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-header{
-    background:#2e7d32;
-    color:white;
-    text-align:center;
-    padding:20px;
-}
-
-.container{
-    width:80%;
-    margin:30px auto;
-}
-
-.card{
-    background:white;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.2);
-}
-
-h2{
-    color:#2e7d32;
-}
-
-input,select{
-    width:100%;
-    padding:12px;
-    margin:10px 0;
-    border:1px solid #ccc;
-    border-radius:8px;
-    font-size:16px;
-}
-
-button{
-    width:100%;
-    padding:14px;
-    background:#2e7d32;
-    color:white;
-    border:none;
-    border-radius:8px;
-    font-size:18px;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#1b5e20;
-}
-
-.result{
-    margin-top:20px;
-    padding:20px;
-    background:#e8f5e9;
-    border-radius:10px;
-}
-
-footer{
-    background:#2e7d32;
-    color:white;
-    text-align:center;
-    padding:15px;
-    margin-top:30px;
-}
-</style>
-
-<script>
-function recommendFertilizer(){
-
-document.getElementById("result").innerHTML=
-
-"<h3>Recommended Fertilizer</h3>" +
-
-"<p><b>Fertilizer:</b> NPK 19:19:19</p>" +
-
-"<p><b>Dosage:</b> 50 kg per hectare</p>" +
-
-"<p><b>Recommendation:</b> Apply during early crop growth and irrigate after application.</p>";
-
-}
-</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 </head>
 
@@ -99,77 +19,137 @@ document.getElementById("result").innerHTML=
 
 <header>
 
-<h1>🌱 Smart Agro Care</h1>
+<div class="logo">🌾 Smart Agro Care</div>
 
-<h2>Fertilizer Recommendation</h2>
+<nav>
+
+<a href="index.html">Home</a>
+<a href="soil.html">Soil</a>
+<a href="disease.html">Disease</a>
+<a href="fertilizer.html">Fertilizer</a>
+<a href="chatbot.html">AI Chatbot</a>
+<a href="contact.html">Contact</a>
+
+</nav>
 
 </header>
 
-<div class="container">
+<section class="fertilizer-page">
 
-<div class="card">
+<h1>🌱 AI Fertilizer Recommendation</h1>
 
-<h2>Enter Soil Details</h2>
+<p>Select your soil type and enter NPK values.</p>
 
-<select>
+<div class="fertilizer-container">
 
-<option>Select Crop</option>
+<div class="fertilizer-form">
 
-<option>Rice</option>
+<label>Soil Type</label>
 
-<option>Wheat</option>
+<select id="soil">
 
-<option>Sugarcane</option>
-
-<option>Cotton</option>
-
-<option>Tomato</option>
-
-<option>Potato</option>
-
-<option>Maize</option>
+<option>Black Soil</option>
+<option>Red Soil</option>
+<option>Alluvial Soil</option>
+<option>Laterite Soil</option>
+<option>Sandy Soil</option>
+<option>Clay Soil</option>
 
 </select>
 
-<input type="number" placeholder="Nitrogen (N)">
+<label>Nitrogen (N)</label>
+<input type="number" id="n">
 
-<input type="number" placeholder="Phosphorus (P)">
+<label>Phosphorus (P)</label>
+<input type="number" id="p">
 
-<input type="number" placeholder="Potassium (K)">
-
-<input type="number" placeholder="Soil pH">
+<label>Potassium (K)</label>
+<input type="number" id="k">
 
 <button onclick="recommendFertilizer()">
 
-Get Recommendation
+🌿 Get Recommendation
 
 </button>
 
-<div class="result" id="result">
+</div>
 
-<h3>Recommendation Result</h3>
+<div class="fertilizer-result">
 
-<p>No recommendation available.</p>
+<h2>Recommendation</h2>
+
+<p><b>Recommended Fertilizer:</b> <span id="fertilizer">-</span></p>
+
+<p><b>Application:</b> <span id="application">-</span></p>
+
+<p><b>Water Requirement:</b> <span id="water">-</span></p>
+
+<p><b>Additional Advice:</b> <span id="advice">-</span></p>
 
 </div>
 
-<br>
-
-<a href="index.html">
-
-<button>⬅ Back to Home</button>
-
-</a>
-
 </div>
 
-</div>
+</section>
 
-<footer>
+<script>
 
-<p>© 2026 Smart Agro Care | Developed by Siddhi</p>
+function recommendFertilizer(){
 
-</footer>
+let soil=document.getElementById("soil").value;
+
+if(soil=="Black Soil"){
+
+document.getElementById("fertilizer").innerHTML="DAP + Urea";
+
+document.getElementById("application").innerHTML="50 kg/acre";
+
+document.getElementById("water").innerHTML="20-25 mm/week";
+
+document.getElementById("advice").innerHTML="Suitable for Cotton and Soybean.";
+
+}
+
+else if(soil=="Red Soil"){
+
+document.getElementById("fertilizer").innerHTML="NPK 20:20:20";
+
+document.getElementById("application").innerHTML="40 kg/acre";
+
+document.getElementById("water").innerHTML="15-20 mm/week";
+
+document.getElementById("advice").innerHTML="Ideal for Groundnut and Millets.";
+
+}
+
+else if(soil=="Alluvial Soil"){
+
+document.getElementById("fertilizer").innerHTML="Compost + Urea";
+
+document.getElementById("application").innerHTML="45 kg/acre";
+
+document.getElementById("water").innerHTML="25-30 mm/week";
+
+document.getElementById("advice").innerHTML="Best for Rice and Wheat.";
+
+}
+
+else{
+
+document.getElementById("fertilizer").innerHTML="Organic Compost";
+
+document.getElementById("application").innerHTML="35 kg/acre";
+
+document.getElementById("water").innerHTML="20 mm/week";
+
+document.getElementById("advice").innerHTML="Improve soil health with organic manure.";
+
+}
+
+}
+
+</script>
 
 </body>
+
 </html>
