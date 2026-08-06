@@ -272,3 +272,78 @@ font-weight:bold;
 .signup a:hover{
 color:#1b5e20;
 }
+/* SOIL PAGE */
+
+.soil-page{
+padding:120px 50px;
+background:#f5fff5;
+min-height:100vh;
+}
+
+.soil-page h1{
+text-align:center;
+color:#2e7d32;
+font-size:45px;
+}
+
+.soil-page p{
+text-align:center;
+margin-bottom:30px;
+}
+
+.soil-container{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+margin-top:40px;
+}
+
+.soil-form,
+.result-box{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.soil-form label{
+display:block;
+margin-top:15px;
+font-weight:600;
+}
+
+.soil-form input,
+.soil-form select{
+width:100%;
+padding:12px;
+margin-top:8px;
+border:1px solid #ccc;
+border-radius:10px;
+}
+
+.soil-form button{
+margin-top:25px;
+width:100%;
+padding:15px;
+background:#2e7d32;
+color:white;
+border:none;
+border-radius:30px;
+font-size:18px;
+cursor:pointer;
+}
+
+.soil-form button:hover{
+background:#1b5e20;
+}
+
+.result-box h2{
+color:#2e7d32;
+margin-bottom:20px;
+}
+
+.result-box p{
+text-align:left;
+margin:15px 0;
+font-size:18px;
+}
