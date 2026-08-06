@@ -266,3 +266,73 @@ alert("Account Created Successfully");
 window.location.href="index.html";
 
 }
+// =============================
+// SMART AGRO CARE - script.js
+// =============================
+
+// Welcome Message
+window.onload = function () {
+    setTimeout(function () {
+        alert("🌾 Welcome to Smart Agro Care!\nEmpowering Farmers with AI Technology.");
+    }, 800);
+};
+
+// Counter Animation
+const counters = document.querySelectorAll(".stats h2");
+
+counters.forEach(counter => {
+    const updateCounter = () => {
+        const target = +counter.innerText.replace(/\D/g, "");
+        const count = +counter.getAttribute("data-count") || 0;
+        const increment = target / 100;
+
+        if (count < target) {
+            counter.setAttribute("data-count", Math.ceil(count + increment));
+            counter.innerText = Math.ceil(count + increment) + "+";
+            setTimeout(updateCounter, 20);
+        } else {
+            counter.innerText = target + "+";
+        }
+    };
+    updateCounter();
+});
+
+// Navbar Shadow on Scroll
+window.addEventListener("scroll", function () {
+    const header = document.querySelector("header");
+
+    if (window.scrollY > 50) {
+        header.style.background = "#ffffff";
+        header.style.boxShadow = "0 5px 20px rgba(0,0,0,0.15)";
+    } else {
+        header.style.background = "rgba(255,255,255,0.85)";
+        header.style.boxShadow = "none";
+    }
+});
+
+// Button Click Animation
+const buttons = document.querySelectorAll(".btn");
+
+buttons.forEach(button => {
+    button.addEventListener("click", function () {
+        this.style.transform = "scale(0.95)";
+        setTimeout(() => {
+            this.style.transform = "scale(1)";
+        }, 150);
+    });
+});
+
+// Smooth Scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const target = document.querySelector(this.getAttribute("href"));
+
+        if (target) {
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+    });
+});
