@@ -1,123 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Smart Agro Care - Sign Up</title>
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
+<link rel="stylesheet" href="style.css">
 
-body{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
-url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1400&q=80");
-background-size:cover;
-background-position:center;
-}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-.signup-box{
-width:420px;
-background:rgba(255,255,255,0.15);
-backdrop-filter:blur(10px);
-padding:35px;
-border-radius:20px;
-text-align:center;
-color:white;
-box-shadow:0 10px 30px rgba(0,0,0,.4);
-}
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-.signup-box h1{
-font-size:32px;
-margin-bottom:10px;
-}
-
-.signup-box p{
-margin-bottom:20px;
-}
-
-input{
-width:100%;
-padding:12px;
-margin:8px 0;
-border:none;
-border-radius:10px;
-font-size:16px;
-}
-
-button{
-width:100%;
-padding:14px;
-margin-top:15px;
-background:#2e7d32;
-color:white;
-font-size:18px;
-border:none;
-border-radius:10px;
-cursor:pointer;
-}
-
-button:hover{
-background:#1b5e20;
-}
-
-.login-link{
-margin-top:20px;
-}
-
-.login-link a{
-color:#ffff66;
-text-decoration:none;
-font-weight:bold;
-}
-
-.login-link a:hover{
-text-decoration:underline;
-}
-</style>
 </head>
 
-<body>
+<body class="login-page">
 
-<div class="signup-box">
+<div class="overlay">
 
-<h1>🌱 Smart Agro Care</h1>
+<div class="login-container">
 
-<p>Create Your Farmer Account</p>
+<div class="left-side">
 
-<form action="login.html">
+<h1>🌾 Smart Agro Care</h1>
 
+<h2>Create Your Account</h2>
+
+<p>
+Join Smart Agro Care and use AI-powered farming tools for
+soil analysis, crop disease detection, fertilizer recommendations,
+weather forecasting, and market prices.
+</p>
+
+<div class="features">
+
+<div class="feature">
+<i class="fa-solid fa-seedling"></i>
+<p>Soil Analysis</p>
+</div>
+
+<div class="feature">
+<i class="fa-solid fa-leaf"></i>
+<p>Disease Detection</p>
+</div>
+
+<div class="feature">
+<i class="fa-solid fa-cloud-sun"></i>
+<p>Weather Forecast</p>
+</div>
+
+<div class="feature">
+<i class="fa-solid fa-robot"></i>
+<p>AI Chatbot</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="right-side">
+
+<div class="login-box">
+
+<h2>Create Account 🌱</h2>
+
+<form>
+
+<div class="input-box">
+<i class="fa-solid fa-user"></i>
 <input type="text" placeholder="Full Name" required>
+</div>
 
+<div class="input-box">
+<i class="fa-solid fa-envelope"></i>
 <input type="email" placeholder="Email Address" required>
+</div>
 
-<input type="tel" placeholder="Mobile Number" required>
+<div class="input-box">
+<i class="fa-solid fa-phone"></i>
+<input type="tel" placeholder="Phone Number" required>
+</div>
 
-<input type="text" placeholder="Village" required>
-
-<input type="text" placeholder="State" required>
-
-<input type="text" placeholder="Username" required>
-
+<div class="input-box">
+<i class="fa-solid fa-lock"></i>
 <input type="password" placeholder="Password" required>
+</div>
 
+<div class="input-box">
+<i class="fa-solid fa-lock"></i>
 <input type="password" placeholder="Confirm Password" required>
+</div>
 
-<button type="submit">Create Account</button>
+<div style="margin:15px 0;">
+<label><b>Upload Profile Photo</b></label><br><br>
+<input type="file">
+</div>
+
+<div style="margin:20px 0;">
+<label>
+<input type="checkbox" required>
+I agree to the Terms & Conditions
+</label>
+</div>
+
+<button class="login-btn">
+Create Account
+</button>
+
+<p class="signup">
+Already have an account?
+<a href="login.html">Login</a>
+</p>
 
 </form>
 
-<div class="login-link">
-Already have an account?
-<a href="login.html">Login</a>
+</div>
+
+</div>
+
 </div>
 
 </div>
