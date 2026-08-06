@@ -3,100 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Soil Test - Smart Agro Care</title>
+<title>Soil Analysis | Smart Agro Care</title>
 
 <link rel="stylesheet" href="style.css">
 
-<style>
-body{
-    font-family:Arial,sans-serif;
-    background:#f4fff4;
-    margin:0;
-}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-header{
-    background:#2e7d32;
-    color:white;
-    text-align:center;
-    padding:20px;
-}
-
-.container{
-    width:80%;
-    margin:30px auto;
-}
-
-.card{
-    background:white;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.2);
-}
-
-h2{
-    color:#2e7d32;
-}
-
-input,select{
-    width:100%;
-    padding:12px;
-    margin:10px 0;
-    border:1px solid #ccc;
-    border-radius:8px;
-    font-size:16px;
-}
-
-button{
-    width:100%;
-    padding:14px;
-    background:#2e7d32;
-    color:white;
-    border:none;
-    border-radius:8px;
-    font-size:18px;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#1b5e20;
-}
-
-.result{
-    margin-top:20px;
-    padding:20px;
-    background:#e8f5e9;
-    border-radius:10px;
-}
-<button onclick="window.location='report.html'">
-Download Report
-</button>
-footer{
-    
-    background:#2e7d32;
-    color:white;
-    text-align:center;
-    padding:15px;
-    margin-top:30px;
-}
-</style>
-
-<script>
-function analyzeSoil(){
-
-document.getElementById("result").innerHTML=
-
-"<h3>Soil Analysis Result</h3>" +
-
-"<p><b>Soil Quality:</b> Good</p>" +
-
-"<p><b>Recommended Crop:</b> Rice</p>" +
-
-"<p><b>Recommended Fertilizer:</b> NPK 19:19:19</p>" +
-
-"<p><b>Suggestion:</b> Maintain proper irrigation and add organic compost regularly.</p>";
-
-}
-</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 </head>
 
@@ -104,99 +17,39 @@ document.getElementById("result").innerHTML=
 
 <header>
 
-<h1>🌱 Smart Agro Care</h1>
+<div class="logo">🌾 Smart Agro Care</div>
 
-<h2>Soil Quality Analysis</h2>
+<nav>
+
+<a href="index.html">Home</a>
+
+<a href="soil.html">Soil</a>
+
+<a href="disease.html">Disease</a>
+
+<a href="fertilizer.html">Fertilizer</a>
+
+<a href="chatbot.html">AI Chatbot</a>
+
+<a href="contact.html">Contact</a>
+
+</nav>
 
 </header>
 
-<div class="container">
+<section class="soil-page">
 
-<div class="card">
+<h1>🌱 Smart Soil Analysis</h1>
 
-<h2>Enter Soil Details</h2>
+<p>Enter your soil details below.</p>
 
-<input type="number" placeholder="Soil pH">
+<div class="soil-container">
 
-<input type="number" placeholder="Nitrogen (N)">
+<div class="soil-form">
 
-<input type="number" placeholder="Phosphorus (P)">
-
-<input type="number" placeholder="Potassium (K)">
-
-<input type="number" placeholder="Moisture (%)">
-
-<input type="number" placeholder="Organic Carbon (%)">
-
-<button onclick="analyzeSoil()">Analyze Soil</button>
-
-<div class="result" id="result">
-
-<h3>Analysis Result</h3>
-
-<p>No analysis available.</p>
-
-</div>
-
-<br>
-
-<a href="index.html">
-<button>⬅ Back to Home</button>
-</a>
-
-</div>
-
-</div>
-
-<footer>
-
-<p>© 2026 Smart Agro Care | Developed by Siddhi</p>
-
-</footer>
-<div id="result" class="result">
-    <h3>Soil Analysis Result</h3>
-    <p>Your result will appear here.</p>
-</div>
-</body>
-</html>
-<h2>🌾 Crop Yield Estimation</h2>
-
-<label>Select Crop</label>
-
-<select id="crop">
-    <option value="">--Select Crop--</option>
-    <option value="rice">Rice</option>
-    <option value="wheat">Wheat</option>
-    <option value="maize">Maize</option>
-    <option value="sugarcane">Sugarcane</option>
-    <option value="cotton">Cotton</option>
-</select>
-
-<label>Enter Land Area (Acres)</label>
-
-<input type="number" id="land" placeholder="Example: 2">
-
-<button onclick="calculateYield()">Calculate Yield</button>
-
-<div id="yieldResult" class="result">
-    <h3>Estimated Yield</h3>
-    <p>Your crop yield will appear here.</p>
-</div>
-<div class="card">
-
-<h2>🌱 Smart Soil Analysis</h2>
-
-<input type="number" id="ph" placeholder="Soil pH">
-
-<input type="number" id="nitrogen" placeholder="Nitrogen (N)">
-
-<input type="number" id="phosphorus" placeholder="Phosphorus (P)">
-
-<input type="number" id="potassium" placeholder="Potassium (K)">
+<label>Soil Type</label>
 
 <select id="soilType">
-
-<option value="">Select Soil Type</option>
 
 <option>Black Soil</option>
 
@@ -212,28 +65,126 @@ document.getElementById("result").innerHTML=
 
 </select>
 
-<button onclick="analyzeSoil()">
+<label>Soil pH</label>
 
-Analyze Soil
+<input type="number" id="ph" placeholder="Example: 6.8">
 
-</button>
+<label>Nitrogen (N)</label>
 
-<div id="result"></div>
+<input type="number" id="nitrogen" placeholder="0-100">
+
+<label>Phosphorus (P)</label>
+
+<input type="number" id="phosphorus" placeholder="0-100">
+
+<label>Potassium (K)</label>
+
+<input type="number" id="potassium" placeholder="0-100">
+
+<button onclick="analyzeSoil()">Analyze Soil</button>
 
 </div>
-<div class="card">
 
-<h2>🧮 Soil Health Score</h2>
+<div class="result-box">
 
-<h1 id="score">
+<h2>Analysis Result</h2>
 
-92/100
+<p><b>🌱 Recommended Crop:</b> <span id="crop">-</span></p>
 
-</h1>
+<p><b>💧 Water Needed:</b> <span id="water">-</span></p>
+
+<p><b>🧪 Soil Health Score:</b> <span id="score">-</span></p>
+
+<p><b>🌾 Fertility:</b> <span id="fertility">-</span></p>
 
 </div>
-<button onclick="window.print()">
 
-📄 Download Report
+</div>
 
-</button>
+</section>
+
+<script>
+
+function analyzeSoil(){
+
+let soil=document.getElementById("soilType").value;
+
+if(soil=="Black Soil"){
+
+document.getElementById("crop").innerHTML="Cotton, Soybean";
+
+document.getElementById("water").innerHTML="20-25 mm/week";
+
+document.getElementById("score").innerHTML="92%";
+
+document.getElementById("fertility").innerHTML="Excellent";
+
+}
+
+else if(soil=="Red Soil"){
+
+document.getElementById("crop").innerHTML="Groundnut, Millets";
+
+document.getElementById("water").innerHTML="15-20 mm/week";
+
+document.getElementById("score").innerHTML="80%";
+
+document.getElementById("fertility").innerHTML="Good";
+
+}
+
+else if(soil=="Alluvial Soil"){
+
+document.getElementById("crop").innerHTML="Rice, Wheat, Sugarcane";
+
+document.getElementById("water").innerHTML="25-30 mm/week";
+
+document.getElementById("score").innerHTML="95%";
+
+document.getElementById("fertility").innerHTML="Excellent";
+
+}
+
+else if(soil=="Laterite Soil"){
+
+document.getElementById("crop").innerHTML="Tea, Coffee, Cashew";
+
+document.getElementById("water").innerHTML="20 mm/week";
+
+document.getElementById("score").innerHTML="75%";
+
+document.getElementById("fertility").innerHTML="Medium";
+
+}
+
+else if(soil=="Sandy Soil"){
+
+document.getElementById("crop").innerHTML="Watermelon, Coconut";
+
+document.getElementById("water").innerHTML="35 mm/week";
+
+document.getElementById("score").innerHTML="70%";
+
+document.getElementById("fertility").innerHTML="Low";
+
+}
+
+else{
+
+document.getElementById("crop").innerHTML="Rice, Vegetables";
+
+document.getElementById("water").innerHTML="30 mm/week";
+
+document.getElementById("score").innerHTML="85%";
+
+document.getElementById("fertility").innerHTML="Good";
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
