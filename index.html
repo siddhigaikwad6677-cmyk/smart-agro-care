@@ -4,59 +4,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>🌾 Smart Agro Care</title>
+<title>Smart Agro Care</title>
 
 <link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 </head>
 
 <body>
 
-<!-- Navigation -->
+<!-- ================= NAVBAR ================= -->
 
 <header>
 
-<div class="logo">
-🌾 Smart Agro Care
-</div>
-
-<nav>
-
-<a href="index.html">Home</a>
-
-<a href="soil.html">Soil Test</a>
-
-<a href="disease.html">Disease Detection</a>
-
-<a href="fertilizer.html">Fertilizer</a>
-
-<a href="weather.html">Weather</a>
-
-<a href="market.html">Market</a>
-
-<a href="chatbot.html">AI Chatbot</a>
-
-<a href="about.html">About</a>
-
-<a href="contact.html">Contact</a>
-
-</nav>
-
-</header>
-
-<section class="hero">
-
-<div class="overlay">
-
-<nav>
+<nav class="navbar">
 
 <div class="logo">
 
-<img src="images/logo.png">
+<i class="fa-solid fa-seedling"></i>
 
 <h2>Smart Agro Care</h2>
 
@@ -66,7 +39,7 @@
 
 <li><a href="#">Home</a></li>
 
-<li><a href="#">Soil</a></li>
+<li><a href="#">Soil Test</a></li>
 
 <li><a href="#">Disease</a></li>
 
@@ -74,59 +47,71 @@
 
 <li><a href="#">Market</a></li>
 
-<li><a href="#">Chatbot</a></li>
+<li><a href="#">AI Chatbot</a></li>
+
+<li><a href="#">About</a></li>
 
 <li><a href="#">Contact</a></li>
 
 </ul>
 
+<div>
+
+<a class="login-btn" href="#">Login</a>
+
+</div>
+
 </nav>
 
-<div class="hero-content">
+</header>
 
-<div class="left">
+<!-- ================= HERO ================= -->
 
-<h1>AI Powered Smart Agriculture</h1>
+<section class="hero">
+
+<div class="hero-left">
+
+<h1>
+
+Smart Agriculture
+
+<span>Powered by AI</span>
+
+</h1>
 
 <p>
-Helping farmers with Soil Analysis,
-Disease Detection,
-Weather Forecast,
-Market Prices
-and AI Support.
+
+Helping farmers analyze soil,
+
+detect crop diseases,
+
+predict weather,
+
+recommend fertilizers
+
+and increase productivity using Artificial Intelligence.
+
 </p>
 
-<a href="#" class="btn">Analyze Soil</a>
+<div class="hero-buttons">
 
-<a href="#" class="btn2">AI Chatbot</a>
+<a href="#" class="green-btn">
 
-</div>
-
-<div class="right">
-
-<img src="images/farmer.png">
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-🌱 Analyze Soil
+Analyze Soil
 
 </a>
 
-<a href="chatbot.html" class="btn2">
+<a href="#" class="white-btn">
 
-🤖 AI Chatbot
+AI Chatbot
 
 </a>
 
 </div>
 
-<div class="hero-image">
+</div>
+
+<div class="hero-right">
 
 <img src="images/farmer.png" alt="Farmer">
 
@@ -134,9 +119,13 @@ and AI Support.
 
 </section>
 
-<!-- Services -->
+<!-- ================= SERVICES ================= -->
 
-<section class="cards">
+<section class="services">
+
+<h2>Our Smart Services</h2>
+
+<div class="service-grid">
 
 <div class="card">
 
@@ -144,7 +133,13 @@ and AI Support.
 
 <h3>Soil Analysis</h3>
 
-<p>Check soil quality and health score.</p>
+<p>
+
+Check soil quality
+
+and fertility.
+
+</p>
 
 </div>
 
@@ -154,17 +149,13 @@ and AI Support.
 
 <h3>Disease Detection</h3>
 
-<p>Upload crop images and detect diseases.</p>
+<p>
 
-</div>
+Detect crop disease
 
-<div class="card">
+using AI.
 
-<i class="fa-solid fa-flask"></i>
-
-<h3>Fertilizer Guide</h3>
-
-<p>Get fertilizer recommendations.</p>
+</p>
 
 </div>
 
@@ -172,19 +163,15 @@ and AI Support.
 
 <i class="fa-solid fa-cloud-sun"></i>
 
-<h3>Weather Forecast</h3>
+<h3>Weather</h3>
 
-<p>Live weather updates for your farm.</p>
+<p>
 
-</div>
+Live weather
 
-<div class="card">
+forecast.
 
-<i class="fa-solid fa-chart-line"></i>
-
-<h3>Market Prices</h3>
-
-<p>Daily crop market prices.</p>
+</p>
 
 </div>
 
@@ -194,57 +181,93 @@ and AI Support.
 
 <h3>AI Chatbot</h3>
 
-<p>Ask questions about farming anytime.</p>
+<p>
+
+Ask farming
+
+questions.
+
+</p>
+
+</div>
 
 </div>
 
 </section>
 
-<!-- Statistics -->
+<!-- ================= STATS ================= -->
 
 <section class="stats">
 
-<div class="stat-box">
+<div>
 
-<h2>15,000+</h2>
+<h1>15K+</h1>
 
-<p>Farmers Helped</p>
-
-</div>
-
-<div class="stat-box">
-
-<h2>120+</h2>
-
-<p>Crops Supported</p>
+<p>Farmers</p>
 
 </div>
 
-<div class="stat-box">
+<div>
 
-<h2>450+</h2>
+<h1>120+</h1>
 
-<p>Villages Connected</p>
+<p>Crops</p>
 
 </div>
 
-<div class="stat-box">
+<div>
 
-<h2>98%</h2>
+<h1>450+</h1>
 
-<p>AI Prediction Accuracy</p>
+<p>Villages</p>
+
+</div>
+
+<div>
+
+<h1>98%</h1>
+
+<p>Accuracy</p>
 
 </div>
 
 </section>
 
-<!-- Footer -->
+<!-- ================= WEATHER ================= -->
+
+<section class="weather">
+
+<div class="weather-card">
+
+<i class="fa-solid fa-sun"></i>
+
+<h2>29°C</h2>
+
+<h3>Sunny</h3>
+
+<p>Kolhapur, Maharashtra</p>
+
+</div>
+
+<div class="quote-card">
+
+<h2>
+
+"The future of farming begins with smart technology."
+
+</h2>
+
+</div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
 <p>
 
-© 2026 Smart Agro Care | AI Powered Agriculture Platform
+© 2026 Smart Agro Care | AI Agriculture Portal
 
 </p>
 
