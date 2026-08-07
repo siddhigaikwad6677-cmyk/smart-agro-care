@@ -222,3 +222,398 @@ body{
     color:#666;
     line-height:28px;
 }
+/* =========================
+   STATISTICS SECTION
+========================= */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    padding:80px 8%;
+    background:linear-gradient(135deg,#1B5E20,#43A047,#81C784);
+}
+
+.stats div{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(12px);
+    border-radius:20px;
+    padding:35px;
+    text-align:center;
+    color:white;
+    transition:0.4s;
+}
+
+.stats div:hover{
+    transform:translateY(-10px);
+    background:white;
+    color:#2E8B57;
+}
+
+.stats h1{
+    font-size:55px;
+    margin-bottom:10px;
+}
+
+.stats p{
+    font-size:18px;
+    font-weight:600;
+}
+
+/* =========================
+   WEATHER SECTION
+========================= */
+
+.weather{
+    padding:80px 8%;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+    background:#F4FFF4;
+}
+
+.weather-card{
+
+    background:linear-gradient(135deg,#00BCD4,#4FC3F7);
+
+    border-radius:25px;
+
+    color:white;
+
+    text-align:center;
+
+    padding:40px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.2);
+
+    transition:.4s;
+
+}
+
+.weather-card:hover{
+
+    transform:translateY(-12px);
+
+}
+
+.weather-card i{
+
+    font-size:70px;
+
+    margin-bottom:20px;
+
+}
+
+.weather-card h2{
+
+    font-size:55px;
+
+}
+
+.weather-card h3{
+
+    margin:15px 0;
+
+}
+
+.quote-card{
+
+    background:linear-gradient(135deg,#43A047,#66BB6A);
+
+    border-radius:25px;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:40px;
+
+    font-size:28px;
+
+    text-align:center;
+
+    line-height:45px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+}
+
+/* =========================
+   MARKET SECTION
+========================= */
+
+.market{
+
+    padding:80px 8%;
+
+    background:white;
+
+}
+
+.market h2{
+
+    text-align:center;
+
+    color:#2E8B57;
+
+    margin-bottom:50px;
+
+    font-size:40px;
+
+}
+
+.market-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+    gap:30px;
+
+}
+
+.market-card{
+
+    background:#E8F5E9;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    padding:30px;
+
+    transition:.4s;
+
+}
+
+.market-card:hover{
+
+    transform:scale(1.05);
+
+    background:#C8E6C9;
+
+}
+
+.market-card h3{
+
+    color:#1B5E20;
+
+    margin-bottom:15px;
+
+}
+
+.market-card h1{
+
+    color:#2E7D32;
+
+    font-size:40px;
+
+}
+
+/* =========================
+   NEWS SECTION
+========================= */
+
+.news{
+
+    padding:80px 8%;
+
+    background:#F7FFF7;
+
+}
+
+.news h2{
+
+    text-align:center;
+
+    color:#2E8B57;
+
+    margin-bottom:40px;
+
+}
+
+.news-card{
+
+    background:white;
+
+    border-left:8px solid #4CAF50;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    margin-bottom:20px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.1);
+
+}
+
+.news-card:hover{
+
+    transform:translateX(10px);
+
+}
+
+/* =========================
+   FLOATING CHATBOT
+========================= */
+
+.chatbot{
+
+    position:fixed;
+
+    right:25px;
+
+    bottom:25px;
+
+    width:70px;
+
+    height:70px;
+
+    background:#4CAF50;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+
+    animation:bounce 2s infinite;
+
+}
+
+@keyframes bounce{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+    background:linear-gradient(90deg,#1B5E20,#388E3C);
+
+    color:white;
+
+    text-align:center;
+
+    padding:30px;
+
+    margin-top:50px;
+
+}
+
+footer p{
+
+    letter-spacing:1px;
+
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.navbar{
+
+flex-direction:column;
+
+padding:15px;
+
+}
+
+.navbar ul{
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+margin-top:15px;
+
+}
+
+.hero{
+
+flex-direction:column;
+
+text-align:center;
+
+padding:120px 25px 60px;
+
+}
+
+.hero-left,
+
+.hero-right{
+
+width:100%;
+
+}
+
+.hero-left h1{
+
+font-size:42px;
+
+line-height:55px;
+
+}
+
+.hero-left p{
+
+font-size:17px;
+
+}
+
+.hero-right img{
+
+margin-top:30px;
+
+width:85%;
+
+}
+
+.services h2,
+
+.market h2,
+
+.news h2{
+
+font-size:30px;
+
+}
+
+.stats h1{
+
+font-size:38px;
+
+}
+
+}
