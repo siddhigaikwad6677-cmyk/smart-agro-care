@@ -336,3 +336,185 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+// ===============================
+// SMART AGRO CARE JAVASCRIPT
+// ===============================
+
+// Navbar background on scroll
+window.addEventListener("scroll", function () {
+    const navbar = document.querySelector(".navbar");
+
+    if (window.scrollY > 50) {
+        navbar.style.background = "#1B5E20";
+        navbar.style.transition = "0.4s";
+    } else {
+        navbar.style.background = "rgba(255,255,255,0.15)";
+    }
+});
+
+// ===============================
+// Animated Statistics Counter
+// ===============================
+
+const counters = document.querySelectorAll(".stats h1");
+
+counters.forEach(counter => {
+
+    const target = parseInt(counter.innerText);
+
+    let count = 0;
+
+    const speed = target / 100;
+
+    function updateCounter(){
+
+        count += speed;
+
+        if(count < target){
+
+            counter.innerText = Math.floor(count) + "+";
+
+            requestAnimationFrame(updateCounter);
+
+        }else{
+
+            counter.innerText = target + "+";
+
+        }
+
+    }
+
+    updateCounter();
+
+});
+
+// ===============================
+// Welcome Message
+// ===============================
+
+window.onload = function(){
+
+    setTimeout(function(){
+
+        alert("🌱 Welcome to Smart Agro Care!");
+
+    },800);
+
+};
+
+// ===============================
+// Back To Top Button
+// ===============================
+
+const topButton=document.createElement("button");
+
+topButton.innerHTML="⬆";
+
+topButton.id="topBtn";
+
+document.body.appendChild(topButton);
+
+topButton.style.position="fixed";
+topButton.style.right="25px";
+topButton.style.bottom="100px";
+topButton.style.padding="15px";
+topButton.style.borderRadius="50%";
+topButton.style.border="none";
+topButton.style.background="#2E8B57";
+topButton.style.color="white";
+topButton.style.cursor="pointer";
+topButton.style.display="none";
+
+window.addEventListener("scroll",function(){
+
+if(window.scrollY>400){
+
+topButton.style.display="block";
+
+}else{
+
+topButton.style.display="none";
+
+}
+
+});
+
+topButton.onclick=function(){
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+};
+
+// ===============================
+// Dark Mode
+// ===============================
+
+const darkBtn=document.createElement("button");
+
+darkBtn.innerHTML="🌙";
+
+darkBtn.style.position="fixed";
+
+darkBtn.style.left="20px";
+
+darkBtn.style.bottom="25px";
+
+darkBtn.style.padding="15px";
+
+darkBtn.style.borderRadius="50%";
+
+darkBtn.style.border="none";
+
+darkBtn.style.cursor="pointer";
+
+darkBtn.style.background="#222";
+
+darkBtn.style.color="white";
+
+document.body.appendChild(darkBtn);
+
+let dark=false;
+
+darkBtn.onclick=function(){
+
+dark=!dark;
+
+if(dark){
+
+document.body.style.background="#111";
+
+document.body.style.color="white";
+
+}else{
+
+document.body.style.background="#f4fff4";
+
+document.body.style.color="#333";
+
+}
+
+};
+
+// ===============================
+// Chatbot Button
+// ===============================
+
+const chatbot=document.createElement("div");
+
+chatbot.innerHTML="🤖";
+
+chatbot.className="chatbot";
+
+document.body.appendChild(chatbot);
+
+chatbot.onclick=function(){
+
+alert("Hello Farmer! 🌾\n\nHow can I help you today?");
+
+};
