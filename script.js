@@ -567,3 +567,10 @@ alert("Hello Farmer! 🌾\n\nHow can I help you today?");
 </div>
 
 </section>
+document.querySelector(".soil-right button").addEventListener("click",function(){
+
+alert(
+"Recommended Crops:\n\n🌾 Wheat\n🌱 Cotton\n🥜 Soybean\n🌽 Maize"
+);
+
+});
