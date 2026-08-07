@@ -518,3 +518,52 @@ chatbot.onclick=function(){
 alert("Hello Farmer! 🌾\n\nHow can I help you today?");
 
 };
+<section class="crop-section">
+
+<h2>Recommended Crops</h2>
+
+<div class="crop-grid">
+
+<div class="crop-card">
+
+<img src="images/wheat.png">
+
+<h3>Wheat</h3>
+
+<p>Best for Black Soil</p>
+
+</div>
+
+<div class="crop-card">
+
+<img src="images/rice.png">
+
+<h3>Rice</h3>
+
+<p>Best for Clay Soil</p>
+
+</div>
+
+<div class="crop-card">
+
+<img src="images/cotton.png">
+
+<h3>Cotton</h3>
+
+<p>Best for Black Soil</p>
+
+</div>
+
+<div class="crop-card">
+
+<img src="images/sugarcane.png">
+
+<h3>Sugarcane</h3>
+
+<p>Rich Moist Soil</p>
+
+</div>
+
+</div>
+
+</section>
