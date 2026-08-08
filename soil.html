@@ -2,584 +2,664 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <title>Smart Soil Analysis | Smart Agro Care</title>
 
-    <title>Soil Intelligence | Smart Agro Care</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
           rel="stylesheet">
 
-    <!-- Font Awesome -->
     <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <!-- Main CSS -->
-    <link rel="stylesheet"
-          href="style.css">
+    <link rel="stylesheet" href="style.css">
 
     <style>
 
-        /* ==========================================
-                   SOIL PAGE
-        ========================================== */
+        /* ================= PAGE ================= */
 
-        .soil-page {
-            min-height: 100vh;
-            padding: 65px 7%;
-            background:
-                radial-gradient(
-                    circle at 90% 10%,
-                    #dff3df,
-                    transparent 30%
-                ),
-                #f7faf5;
-        }
-
-
-        .soil-heading {
-            max-width: 1100px;
-            margin: auto;
-        }
-
-
-        .soil-heading .label {
-            color: #35a85b;
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 2px;
-        }
-
-
-        .soil-heading h1 {
-            font-family: "Playfair Display", serif;
-            color: #123b27;
-            font-size: clamp(40px, 5vw, 60px);
-            line-height: 1.1;
-            margin: 10px 0 15px;
-        }
-
-
-        .soil-heading h1 span {
-            color: #35a85b;
-            font-style: italic;
-        }
-
-
-        .soil-heading p {
-            color: #718078;
-            max-width: 650px;
-            line-height: 1.8;
-            font-size: 14px;
-        }
-
-
-        /* DASHBOARD */
-
-        .soil-dashboard {
-            max-width: 1100px;
-            margin: 45px auto 0;
-
-            display: grid;
-            grid-template-columns: 1.1fr .9fr;
-
-            gap: 22px;
-        }
-
-
-        /* INPUT CARD */
-
-        .soil-form-card {
-            background: white;
-
-            padding: 35px;
-
-            border-radius: 25px;
-
-            border: 1px solid #e4ebe3;
-
-            box-shadow:
-                0 20px 50px rgba(30,70,40,.07);
-        }
-
-
-        .card-title {
+        .page-hero {
+            min-height: 360px;
+            padding: 70px 8%;
             display: flex;
             align-items: center;
-            gap: 15px;
+            justify-content: space-between;
 
-            margin-bottom: 30px;
+            background: linear-gradient(
+                135deg,
+                #e7f8ec,
+                #fffdf2
+            );
         }
 
+        .page-hero-content {
+            max-width: 680px;
+        }
 
-        .card-title-icon {
-            width: 50px;
-            height: 50px;
+        .page-hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: 55px;
+            color: #073b24;
+            margin: 12px 0;
+        }
 
-            background: #e3f5e6;
+        .page-hero h1 span {
+            color: #168a45;
+        }
 
-            color: #228149;
+        .page-hero p {
+            color: #718077;
+            line-height: 1.8;
+        }
 
-            border-radius: 14px;
+        .page-big-icon {
+            width: 220px;
+            height: 220px;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #c9ed9b,
+                    #3fa957
+                );
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            font-size: 21px;
+            font-size: 105px;
+            color: white;
+
+            box-shadow:
+                0 25px 50px
+                rgba(20,100,50,0.2);
+
+            animation: floatSoil 4s ease-in-out infinite;
+        }
+
+        @keyframes floatSoil {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+
         }
 
 
-        .card-title h2 {
-            color: #173f2b;
-            font-size: 20px;
+        /* ================= SOIL SECTION ================= */
+
+        .soil-section {
+            padding: 80px 7%;
+            background: white;
         }
 
+        .soil-container {
+            max-width: 1150px;
+            margin: auto;
 
-        .card-title p {
-            color: #8a968e;
-            font-size: 11px;
-            margin-top: 3px;
-        }
-
-
-        /* INPUT GRID */
-
-        .input-grid {
             display: grid;
-            grid-template-columns: repeat(2,1fr);
-            gap: 18px;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 35px;
         }
 
+        .soil-box {
+            background: #f7fcf8;
+
+            padding: 35px;
+
+            border-radius: 28px;
+
+            border: 1px solid #e0eee3;
+
+            box-shadow:
+                0 15px 35px
+                rgba(0,0,0,0.05);
+        }
+
+        .soil-box h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 30px;
+
+            color: #073b24;
+
+            margin-bottom: 8px;
+        }
+
+        .soil-box > p {
+            color: #718077;
+
+            font-size: 13px;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* ================= INPUTS ================= */
 
         .input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 7px;
+            margin-bottom: 18px;
         }
-
-
-        .input-group.full {
-            grid-column: span 2;
-        }
-
 
         .input-group label {
-            color: #405449;
-            font-size: 11px;
+            display: block;
+
+            font-size: 13px;
+
             font-weight: 700;
+
+            color: #315440;
+
+            margin-bottom: 7px;
         }
 
+        .input-wrapper {
+            position: relative;
+        }
 
-        .input-group input,
-        .input-group select {
+        .input-wrapper i {
+            position: absolute;
+
+            left: 15px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: #168a45;
+
+            font-size: 18px;
+        }
+
+        .input-wrapper input,
+        .input-wrapper select {
+
             width: 100%;
 
-            padding: 13px 15px;
+            padding: 14px 15px 14px 45px;
 
-            border: 1px solid #dfe8df;
+            border-radius: 13px;
 
-            border-radius: 12px;
-
-            background: #fafcf9;
+            border: 1px solid #d8e9dc;
 
             outline: none;
 
-            font-family: inherit;
-
-            font-size: 12px;
-
-            color: #294534;
-
-            transition: .3s;
-        }
-
-
-        .input-group input:focus,
-        .input-group select:focus {
-            border-color: #35a85b;
-
             background: white;
 
+            font-family: "DM Sans", sans-serif;
+        }
+
+        .input-wrapper input:focus,
+        .input-wrapper select:focus {
+
+            border-color: #168a45;
+
             box-shadow:
-                0 0 0 4px rgba(53,168,91,.08);
+                0 0 0 4px
+                rgba(22,138,69,0.08);
         }
 
 
-        .input-help {
-            font-size: 9px;
-            color: #9aa49d;
-        }
-
-
-        /* ANALYZE BUTTON */
+        /* ================= BUTTON ================= */
 
         .analyze-button {
+
             width: 100%;
 
             border: none;
-
-            margin-top: 25px;
 
             padding: 16px;
 
             border-radius: 14px;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #176b3a,
-                    #35a85b
-                );
+            background: #168a45;
 
             color: white;
 
-            font-family: inherit;
+            font-size: 15px;
 
-            font-size: 13px;
-
-            font-weight: 800;
+            font-weight: 700;
 
             cursor: pointer;
 
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 10px;
-
-            transition: .3s;
+            transition: 0.3s;
         }
 
-
         .analyze-button:hover {
+
+            background: #096c35;
+
             transform: translateY(-3px);
 
             box-shadow:
-                0 15px 30px rgba(23,107,58,.25);
+                0 12px 25px
+                rgba(22,138,69,0.2);
         }
 
 
-        /* RESULT CARD */
+        /* ================= RESULT ================= */
 
-        .result-card {
-            background: #173f2b;
+        .result-box {
 
-            border-radius: 25px;
+            margin-top: 25px;
 
-            padding: 35px;
-
-            color: white;
-
-            position: relative;
-
-            overflow: hidden;
-
-            min-height: 480px;
-        }
-
-
-        .result-card::before {
-            content: "";
-
-            position: absolute;
-
-            width: 260px;
-            height: 260px;
-
-            border-radius: 50%;
-
-            background: rgba(105,210,133,.08);
-
-            right: -100px;
-            top: -100px;
-        }
-
-
-        .result-top {
-            position: relative;
-            z-index: 2;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-        }
-
-
-        .result-top h2 {
-            font-size: 19px;
-        }
-
-
-        .result-top p {
-            color: #a9c6b2;
-            font-size: 10px;
-            margin-top: 5px;
-        }
-
-
-        .status {
-            background: rgba(111,215,142,.14);
-
-            color: #79e198;
-
-            border: 1px solid rgba(111,215,142,.2);
-
-            padding: 7px 11px;
+            padding: 25px;
 
             border-radius: 20px;
 
-            font-size: 9px;
+            background: #e9f8ec;
 
-            font-weight: 700;
+            display: none;
         }
 
+        .result-box.show {
 
-        /* HEALTH SCORE */
-
-        .health-score {
-            position: relative;
-            z-index: 2;
-
-            display: flex;
-            justify-content: center;
-
-            margin: 35px 0;
-        }
-
-
-        .score-circle {
-            width: 180px;
-            height: 180px;
-
-            border-radius: 50%;
-
-            display: flex;
-            flex-direction: column;
-
-            align-items: center;
-            justify-content: center;
-
-            background:
-                conic-gradient(
-                    #71d58d 0deg,
-                    #71d58d 331deg,
-                    #315a41 331deg
-                );
-
-            position: relative;
-        }
-
-
-        .score-circle::before {
-            content: "";
-
-            position: absolute;
-
-            width: 140px;
-            height: 140px;
-
-            background: #173f2b;
-
-            border-radius: 50%;
-        }
-
-
-        .score-number {
-            position: relative;
-
-            font-size: 43px;
-
-            font-weight: 800;
-        }
-
-
-        .score-text {
-            position: relative;
-
-            color: #a8c5b1;
-
-            font-size: 10px;
-        }
-
-
-        /* RESULT METRICS */
-
-        .metrics {
-            display: grid;
-
-            grid-template-columns: repeat(3,1fr);
-
-            gap: 10px;
-
-            position: relative;
-            z-index: 2;
-        }
-
-
-        .metric {
-            background: rgba(255,255,255,.06);
-
-            border: 1px solid rgba(255,255,255,.07);
-
-            padding: 14px;
-
-            border-radius: 13px;
-
-            text-align: center;
-        }
-
-
-        .metric i {
-            color: #72d991;
-
-            font-size: 13px;
-
-            margin-bottom: 6px;
-        }
-
-
-        .metric strong {
             display: block;
 
-            font-size: 16px;
+            animation:
+                resultAppear
+                0.5s ease;
+        }
+
+        @keyframes resultAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
         }
 
 
-        .metric span {
-            display: block;
+        .result-icon {
 
-            color: #8da997;
-
-            font-size: 8px;
-
-            margin-top: 3px;
-        }
-
-
-        /* RECOMMENDATIONS */
-
-        .recommendations {
-            max-width: 1100px;
-
-            margin: 25px auto 0;
-
-            display: grid;
-
-            grid-template-columns: repeat(3,1fr);
-
-            gap: 18px;
-        }
-
-
-        .recommendation {
-            background: white;
-
-            padding: 23px;
+            width: 65px;
+            height: 65px;
 
             border-radius: 18px;
 
-            border: 1px solid #e6ede5;
-
-            transition: .3s;
-        }
-
-
-        .recommendation:hover {
-            transform: translateY(-5px);
-
-            box-shadow:
-                0 15px 35px rgba(30,70,40,.08);
-        }
-
-
-        .recommendation-icon {
-            width: 45px;
-            height: 45px;
-
-            border-radius: 13px;
-
             display: flex;
+
             align-items: center;
             justify-content: center;
 
-            background: #e6f5e7;
+            background: white;
 
-            color: #27844a;
+            color: #168a45;
+
+            font-size: 30px;
 
             margin-bottom: 15px;
         }
 
+        .result-box h3 {
 
-        .recommendation h3 {
-            color: #173f2b;
+            color: #073b24;
 
-            font-size: 15px;
-
-            margin-bottom: 7px;
+            margin-bottom: 8px;
         }
 
+        .result-box p {
 
-        .recommendation p {
-            color: #7b887f;
+            color: #5e7265;
 
-            font-size: 10px;
+            font-size: 13px;
 
             line-height: 1.7;
         }
 
 
-        /* CROP TAGS */
+        /* ================= RESULT CARDS ================= */
 
-        .crop-tags {
+        .recommendations {
+
+            margin-top: 25px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 12px;
+        }
+
+        .recommendation {
+
+            background: white;
+
+            padding: 17px 10px;
+
+            border-radius: 15px;
+
+            text-align: center;
+        }
+
+        .recommendation i {
+
+            font-size: 30px;
+
+            color: #168a45;
+
+            margin-bottom: 8px;
+        }
+
+        .recommendation strong {
+
+            display: block;
+
+            font-size: 13px;
+        }
+
+        .recommendation span {
+
+            color: #718077;
+
+            font-size: 11px;
+        }
+
+
+        /* ================= CROP RECOMMENDATION ================= */
+
+        .crop-section {
+
+            padding: 80px 7%;
+
+            background: #f4faf5;
+        }
+
+        .crop-heading {
+
+            text-align: center;
+
+            max-width: 700px;
+
+            margin: auto auto 45px;
+        }
+
+        .crop-heading h2 {
+
+            font-family:
+                "Playfair Display", serif;
+
+            font-size: 42px;
+
+            color: #073b24;
+        }
+
+        .crop-heading h2 span {
+
+            color: #168a45;
+        }
+
+        .crop-heading p {
+
+            color: #718077;
+
+            margin-top: 10px;
+        }
+
+
+        .crop-grid {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            gap: 20px;
+        }
+
+
+        .crop-card {
+
+            background: white;
+
+            padding: 28px 20px;
+
+            border-radius: 22px;
+
+            text-align: center;
+
+            border: 1px solid #e0eee3;
+
+            transition: 0.3s;
+        }
+
+        .crop-card:hover {
+
+            transform:
+                translateY(-8px);
+
+            box-shadow:
+                0 15px 35px
+                rgba(0,0,0,0.1);
+        }
+
+        .crop-icon {
+
+            width: 90px;
+            height: 90px;
+
+            margin: auto auto 15px;
+
+            border-radius: 25px;
+
             display: flex;
 
-            gap: 7px;
+            align-items: center;
+            justify-content: center;
 
-            flex-wrap: wrap;
+            background: #e3f6e8;
 
-            margin-top: 12px;
+            color: #168a45;
+
+            font-size: 48px;
+        }
+
+        .crop-card h3 {
+
+            color: #073b24;
+
+            margin-bottom: 5px;
+        }
+
+        .crop-card p {
+
+            color: #718077;
+
+            font-size: 12px;
+
+            line-height: 1.6;
         }
 
 
-        .crop-tag {
-            background: #edf7ed;
+        /* ================= YIELD ================= */
 
-            color: #32814c;
+        .yield-section {
 
-            padding: 5px 9px;
+            padding: 80px 7%;
 
-            border-radius: 20px;
-
-            font-size: 8px;
-
-            font-weight: 700;
+            background: white;
         }
 
+        .yield-container {
 
-        /* RESPONSIVE */
+            max-width: 1000px;
+
+            margin: auto;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0b542f,
+                    #168a45
+                );
+
+            border-radius: 30px;
+
+            padding: 45px;
+
+            color: white;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 40px;
+
+            align-items: center;
+        }
+
+        .yield-content h2 {
+
+            font-family:
+                "Playfair Display", serif;
+
+            font-size: 40px;
+
+            margin-bottom: 12px;
+        }
+
+        .yield-content p {
+
+            color: #cbe4d3;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+        }
+
+        .yield-icon {
+
+            width: 85px;
+            height: 85px;
+
+            border-radius: 25px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background:
+                rgba(255,255,255,0.13);
+
+            font-size: 45px;
+
+            margin-bottom: 20px;
+        }
+
+        .yield-result {
+
+            background:
+                rgba(255,255,255,0.12);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.18);
+
+            border-radius: 22px;
+
+            padding: 30px;
+
+            text-align: center;
+        }
+
+        .yield-result i {
+
+            font-size: 55px;
+
+            color: #c9ed9b;
+
+            margin-bottom: 10px;
+        }
+
+        .yield-result span {
+
+            display: block;
+
+            color: #cbe4d3;
+
+            font-size: 12px;
+        }
+
+        .yield-result strong {
+
+            display: block;
+
+            font-size: 35px;
+
+            margin: 7px 0;
+        }
+
+        .yield-note {
+
+            font-size: 10px !important;
+
+            color: #b8d7c1 !important;
+
+            margin-top: 10px;
+        }
+
 
         @media(max-width:850px) {
 
-            .soil-dashboard {
+            .page-hero {
+
+                flex-direction: column;
+
+                text-align: center;
+
+                gap: 35px;
+            }
+
+            .page-hero h1 {
+
+                font-size: 42px;
+            }
+
+            .soil-container {
+
                 grid-template-columns: 1fr;
             }
 
-            .recommendations {
+            .crop-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+            .yield-container {
+
                 grid-template-columns: 1fr;
+
+                text-align: center;
+            }
+
+            .yield-icon {
+
+                margin-left: auto;
+                margin-right: auto;
             }
 
         }
@@ -587,25 +667,19 @@
 
         @media(max-width:550px) {
 
-            .soil-page {
-                padding: 50px 18px;
-            }
+            .crop-grid {
 
-            .soil-form-card,
-            .result-card {
-                padding: 23px;
-            }
-
-            .input-grid {
                 grid-template-columns: 1fr;
             }
 
-            .input-group.full {
-                grid-column: auto;
+            .recommendations {
+
+                grid-template-columns: 1fr;
             }
 
-            .metrics {
-                grid-template-columns: 1fr;
+            .yield-container {
+
+                padding: 30px 20px;
             }
 
         }
@@ -618,15 +692,13 @@
 <body>
 
 
-<!-- ==========================================
-                HEADER
-========================================== -->
+<!-- ================= NAVBAR ================= -->
 
 <header class="navbar">
 
-    <a href="index.html" class="brand">
+    <a href="index.html" class="logo">
 
-        <div class="brand-icon">
+        <div class="logo-icon">
 
             <i class="fa-solid fa-seedling"></i>
 
@@ -649,8 +721,7 @@
             Home
         </a>
 
-        <a href="soil.html"
-           class="active">
+        <a href="soil.html" class="active">
             Soil
         </a>
 
@@ -662,8 +733,8 @@
             Weather
         </a>
 
-        <a href="crop.html">
-            Crops
+        <a href="fertilizer.html">
+            Fertilizer
         </a>
 
         <a href="about.html">
@@ -673,100 +744,83 @@
     </nav>
 
 
-    <div class="nav-actions">
+    <a href="login.html"
+       class="login-button">
 
-        <a href="login.html"
-           class="login-link">
-            Login
-        </a>
+        <i class="fa-solid fa-user"></i>
 
-        <a href="signup.html"
-           class="nav-button">
-            Get Started
-        </a>
+        Login
 
-    </div>
+    </a>
 
 </header>
 
 
 
-<!-- ==========================================
-                SOIL PAGE
-========================================== -->
+<!-- ================= HERO ================= -->
 
-<main class="soil-page">
+<section class="page-hero">
 
+    <div class="page-hero-content">
 
-    <!-- HEADING -->
-
-    <div class="soil-heading">
-
-        <span class="label">
-            SOIL INTELLIGENCE
-        </span>
+        <div class="mini-title">
+            SMART SOIL TECHNOLOGY
+        </div>
 
         <h1>
-            Know your soil.<br>
-            <span>Grow with confidence.</span>
+
+            Know Your Soil.
+
+            <span>Grow Better.</span>
+
         </h1>
 
         <p>
 
-            Enter your soil parameters below and get
-            a simple health assessment with crop and
-            soil-management recommendations.
+            Analyze your soil, discover which crops
+            suit it best and get an approximate
+            yield estimate.
 
         </p>
 
     </div>
 
 
+    <div class="page-big-icon">
 
-    <!-- DASHBOARD -->
+        <i class="fa-solid fa-seedling"></i>
 
-    <div class="soil-dashboard">
+    </div>
+
+</section>
 
 
-        <!-- ======================================
-                    FORM
-        ======================================= -->
 
-        <div class="soil-form-card">
+<!-- ================= SOIL INPUT ================= -->
 
-            <div class="card-title">
+<section class="soil-section">
 
-                <div class="card-title-icon">
+    <div class="soil-container">
+
+
+        <!-- INPUT BOX -->
+
+        <div class="soil-box">
+
+            <h2>🌱 Soil Information</h2>
+
+            <p>
+                Enter your soil test values below.
+            </p>
+
+
+            <div class="input-group">
+
+                <label>Soil pH</label>
+
+                <div class="input-wrapper">
 
                     <i class="fa-solid fa-flask"></i>
-
-                </div>
-
-                <div>
-
-                    <h2>
-                        Soil Parameters
-                    </h2>
-
-                    <p>
-                        Enter your soil test values
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="input-grid">
-
-
-                <!-- PH -->
-
-                <div class="input-group">
-
-                    <label>
-                        Soil pH
-                    </label>
 
                     <input
                         type="number"
@@ -776,130 +830,96 @@
                         step="0.1"
                         placeholder="Example: 6.5">
 
-                    <span class="input-help">
-                        Ideal range: 5.5 – 7.5
-                    </span>
-
                 </div>
 
-
-                <!-- MOISTURE -->
-
-                <div class="input-group">
-
-                    <label>
-                        Soil Moisture (%)
-                    </label>
-
-                    <input
-                        type="number"
-                        id="moisture"
-                        min="0"
-                        max="100"
-                        placeholder="Example: 65">
-
-                    <span class="input-help">
-                        Enter percentage
-                    </span>
-
-                </div>
+            </div>
 
 
-                <!-- NITROGEN -->
+            <div class="input-group">
 
-                <div class="input-group">
+                <label>Nitrogen (N)</label>
 
-                    <label>
-                        Nitrogen (N)
-                    </label>
+                <div class="input-wrapper">
+
+                    <i class="fa-solid fa-leaf"></i>
 
                     <input
                         type="number"
                         id="nitrogen"
-                        placeholder="mg/kg">
-
-                    <span class="input-help">
-                        Example: 80
-                    </span>
+                        placeholder="Example: 50">
 
                 </div>
 
+            </div>
 
-                <!-- PHOSPHORUS -->
 
-                <div class="input-group">
+            <div class="input-group">
 
-                    <label>
-                        Phosphorus (P)
-                    </label>
+                <label>Phosphorus (P)</label>
+
+                <div class="input-wrapper">
+
+                    <i class="fa-solid fa-wheat-awn"></i>
 
                     <input
                         type="number"
                         id="phosphorus"
-                        placeholder="mg/kg">
-
-                    <span class="input-help">
-                        Example: 45
-                    </span>
+                        placeholder="Example: 30">
 
                 </div>
 
+            </div>
 
-                <!-- POTASSIUM -->
 
-                <div class="input-group">
+            <div class="input-group">
 
-                    <label>
-                        Potassium (K)
-                    </label>
+                <label>Potassium (K)</label>
+
+                <div class="input-wrapper">
+
+                    <i class="fa-solid fa-seedling"></i>
 
                     <input
                         type="number"
                         id="potassium"
-                        placeholder="mg/kg">
-
-                    <span class="input-help">
-                        Example: 60
-                    </span>
+                        placeholder="Example: 40">
 
                 </div>
 
+            </div>
 
-                <!-- SOIL TYPE -->
 
-                <div class="input-group">
+            <div class="input-group">
 
-                    <label>
-                        Soil Type
-                    </label>
+                <label>Soil Type</label>
+
+                <div class="input-wrapper">
+
+                    <i class="fa-solid fa-mountain"></i>
 
                     <select id="soilType">
 
                         <option value="">
-                            Select soil
+                            Select Soil Type
                         </option>
 
-                        <option>
-                            Black Soil
-                        </option>
-
-                        <option>
-                            Red Soil
-                        </option>
-
-                        <option>
-                            Alluvial Soil
-                        </option>
-
-                        <option>
-                            Sandy Soil
-                        </option>
-
-                        <option>
+                        <option value="loamy">
                             Loamy Soil
                         </option>
 
-                        <option>
+                        <option value="black">
+                            Black Soil
+                        </option>
+
+                        <option value="red">
+                            Red Soil
+                        </option>
+
+                        <option value="sandy">
+                            Sandy Soil
+                        </option>
+
+                        <option value="clay">
                             Clay Soil
                         </option>
 
@@ -907,6 +927,52 @@
 
                 </div>
 
+            </div>
+
+
+            <!-- CROP -->
+
+            <div class="input-group">
+
+                <label>Crop for Yield Estimation</label>
+
+                <div class="input-wrapper">
+
+                    <i class="fa-solid fa-wheat-awn"></i>
+
+                    <select id="crop">
+
+                        <option value="">
+                            Select Crop
+                        </option>
+
+                        <option value="wheat">
+                            Wheat
+                        </option>
+
+                        <option value="rice">
+                            Rice
+                        </option>
+
+                        <option value="cotton">
+                            Cotton
+                        </option>
+
+                        <option value="soybean">
+                            Soybean
+                        </option>
+
+                        <option value="maize">
+                            Maize
+                        </option>
+
+                        <option value="groundnut">
+                            Groundnut
+                        </option>
+
+                    </select>
+
+                </div>
 
             </div>
 
@@ -915,9 +981,9 @@
                 class="analyze-button"
                 onclick="analyzeSoil()">
 
-                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <i class="fa-solid fa-chart-simple"></i>
 
-                Analyze My Soil
+                Analyze Soil & Estimate Yield
 
             </button>
 
@@ -925,103 +991,83 @@
 
 
 
-        <!-- ======================================
-                    RESULT
-        ======================================= -->
+        <!-- RESULT BOX -->
 
-        <div class="result-card">
+        <div class="soil-box">
 
-            <div class="result-top">
+            <h2>📊 Smart Soil Result</h2>
 
-                <div>
-
-                    <h2>
-                        Soil Health
-                    </h2>
-
-                    <p>
-                        Your current assessment
-                    </p>
-
-                </div>
+            <p>
+                Your recommendations will appear here.
+            </p>
 
 
-                <span class="status"
-                      id="status">
+            <div id="resultBox"
+                 class="result-box">
 
-                    Ready
+                <div class="result-icon">
 
-                </span>
-
-            </div>
-
-
-            <div class="health-score">
-
-                <div class="score-circle">
-
-                    <span class="score-number"
-                          id="score">
-
-                        92
-
-                    </span>
-
-                    <span class="score-text">
-
-                        HEALTH SCORE
-
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div class="metrics">
-
-
-                <div class="metric">
-
-                    <i class="fa-solid fa-droplet"></i>
-
-                    <strong id="phResult">
-                        6.5
-                    </strong>
-
-                    <span>
-                        pH LEVEL
-                    </span>
+                    <i class="fa-solid fa-circle-check"></i>
 
                 </div>
 
 
-                <div class="metric">
-
-                    <i class="fa-solid fa-leaf"></i>
-
-                    <strong id="nResult">
-                        80
-                    </strong>
-
-                    <span>
-                        NITROGEN
-                    </span>
-
-                </div>
+                <h3 id="resultTitle">
+                    Soil Analysis
+                </h3>
 
 
-                <div class="metric">
+                <p id="resultText">
+                    Your result will appear here.
+                </p>
 
-                    <i class="fa-solid fa-flask"></i>
 
-                    <strong id="kResult">
-                        60
-                    </strong>
+                <div class="recommendations">
 
-                    <span>
-                        POTASSIUM
-                    </span>
+
+                    <div class="recommendation">
+
+                        <i class="fa-solid fa-wheat-awn"></i>
+
+                        <strong id="cropResult">
+                            —
+                        </strong>
+
+                        <span>
+                            Best Crop
+                        </span>
+
+                    </div>
+
+
+                    <div class="recommendation">
+
+                        <i class="fa-solid fa-droplet"></i>
+
+                        <strong id="waterResult">
+                            —
+                        </strong>
+
+                        <span>
+                            Water Need
+                        </span>
+
+                    </div>
+
+
+                    <div class="recommendation">
+
+                        <i class="fa-solid fa-flask"></i>
+
+                        <strong id="fertilizerResult">
+                            —
+                        </strong>
+
+                        <span>
+                            Fertilizer
+                        </span>
+
+                    </div>
 
                 </div>
 
@@ -1031,99 +1077,175 @@
 
     </div>
 
+</section>
 
 
-    <!-- ==========================================
-                RECOMMENDATIONS
-    =========================================== -->
 
-    <div class="recommendations">
+<!-- ================= CROP RECOMMENDATION ================= -->
+
+<section class="crop-section">
+
+    <div class="crop-heading">
+
+        <div class="mini-title">
+            CROP MATCHING
+        </div>
+
+        <h2>
+
+            Which Crop Grows
+
+            <span>Best in Your Soil?</span>
+
+        </h2>
+
+        <p>
+
+            Different crops perform better in
+            different soil types.
+
+        </p>
+
+    </div>
 
 
-        <!-- CROP -->
+    <div class="crop-grid">
 
-        <div class="recommendation">
 
-            <div class="recommendation-icon">
+        <div class="crop-card">
+
+            <div class="crop-icon">
 
                 <i class="fa-solid fa-wheat-awn"></i>
 
             </div>
 
-            <h3>
-                Recommended Crops
-            </h3>
+            <h3>Loamy Soil</h3>
 
             <p>
-                Crops that may suit the entered
-                soil conditions.
-            </p>
-
-
-            <div class="crop-tags"
-                 id="cropResult">
-
-                <span class="crop-tag">
-                    Wheat
-                </span>
-
-                <span class="crop-tag">
-                    Rice
-                </span>
-
-                <span class="crop-tag">
-                    Maize
-                </span>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- WATER -->
-
-        <div class="recommendation">
-
-            <div class="recommendation-icon">
-
-                <i class="fa-solid fa-droplet"></i>
-
-            </div>
-
-            <h3>
-                Water Recommendation
-            </h3>
-
-            <p id="waterResult">
-
-                Maintain moderate soil moisture
-                and avoid excessive watering.
-
+                Wheat, maize, vegetables,
+                pulses and sugarcane.
             </p>
 
         </div>
 
 
+        <div class="crop-card">
 
-        <!-- FERTILIZER -->
+            <div class="crop-icon">
 
-        <div class="recommendation">
-
-            <div class="recommendation-icon">
-
-                <i class="fa-solid fa-flask"></i>
+                <i class="fa-solid fa-seedling"></i>
 
             </div>
 
-            <h3>
-                Fertilizer Advice
-            </h3>
+            <h3>Black Soil</h3>
 
-            <p id="fertilizerResult">
+            <p>
+                Cotton, soybean,
+                wheat and sorghum.
+            </p>
 
-                Balanced fertilizer management
-                is recommended based on soil test.
+        </div>
+
+
+        <div class="crop-card">
+
+            <div class="crop-icon">
+
+                <i class="fa-solid fa-leaf"></i>
+
+            </div>
+
+            <h3>Red Soil</h3>
+
+            <p>
+                Groundnut, millet,
+                pulses and vegetables.
+            </p>
+
+        </div>
+
+
+        <div class="crop-card">
+
+            <div class="crop-icon">
+
+                <i class="fa-solid fa-carrot"></i>
+
+            </div>
+
+            <h3>Sandy Soil</h3>
+
+            <p>
+                Groundnut, watermelon,
+                carrot and some millets.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= YIELD ESTIMATION ================= -->
+
+<section class="yield-section">
+
+    <div class="yield-container">
+
+
+        <div class="yield-content">
+
+            <div class="yield-icon">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+            </div>
+
+            <h2>
+
+                🌾 Yield Estimation
+
+            </h2>
+
+            <p>
+
+                Select a crop and enter your soil
+                information above to get an
+                approximate yield range.
+
+                Actual yield depends on seed variety,
+                rainfall, irrigation, climate,
+                pests, farm management and other
+                factors.
+
+            </p>
+
+        </div>
+
+
+        <div class="yield-result">
+
+            <i class="fa-solid fa-wheat-awn"></i>
+
+            <span>
+                Estimated Yield
+            </span>
+
+            <strong id="yieldResult">
+                —
+            </strong>
+
+            <span>
+                tonnes / hectare
+            </span>
+
+            <p class="yield-note">
+
+                This is an approximate educational
+                estimate, not a guaranteed harvest.
 
             </p>
 
@@ -1131,13 +1253,107 @@
 
     </div>
 
-</main>
+</section>
 
 
 
-<!-- ==========================================
-                JAVASCRIPT
-========================================== -->
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-top">
+
+        <div class="footer-brand">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <i class="fa-solid fa-seedling"></i>
+
+                </div>
+
+                <div>
+
+                    <strong style="color:white">
+                        Smart Agro
+                    </strong>
+
+                    <span>CARE</span>
+
+                </div>
+
+            </div>
+
+            <p>
+                Smart technology for a
+                greener agricultural future.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <h4>Services</h4>
+
+            <a href="soil.html">
+                Soil Analysis
+            </a>
+
+            <a href="disease.html">
+                Disease Detection
+            </a>
+
+            <a href="weather.html">
+                Weather
+            </a>
+
+            <a href="crop.html">
+                Crop Recommendation
+            </a>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <h4>Support</h4>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+            <a href="login.html">
+                Login
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 Smart Agro Care
+        </span>
+
+        <span>
+            Made with 🌱 for farmers
+        </span>
+
+    </div>
+
+</footer>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
 
 <script>
 
@@ -1145,9 +1361,6 @@ function analyzeSoil() {
 
     const ph =
         Number(document.getElementById("ph").value);
-
-    const moisture =
-        Number(document.getElementById("moisture").value);
 
     const nitrogen =
         Number(document.getElementById("nitrogen").value);
@@ -1158,299 +1371,231 @@ function analyzeSoil() {
     const potassium =
         Number(document.getElementById("potassium").value);
 
-
     const soilType =
         document.getElementById("soilType").value;
 
-
-    const scoreElement =
-        document.getElementById("score");
-
-
-    const statusElement =
-        document.getElementById("status");
+    const crop =
+        document.getElementById("crop").value;
 
 
-    const phResult =
-        document.getElementById("phResult");
+    const resultBox =
+        document.getElementById("resultBox");
 
+    const resultTitle =
+        document.getElementById("resultTitle");
 
-    const nResult =
-        document.getElementById("nResult");
-
-
-    const kResult =
-        document.getElementById("kResult");
-
+    const resultText =
+        document.getElementById("resultText");
 
     const cropResult =
         document.getElementById("cropResult");
 
-
     const waterResult =
         document.getElementById("waterResult");
-
 
     const fertilizerResult =
         document.getElementById("fertilizerResult");
 
+    const yieldResult =
+        document.getElementById("yieldResult");
+
 
     /* VALIDATION */
 
-    if (!ph || !soilType) {
+    if (!ph || !soilType || !crop) {
 
         alert(
-            "Please enter Soil pH and select Soil Type."
+            "Please enter pH, soil type and crop."
         );
 
         return;
-
     }
 
 
-    /* SCORE */
+    /* ================= SOIL STATUS ================= */
 
-    let score = 100;
+    let soilStatus = "";
 
+    if (ph < 5.5) {
 
-    if (ph < 5.5 || ph > 7.5) {
-
-        score -= 20;
-
-    }
-
-
-    if (moisture > 0) {
-
-        if (moisture < 30 || moisture > 80) {
-
-            score -= 10;
-
-        }
+        soilStatus =
+            "Your soil is acidic. Soil improvement practices may be needed before growing some crops.";
 
     }
 
+    else if (ph <= 7.5) {
 
-    if (nitrogen > 0 && nitrogen < 40) {
-
-        score -= 10;
-
-    }
-
-
-    if (phosphorus > 0 && phosphorus < 20) {
-
-        score -= 10;
-
-    }
-
-
-    if (potassium > 0 && potassium < 30) {
-
-        score -= 10;
-
-    }
-
-
-    if (score < 40) {
-
-        score = 40;
-
-    }
-
-
-    scoreElement.innerText = score;
-
-
-    /* STATUS */
-
-    if (score >= 80) {
-
-        statusElement.innerText =
-            "Excellent";
-
-        statusElement.style.color =
-            "#79e198";
-
-    }
-
-    else if (score >= 60) {
-
-        statusElement.innerText =
-            "Good";
+        soilStatus =
+            "Your soil pH is generally suitable for many crops.";
 
     }
 
     else {
 
-        statusElement.innerText =
-            "Needs Care";
+        soilStatus =
+            "Your soil is alkaline. Consider suitable soil management practices.";
 
     }
 
 
-    /* VALUES */
+    /* ================= CROP ================= */
 
-    phResult.innerText = ph;
+    let bestCrop = "Wheat";
 
-    nResult.innerText =
-        nitrogen || "--";
+    let water = "Medium";
 
-    kResult.innerText =
-        potassium || "--";
+    let fertilizer = "Balanced NPK";
 
 
-    /* CROP RECOMMENDATION */
+    if (soilType === "black") {
 
-    let crops = [];
+        bestCrop =
+            "Cotton / Soybean";
 
+        water =
+            "Medium";
 
-    if (soilType === "Black Soil") {
-
-        crops = [
-            "Cotton",
-            "Soybean",
-            "Wheat"
-        ];
-
-    }
-
-    else if (soilType === "Red Soil") {
-
-        crops = [
-            "Groundnut",
-            "Millets",
-            "Pulses"
-        ];
-
-    }
-
-    else if (soilType === "Alluvial Soil") {
-
-        crops = [
-            "Rice",
-            "Wheat",
-            "Sugarcane"
-        ];
-
-    }
-
-    else if (soilType === "Sandy Soil") {
-
-        crops = [
-            "Groundnut",
-            "Carrot",
-            "Watermelon"
-        ];
-
-    }
-
-    else if (soilType === "Loamy Soil") {
-
-        crops = [
-            "Wheat",
-            "Maize",
-            "Vegetables"
-        ];
-
-    }
-
-    else if (soilType === "Clay Soil") {
-
-        crops = [
-            "Rice",
-            "Cabbage",
-            "Broccoli"
-        ];
+        fertilizer =
+            "NPK + Organic Matter";
 
     }
 
 
-    cropResult.innerHTML = "";
+    else if (soilType === "red") {
+
+        bestCrop =
+            "Groundnut / Millet";
+
+        water =
+            "Medium";
+
+        fertilizer =
+            "Nitrogen + Phosphorus";
+
+    }
 
 
-    crops.forEach(crop => {
+    else if (soilType === "sandy") {
 
-        const tag =
-            document.createElement("span");
+        bestCrop =
+            "Groundnut / Watermelon";
 
-        tag.className =
-            "crop-tag";
+        water =
+            "Higher";
 
-        tag.innerText =
-            crop;
+        fertilizer =
+            "Organic Compost";
 
-        cropResult.appendChild(tag);
+    }
+
+
+    else if (soilType === "clay") {
+
+        bestCrop =
+            "Rice / Wheat";
+
+        water =
+            "Higher";
+
+        fertilizer =
+            "Organic Compost";
+
+    }
+
+
+    else if (soilType === "loamy") {
+
+        bestCrop =
+            "Wheat / Vegetables";
+
+        water =
+            "Medium";
+
+        fertilizer =
+            "Balanced NPK";
+
+    }
+
+
+    /* ================= YIELD ESTIMATION ================= */
+
+    let estimatedYield = "—";
+
+
+    if (crop === "wheat") {
+
+        estimatedYield =
+            "2.5 – 4.5";
+
+    }
+
+    else if (crop === "rice") {
+
+        estimatedYield =
+            "3.0 – 5.5";
+
+    }
+
+    else if (crop === "cotton") {
+
+        estimatedYield =
+            "1.5 – 2.5";
+
+    }
+
+    else if (crop === "soybean") {
+
+        estimatedYield =
+            "1.5 – 3.0";
+
+    }
+
+    else if (crop === "maize") {
+
+        estimatedYield =
+            "4.0 – 7.0";
+
+    }
+
+    else if (crop === "groundnut") {
+
+        estimatedYield =
+            "1.5 – 3.0";
+
+    }
+
+
+    /* ================= DISPLAY ================= */
+
+    resultTitle.innerText =
+        "🌱 Your Soil Analysis";
+
+    resultText.innerText =
+        soilStatus;
+
+    cropResult.innerText =
+        bestCrop;
+
+    waterResult.innerText =
+        water;
+
+    fertilizerResult.innerText =
+        fertilizer;
+
+    yieldResult.innerText =
+        estimatedYield;
+
+
+    resultBox.classList.add("show");
+
+
+    resultBox.scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "center"
 
     });
-
-
-    /* WATER */
-
-    if (moisture < 30 && moisture > 0) {
-
-        waterResult.innerText =
-            "Soil moisture is low. Irrigation may be required.";
-
-    }
-
-    else if (moisture > 80) {
-
-        waterResult.innerText =
-            "Moisture is high. Avoid excessive irrigation.";
-
-    }
-
-    else {
-
-        waterResult.innerText =
-            "Moisture level looks moderate.";
-
-    }
-
-
-    /* FERTILIZER */
-
-    if (nitrogen > 0 && nitrogen < 40) {
-
-        fertilizerResult.innerText =
-            "Nitrogen appears low. Consider soil-test-based nitrogen management.";
-
-    }
-
-    else if (phosphorus > 0 && phosphorus < 20) {
-
-        fertilizerResult.innerText =
-            "Phosphorus appears low. Consider soil-test-based phosphorus management.";
-
-    }
-
-    else if (potassium > 0 && potassium < 30) {
-
-        fertilizerResult.innerText =
-            "Potassium appears low. Consider soil-test-based potassium management.";
-
-    }
-
-    else {
-
-        fertilizerResult.innerText =
-            "NPK values appear reasonable from the entered data. Continue balanced soil management.";
-
-    }
-
-
-    /* ANIMATION */
-
-    scoreElement.style.transform =
-        "scale(1.2)";
-
-    setTimeout(() => {
-
-        scoreElement.style.transform =
-            "scale(1)";
-
-    }, 300);
 
 }
 
