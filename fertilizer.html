@@ -1,154 +1,1891 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<title>Fertilizer Recommendation</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="style.css">
+    <title>Fertilizer Guide | Smart Agro Care</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- GOOGLE FONT -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- FONT AWESOME -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <!-- MAIN CSS -->
+
+    <link rel="stylesheet"
+          href="style.css">
+
+
+    <style>
+
+        /* =========================================
+                    FERTILIZER PAGE
+        ========================================= */
+
+        .fertilizer-page {
+
+            min-height: 100vh;
+
+            padding: 65px 7%;
+
+            background:
+
+                radial-gradient(
+                    circle at 8% 10%,
+                    #e3f6e6,
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 92% 85%,
+                    #fff1d1,
+                    transparent 28%
+                ),
+
+                #f7faf5;
+
+        }
+
+
+        /* =========================================
+                    HEADING
+        ========================================= */
+
+        .fertilizer-heading {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+        }
+
+
+        .fertilizer-label {
+
+            color: #35a85b;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        .fertilizer-heading h1 {
+
+            font-family:
+                "Playfair Display", serif;
+
+            color: #123b27;
+
+            font-size:
+                clamp(42px,5vw,62px);
+
+            line-height: 1.1;
+
+            margin: 10px 0 15px;
+
+        }
+
+
+        .fertilizer-heading h1 span {
+
+            color: #35a85b;
+
+            font-style: italic;
+
+        }
+
+
+        .fertilizer-heading p {
+
+            max-width: 680px;
+
+            color: #718078;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =========================================
+                    MAIN GRID
+        ========================================= */
+
+        .fertilizer-dashboard {
+
+            max-width: 1100px;
+
+            margin: 40px auto 0;
+
+            display: grid;
+
+            grid-template-columns:
+                .85fr 1.15fr;
+
+            gap: 22px;
+
+        }
+
+
+        /* =========================================
+                    INPUT CARD
+        ========================================= */
+
+        .fertilizer-form {
+
+            background: white;
+
+            border: 1px solid #e3ebe2;
+
+            border-radius: 25px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 20px 45px
+                rgba(30,70,40,.06);
+
+        }
+
+
+        .form-heading {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .form-heading-icon {
+
+            width: 52px;
+
+            height: 52px;
+
+            border-radius: 15px;
+
+            background: #e5f5e7;
+
+            color: #29874b;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 21px;
+
+        }
+
+
+        .form-heading h2 {
+
+            color: #173f2b;
+
+            font-size: 19px;
+
+        }
+
+
+        .form-heading p {
+
+            color: #89958e;
+
+            font-size: 9px;
+
+            margin-top: 3px;
+
+        }
+
+
+        /* =========================================
+                    FORM
+        ========================================= */
+
+        .form-group {
+
+            margin-bottom: 17px;
+
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            color: #355442;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .select-wrap {
+
+            position: relative;
+
+        }
+
+
+        .select-wrap i {
+
+            position: absolute;
+
+            right: 14px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: #4d9a67;
+
+            pointer-events: none;
+
+        }
+
+
+        .form-group select {
+
+            width: 100%;
+
+            appearance: none;
+
+            border: 1px solid #dfe8df;
+
+            background: #f9fbf8;
+
+            padding: 13px 38px 13px 14px;
+
+            border-radius: 12px;
+
+            color: #46604e;
+
+            font-family: inherit;
+
+            font-size: 10px;
+
+            outline: none;
+
+        }
+
+
+        .form-group select:focus {
+
+            border-color: #35a85b;
+
+            box-shadow:
+                0 0 0 4px
+                rgba(53,168,91,.08);
+
+        }
+
+
+        /* =========================================
+                    NPK INPUTS
+        ========================================= */
+
+        .npk-title {
+
+            margin-top: 25px;
+
+            margin-bottom: 12px;
+
+            color: #234b35;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+        }
+
+
+        .npk-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 10px;
+
+        }
+
+
+        .nutrient-input {
+
+            text-align: center;
+
+            border: 1px solid #dfe8df;
+
+            background: #f9fbf8;
+
+            border-radius: 12px;
+
+            padding: 12px 5px;
+
+            outline: none;
+
+            width: 100%;
+
+            font-family: inherit;
+
+            color: #234b35;
+
+            font-weight: 700;
+
+        }
+
+
+        .nutrient-input:focus {
+
+            border-color: #35a85b;
+
+        }
+
+
+        .nutrient-name {
+
+            text-align: center;
+
+            font-size: 9px;
+
+            color: #75827a;
+
+            margin-top: 5px;
+
+        }
+
+
+        /* =========================================
+                    BUTTON
+        ========================================= */
+
+        .fertilizer-button {
+
+            width: 100%;
+
+            margin-top: 23px;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 13px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #176b3a,
+                    #35a85b
+                );
+
+            color: white;
+
+            font-family: inherit;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition: .3s;
+
+        }
+
+
+        .fertilizer-button:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 15px 30px
+                rgba(23,107,58,.2);
+
+        }
+
+
+        /* =========================================
+                    RESULT CARD
+        ========================================= */
+
+        .fertilizer-result {
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #153d28,
+                    #286e45
+                );
+
+            border-radius: 25px;
+
+            padding: 30px;
+
+            min-height: 560px;
+
+            color: white;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .fertilizer-result::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 320px;
+
+            height: 320px;
+
+            border-radius: 50%;
+
+            right: -150px;
+
+            top: -130px;
+
+            background:
+                rgba(255,255,255,.06);
+
+        }
+
+
+        .result-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: flex-start;
+
+            position: relative;
+
+            z-index: 2;
+
+        }
+
+
+        .result-header h2 {
+
+            font-size: 20px;
+
+        }
+
+
+        .result-header p {
+
+            color: #a7c5af;
+
+            font-size: 9px;
+
+            margin-top: 4px;
+
+        }
+
+
+        .result-badge {
+
+            background:
+                rgba(120,220,145,.12);
+
+            color: #7be09a;
+
+            border-radius: 20px;
+
+            padding: 7px 11px;
+
+            font-size: 8px;
+
+            font-weight: 800;
+
+        }
+
+
+        /* =========================================
+                    DEFAULT RESULT
+        ========================================= */
+
+        .empty-result {
+
+            text-align: center;
+
+            padding: 75px 20px;
+
+            position: relative;
+
+            z-index: 2;
+
+        }
+
+
+        .empty-icon {
+
+            width: 82px;
+
+            height: 82px;
+
+            border-radius: 50%;
+
+            margin: auto;
+
+            background:
+                rgba(255,255,255,.07);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: #80df9b;
+
+            font-size: 31px;
+
+        }
+
+
+        .empty-result h3 {
+
+            margin-top: 18px;
+
+            font-size: 18px;
+
+        }
+
+
+        .empty-result p {
+
+            max-width: 350px;
+
+            margin: 8px auto;
+
+            color: #a2bba9;
+
+            font-size: 10px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =========================================
+                    RESULT CONTENT
+        ========================================= */
+
+        .result-content {
+
+            display: none;
+
+            position: relative;
+
+            z-index: 2;
+
+            margin-top: 30px;
+
+        }
+
+
+        .recommendation-title {
+
+            color: #a9c5b0;
+
+            font-size: 9px;
+
+            letter-spacing: 1px;
+
+            font-weight: 800;
+
+        }
+
+
+        .fertilizer-name {
+
+            margin-top: 10px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+        }
+
+
+        .fertilizer-main-icon {
+
+            width: 52px;
+
+            height: 52px;
+
+            border-radius: 15px;
+
+            background:
+                rgba(255,255,255,.08);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 23px;
+
+            color: #80df9b;
+
+        }
+
+
+        .fertilizer-name h3 {
+
+            font-size: 20px;
+
+        }
+
+
+        .fertilizer-name span {
+
+            display: block;
+
+            color: #a2bca9;
+
+            font-size: 9px;
+
+            margin-top: 3px;
+
+        }
+
+
+        /* =========================================
+                    NPK BARS
+        ========================================= */
+
+        .nutrient-bars {
+
+            margin-top: 28px;
+
+            display: grid;
+
+            gap: 14px;
+
+        }
+
+
+        .nutrient-row {
+
+            display: grid;
+
+            grid-template-columns:
+                35px 1fr 40px;
+
+            align-items: center;
+
+            gap: 8px;
+
+        }
+
+
+        .nutrient-symbol {
+
+            color: #d9eee0;
+
+            font-weight: 800;
+
+            font-size: 11px;
+
+        }
+
+
+        .bar {
+
+            height: 7px;
+
+            border-radius: 20px;
+
+            background: #315640;
+
+            overflow: hidden;
+
+        }
+
+
+        .bar-fill {
+
+            height: 100%;
+
+            border-radius: 20px;
+
+            width: 60%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #48bc6c,
+                    #83e19d
+                );
+
+        }
+
+
+        .nutrient-value {
+
+            color: #81df9a;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            text-align: right;
+
+        }
+
+
+        /* =========================================
+                    ADVICE
+        ========================================= */
+
+        .fertilizer-advice {
+
+            margin-top: 25px;
+
+            background:
+                rgba(255,255,255,.07);
+
+            border: 1px solid
+                rgba(255,255,255,.08);
+
+            border-radius: 16px;
+
+            padding: 18px;
+
+        }
+
+
+        .fertilizer-advice h3 {
+
+            color: #7be09a;
+
+            font-size: 11px;
+
+        }
+
+
+        .fertilizer-advice p {
+
+            color: #a9c1b0;
+
+            font-size: 9px;
+
+            line-height: 1.7;
+
+            margin-top: 7px;
+
+        }
+
+
+        /* =========================================
+                    INFORMATION CARDS
+        ========================================= */
+
+        .fertilizer-info {
+
+            max-width: 1100px;
+
+            margin: 25px auto 0;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 17px;
+
+        }
+
+
+        .info-card {
+
+            background: white;
+
+            border: 1px solid #e4ebe3;
+
+            border-radius: 18px;
+
+            padding: 21px;
+
+            transition: .3s;
+
+        }
+
+
+        .info-card:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 15px 30px
+                rgba(30,70,40,.07);
+
+        }
+
+
+        .info-icon {
+
+            width: 44px;
+
+            height: 44px;
+
+            border-radius: 12px;
+
+            background: #e5f5e7;
+
+            color: #29864b;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 13px;
+
+        }
+
+
+        .info-card h3 {
+
+            color: #173f2b;
+
+            font-size: 13px;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .info-card p {
+
+            color: #7b887f;
+
+            font-size: 9px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =========================================
+                    RESPONSIVE
+        ========================================= */
+
+        @media(max-width:850px) {
+
+            .fertilizer-dashboard {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .fertilizer-info {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+
+        @media(max-width:550px) {
+
+            .fertilizer-page {
+
+                padding: 50px 18px;
+
+            }
+
+            .fertilizer-form,
+            .fertilizer-result {
+
+                padding: 22px;
+
+            }
+
+            .npk-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+    </style>
 
 </head>
 
+
 <body>
 
-<header>
 
-<div class="logo">🌾 Smart Agro Care</div>
+<!-- =========================================
+                    HEADER
+========================================= -->
 
-<nav>
+<header class="navbar">
 
-<a href="index.html">Home</a>
-<a href="soil.html">Soil</a>
-<a href="disease.html">Disease</a>
-<a href="fertilizer.html">Fertilizer</a>
-<a href="chatbot.html">AI Chatbot</a>
-<a href="contact.html">Contact</a>
+    <a href="index.html"
+       class="brand">
 
-</nav>
+        <div class="brand-icon">
+
+            <i class="fa-solid fa-seedling"></i>
+
+        </div>
+
+        <div>
+
+            <strong>Smart Agro</strong>
+
+            <span>CARE</span>
+
+        </div>
+
+    </a>
+
+
+    <nav class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="soil.html">
+            Soil
+        </a>
+
+        <a href="disease.html">
+            Disease
+        </a>
+
+        <a href="weather.html">
+            Weather
+        </a>
+
+        <a href="crop.html">
+            Crops
+        </a>
+
+        <a href="fertilizer.html"
+           class="active">
+
+            Fertilizer
+
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+    </nav>
+
+
+    <div class="nav-actions">
+
+        <a href="login.html"
+           class="login-link">
+
+            Login
+
+        </a>
+
+
+        <a href="signup.html"
+           class="nav-button">
+
+            Get Started
+
+        </a>
+
+    </div>
 
 </header>
 
-<section class="fertilizer-page">
 
-<h1>🌱 AI Fertilizer Recommendation</h1>
 
-<p>Select your soil type and enter NPK values.</p>
+<!-- =========================================
+                MAIN PAGE
+========================================= -->
 
-<div class="fertilizer-container">
+<main class="fertilizer-page">
 
-<div class="fertilizer-form">
 
-<label>Soil Type</label>
+    <!-- HEADING -->
 
-<select id="soil">
+    <section class="fertilizer-heading">
 
-<option>Black Soil</option>
-<option>Red Soil</option>
-<option>Alluvial Soil</option>
-<option>Laterite Soil</option>
-<option>Sandy Soil</option>
-<option>Clay Soil</option>
+        <span class="fertilizer-label">
 
-</select>
+            SMART FERTILIZER GUIDE
 
-<label>Nitrogen (N)</label>
-<input type="number" id="n">
+        </span>
 
-<label>Phosphorus (P)</label>
-<input type="number" id="p">
 
-<label>Potassium (K)</label>
-<input type="number" id="k">
+        <h1>
 
-<button onclick="recommendFertilizer()">
+            Feed your soil,<br>
 
-🌿 Get Recommendation
+            <span>not just your crop.</span>
 
-</button>
+        </h1>
 
-</div>
 
-<div class="fertilizer-result">
+        <p>
 
-<h2>Recommendation</h2>
+            Enter your crop and basic soil nutrient
+            information to explore a fertilizer
+            recommendation interface.
 
-<p><b>Recommended Fertilizer:</b> <span id="fertilizer">-</span></p>
+        </p>
 
-<p><b>Application:</b> <span id="application">-</span></p>
+    </section>
 
-<p><b>Water Requirement:</b> <span id="water">-</span></p>
 
-<p><b>Additional Advice:</b> <span id="advice">-</span></p>
 
-</div>
+    <!-- DASHBOARD -->
 
-</div>
+    <div class="fertilizer-dashboard">
 
-</section>
+
+        <!-- =====================================
+                    FORM
+        ====================================== -->
+
+        <div class="fertilizer-form">
+
+
+            <div class="form-heading">
+
+                <div class="form-heading-icon">
+
+                    <i class="fa-solid fa-flask"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h2>
+                        Field Information
+                    </h2>
+
+                    <p>
+                        Enter your soil details
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CROP -->
+
+            <div class="form-group">
+
+                <label>
+                    SELECT CROP
+                </label>
+
+
+                <div class="select-wrap">
+
+                    <select id="crop">
+
+                        <option value="">
+                            Choose crop
+                        </option>
+
+                        <option value="rice">
+                            Rice
+                        </option>
+
+                        <option value="wheat">
+                            Wheat
+                        </option>
+
+                        <option value="cotton">
+                            Cotton
+                        </option>
+
+                        <option value="soybean">
+                            Soybean
+                        </option>
+
+                        <option value="maize">
+                            Maize
+                        </option>
+
+                        <option value="sugarcane">
+                            Sugarcane
+                        </option>
+
+                    </select>
+
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SOIL -->
+
+            <div class="form-group">
+
+                <label>
+                    SOIL TYPE
+                </label>
+
+
+                <div class="select-wrap">
+
+                    <select id="soil">
+
+                        <option value="">
+                            Choose soil
+                        </option>
+
+                        <option value="black">
+                            Black Soil
+                        </option>
+
+                        <option value="red">
+                            Red Soil
+                        </option>
+
+                        <option value="alluvial">
+                            Alluvial Soil
+                        </option>
+
+                        <option value="loamy">
+                            Loamy Soil
+                        </option>
+
+                        <option value="sandy">
+                            Sandy Soil
+                        </option>
+
+                    </select>
+
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- NPK -->
+
+            <div class="npk-title">
+
+                SOIL NUTRIENT VALUES
+
+            </div>
+
+
+            <div class="npk-grid">
+
+
+                <div>
+
+                    <input
+                        id="nitrogen"
+                        class="nutrient-input"
+                        type="number"
+                        min="0"
+                        placeholder="40">
+
+                    <div class="nutrient-name">
+                        Nitrogen (N)
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <input
+                        id="phosphorus"
+                        class="nutrient-input"
+                        type="number"
+                        min="0"
+                        placeholder="30">
+
+                    <div class="nutrient-name">
+                        Phosphorus (P)
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <input
+                        id="potassium"
+                        class="nutrient-input"
+                        type="number"
+                        min="0"
+                        placeholder="35">
+
+                    <div class="nutrient-name">
+                        Potassium (K)
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- BUTTON -->
+
+            <button
+                class="fertilizer-button"
+                onclick="getRecommendation()">
+
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                Generate Fertilizer Guide
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =====================================
+                    RESULT
+        ====================================== -->
+
+        <div class="fertilizer-result">
+
+
+            <div class="result-header">
+
+                <div>
+
+                    <h2>
+                        Nutrient Analysis
+                    </h2>
+
+                    <p>
+                        Smart fertilizer guidance
+                    </p>
+
+                </div>
+
+
+                <div class="result-badge">
+
+                    ✦ SMART GUIDE
+
+                </div>
+
+            </div>
+
+
+
+            <!-- EMPTY -->
+
+            <div
+                id="emptyResult"
+                class="empty-result">
+
+                <div class="empty-icon">
+
+                    <i class="fa-solid fa-vial"></i>
+
+                </div>
+
+
+                <h3>
+                    Let's understand your soil
+                </h3>
+
+
+                <p>
+
+                    Enter your crop, soil type and
+                    nutrient values to generate a
+                    demonstration fertilizer guide.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- CONTENT -->
+
+            <div
+                id="resultContent"
+                class="result-content">
+
+
+                <div class="recommendation-title">
+
+                    SUGGESTED FERTILIZER CATEGORY
+
+                </div>
+
+
+                <div class="fertilizer-name">
+
+                    <div class="fertilizer-main-icon">
+
+                        <i class="fa-solid fa-seedling"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3 id="fertilizerName">
+
+                            Balanced Fertilizer
+
+                        </h3>
+
+                        <span id="cropResult">
+
+                            For selected crop
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- NPK BARS -->
+
+                <div class="nutrient-bars">
+
+
+                    <div class="nutrient-row">
+
+                        <div class="nutrient-symbol">
+                            N
+                        </div>
+
+                        <div class="bar">
+
+                            <div
+                                id="nBar"
+                                class="bar-fill"
+                                style="width:60%">
+                            </div>
+
+                        </div>
+
+                        <div
+                            id="nValue"
+                            class="nutrient-value">
+
+                            60%
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="nutrient-row">
+
+                        <div class="nutrient-symbol">
+                            P
+                        </div>
+
+                        <div class="bar">
+
+                            <div
+                                id="pBar"
+                                class="bar-fill"
+                                style="width:60%">
+                            </div>
+
+                        </div>
+
+                        <div
+                            id="pValue"
+                            class="nutrient-value">
+
+                            60%
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="nutrient-row">
+
+                        <div class="nutrient-symbol">
+                            K
+                        </div>
+
+                        <div class="bar">
+
+                            <div
+                                id="kBar"
+                                class="bar-fill"
+                                style="width:60%">
+                            </div>
+
+                        </div>
+
+                        <div
+                            id="kValue"
+                            class="nutrient-value">
+
+                            60%
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ADVICE -->
+
+                <div class="fertilizer-advice">
+
+                    <h3>
+
+                        <i class="fa-solid fa-lightbulb"></i>
+
+                        RECOMMENDATION
+
+                    </h3>
+
+
+                    <p id="adviceText">
+
+                        Enter your values to see
+                        the fertilizer guidance.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================
+                    INFO CARDS
+    ====================================== -->
+
+    <div class="fertilizer-info">
+
+
+        <div class="info-card">
+
+            <div class="info-icon">
+
+                <i class="fa-solid fa-leaf"></i>
+
+            </div>
+
+            <h3>
+                Nitrogen
+            </h3>
+
+            <p>
+
+                Supports leafy growth and is an
+                important plant nutrient.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="info-card">
+
+            <div class="info-icon">
+
+                <i class="fa-solid fa-seedling"></i>
+
+            </div>
+
+            <h3>
+                Phosphorus
+            </h3>
+
+            <p>
+
+                Plays an important role in root
+                development and plant energy processes.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="info-card">
+
+            <div class="info-icon">
+
+                <i class="fa-solid fa-wheat-awn"></i>
+
+            </div>
+
+            <h3>
+                Potassium
+            </h3>
+
+            <p>
+
+                Helps support several plant
+                functions and overall crop development.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<!-- =========================================
+                    JAVASCRIPT
+========================================= -->
 
 <script>
 
-function recommendFertilizer(){
 
-let soil=document.getElementById("soil").value;
+function getRecommendation() {
 
-if(soil=="Black Soil"){
 
-document.getElementById("fertilizer").innerHTML="DAP + Urea";
+    const crop =
+        document.getElementById(
+            "crop"
+        ).value;
 
-document.getElementById("application").innerHTML="50 kg/acre";
 
-document.getElementById("water").innerHTML="20-25 mm/week";
+    const soil =
+        document.getElementById(
+            "soil"
+        ).value;
 
-document.getElementById("advice").innerHTML="Suitable for Cotton and Soybean.";
+
+    const nitrogen =
+        Number(
+            document.getElementById(
+                "nitrogen"
+            ).value
+        );
+
+
+    const phosphorus =
+        Number(
+            document.getElementById(
+                "phosphorus"
+            ).value
+        );
+
+
+    const potassium =
+        Number(
+            document.getElementById(
+                "potassium"
+            ).value
+        );
+
+
+    /* CHECK INPUT */
+
+    if (
+        crop === "" ||
+        soil === ""
+    ) {
+
+        alert(
+            "Please select the crop and soil type."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        isNaN(nitrogen) ||
+        isNaN(phosphorus) ||
+        isNaN(potassium)
+    ) {
+
+        alert(
+            "Please enter N, P and K values."
+        );
+
+        return;
+
+    }
+
+
+    /* LIMIT FOR VISUAL BAR */
+
+    const nPercent =
+        Math.min(
+            Math.max(
+                nitrogen,
+                0
+            ),
+            100
+        );
+
+
+    const pPercent =
+        Math.min(
+            Math.max(
+                phosphorus,
+                0
+            ),
+            100
+        );
+
+
+    const kPercent =
+        Math.min(
+            Math.max(
+                potassium,
+                0
+            ),
+            100
+        );
+
+
+    /* UPDATE BARS */
+
+    document.getElementById(
+        "nBar"
+    ).style.width =
+        nPercent + "%";
+
+
+    document.getElementById(
+        "pBar"
+    ).style.width =
+        pPercent + "%";
+
+
+    document.getElementById(
+        "kBar"
+    ).style.width =
+        kPercent + "%";
+
+
+    document.getElementById(
+        "nValue"
+    ).innerText =
+        nPercent + "%";
+
+
+    document.getElementById(
+        "pValue"
+    ).innerText =
+        pPercent + "%";
+
+
+    document.getElementById(
+        "kValue"
+    ).innerText =
+        kPercent + "%";
+
+
+    /* =================================
+             CHOOSE CATEGORY
+    ================================= */
+
+
+    let fertilizer =
+        "Balanced Fertilizer";
+
+
+    let advice =
+        "Maintain balanced nutrient management and use a soil-test-based recommendation before applying fertilizer.";
+
+
+    if (
+        nitrogen < 30
+    ) {
+
+        fertilizer =
+            "Nitrogen-Rich Fertilizer";
+
+        advice =
+            "The entered nitrogen value is relatively low in this demonstration. Consider checking the soil test and discussing an appropriate nitrogen source and application rate with a qualified agricultural professional.";
+
+    }
+
+
+    else if (
+        phosphorus < 30
+    ) {
+
+        fertilizer =
+            "Phosphorus-Focused Fertilizer";
+
+        advice =
+            "The entered phosphorus value is relatively low in this demonstration. Confirm the soil-test interpretation before selecting a phosphorus fertilizer.";
+
+    }
+
+
+    else if (
+        potassium < 30
+    ) {
+
+        fertilizer =
+            "Potassium-Focused Fertilizer";
+
+        advice =
+            "The entered potassium value is relatively low in this demonstration. Confirm the soil-test interpretation before selecting a potassium fertilizer.";
+
+    }
+
+
+    else if (
+        nitrogen > 80 &&
+        phosphorus > 80 &&
+        potassium > 80
+    ) {
+
+        fertilizer =
+            "Balanced Nutrient Plan";
+
+        advice =
+            "The entered values are high in this demonstration. Avoid unnecessary fertilizer application and use a validated soil-test recommendation.";
+
+    }
+
+
+    /* =================================
+             CROP NAME
+    ================================= */
+
+
+    const cropNames = {
+
+        rice: "Rice",
+
+        wheat: "Wheat",
+
+        cotton: "Cotton",
+
+        soybean: "Soybean",
+
+        maize: "Maize",
+
+        sugarcane: "Sugarcane"
+
+    };
+
+
+    document.getElementById(
+        "fertilizerName"
+    ).innerText =
+        fertilizer;
+
+
+    document.getElementById(
+        "cropResult"
+    ).innerText =
+        cropNames[crop] +
+        " • " +
+        soil +
+        " soil";
+
+
+    document.getElementById(
+        "adviceText"
+    ).innerText =
+        advice;
+
+
+    /* SHOW RESULT */
+
+    document.getElementById(
+        "emptyResult"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "resultContent"
+    ).style.display =
+        "block";
 
 }
 
-else if(soil=="Red Soil"){
-
-document.getElementById("fertilizer").innerHTML="NPK 20:20:20";
-
-document.getElementById("application").innerHTML="40 kg/acre";
-
-document.getElementById("water").innerHTML="15-20 mm/week";
-
-document.getElementById("advice").innerHTML="Ideal for Groundnut and Millets.";
-
-}
-
-else if(soil=="Alluvial Soil"){
-
-document.getElementById("fertilizer").innerHTML="Compost + Urea";
-
-document.getElementById("application").innerHTML="45 kg/acre";
-
-document.getElementById("water").innerHTML="25-30 mm/week";
-
-document.getElementById("advice").innerHTML="Best for Rice and Wheat.";
-
-}
-
-else{
-
-document.getElementById("fertilizer").innerHTML="Organic Compost";
-
-document.getElementById("application").innerHTML="35 kg/acre";
-
-document.getElementById("water").innerHTML="20 mm/week";
-
-document.getElementById("advice").innerHTML="Improve soil health with organic manure.";
-
-}
-
-}
 
 </script>
+
 
 </body>
 
