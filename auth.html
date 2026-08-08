@@ -545,19 +545,27 @@ function loginUser(event) {
 
     event.preventDefault();
 
-
     const email =
-        document.getElementById(
-            "loginEmail"
-        ).value;
+        document.getElementById("loginEmail").value;
+
+    const password =
+        document.getElementById("loginPassword").value;
 
 
-    if (!email) return;
+    if (email === "" || password === "") {
+
+        alert("Please enter your email and password.");
+
+        return;
+    }
 
 
-    alert(
-        "🌱 Login button clicked!"
-    );
+    // Demo login
+    alert("🌱 Login successful! Welcome to Smart Agro Care.");
+
+
+    // Go to home page
+    window.location.href = "index.html";
 
 }
 
@@ -568,21 +576,38 @@ function signupUser(event) {
 
     event.preventDefault();
 
-
     const name =
-        document.getElementById(
-            "signupName"
-        ).value;
+        document.getElementById("signupName").value;
+
+    const email =
+        document.getElementById("signupEmail").value;
+
+    const password =
+        document.getElementById("signupPassword").value;
+
+
+    if (
+        name === "" ||
+        email === "" ||
+        password === ""
+    ) {
+
+        alert("Please fill all the fields.");
+
+        return;
+    }
 
 
     alert(
-        "🎉 Welcome " +
-        name +
-        "! Your account form was submitted."
+        "🎉 Account created successfully!\nWelcome, " +
+        name
     );
 
-}
 
+    // Go to home page
+    window.location.href = "index.html";
+
+}
 
 /* ================= GOOGLE ================= */
 
