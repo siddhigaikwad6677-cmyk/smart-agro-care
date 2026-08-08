@@ -329,3 +329,21 @@ function speakAnswer(answer, language) {
 
     speechSynthesis.speak(speech);
 }
+let availableVoices = [];
+
+function loadVoices() {
+
+    availableVoices =
+        speechSynthesis.getVoices();
+
+    console.log(
+        "Available voices:",
+        availableVoices
+    );
+}
+
+
+speechSynthesis.onvoiceschanged =
+    loadVoices;
+
+loadVoices();
