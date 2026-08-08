@@ -8,9 +8,11 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Smart Agro Care</title>
+    <title>Smart Agro Care | Smart Farming</title>
 
-    <!-- Google Font -->
+
+    <!-- GOOGLE FONT -->
+
     <link rel="preconnect"
           href="https://fonts.googleapis.com">
 
@@ -18,15 +20,20 @@
           href="https://fonts.gstatic.com"
           crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
           rel="stylesheet">
 
-    <!-- Font Awesome -->
+
+    <!-- ICONS -->
+
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="style.css">
 
 </head>
 
@@ -34,74 +41,124 @@
 <body>
 
 
-<!-- ================= HEADER ================= -->
+<!-- =====================================================
+                    NAVBAR
+===================================================== -->
 
-<header>
+<header class="navbar">
 
-    <div class="logo">
+    <a href="index.html" class="brand">
 
-        <i class="fa-solid fa-seedling"></i>
+        <div class="brand-icon">
 
-        <span>Smart Agro Care</span>
+            <i class="fa-solid fa-seedling"></i>
 
-    </div>
+        </div>
+
+        <div>
+
+            <strong>Smart Agro</strong>
+
+            <span>CARE</span>
+
+        </div>
+
+    </a>
 
 
-    <nav>
+    <nav class="nav-links">
 
-        <a href="index.html">Home</a>
+        <a href="index.html" class="active">
+            Home
+        </a>
 
-        <a href="soil.html">Soil</a>
+        <a href="soil.html">
+            Soil
+        </a>
 
-        <a href="disease.html">Disease</a>
+        <a href="disease.html">
+            Disease
+        </a>
 
-        <a href="weather.html">Weather</a>
+        <a href="weather.html">
+            Weather
+        </a>
 
-        <a href="fertilizer.html">Fertilizer</a>
+        <a href="crop.html">
+            Crops
+        </a>
 
-        <a href="about.html">About</a>
-
-        <a href="contact.html">Contact</a>
+        <a href="about.html">
+            About
+        </a>
 
     </nav>
 
 
-    <a href="login.html" class="login-btn">
-        Login
-    </a>
+    <div class="nav-actions">
+
+        <a href="login.html"
+           class="login-link">
+
+            Login
+
+        </a>
+
+        <a href="signup.html"
+           class="nav-button">
+
+            Get Started
+
+        </a>
+
+    </div>
+
+
+    <button class="menu-button"
+            onclick="toggleMenu()">
+
+        <i class="fa-solid fa-bars"></i>
+
+    </button>
 
 </header>
 
 
 
-<!-- ================= HERO ================= -->
+<!-- =====================================================
+                    HERO SECTION
+===================================================== -->
 
 <section class="hero">
 
+    <!-- LEFT -->
+
     <div class="hero-content">
 
-        <div class="tag">
+        <div class="hero-badge">
 
-            🌱 SMART FARMING TECHNOLOGY
+            <span class="pulse"></span>
+
+            SMART FARMING TECHNOLOGY
 
         </div>
 
 
         <h1>
 
-            Grow Smarter.<br>
-
-            <span>Farm Better.</span>
+            The future of
+            <span>farming</span>
+            starts here.
 
         </h1>
 
 
-        <p>
+        <p class="hero-description">
 
-            Smart Agro Care helps farmers make
-            better farming decisions using
-            soil analysis, crop disease detection,
-            weather information and smart technology.
+            Smart Agro Care brings soil intelligence,
+            crop health, weather insights and AI
+            together in one simple platform for
+            modern farmers.
 
         </p>
 
@@ -109,44 +166,149 @@
         <div class="hero-buttons">
 
             <a href="soil.html"
-               class="primary-btn">
+               class="main-button">
 
-                Check Soil
+                Explore Soil Health
 
                 <i class="fa-solid fa-arrow-right"></i>
 
             </a>
 
 
-            <a href="disease.html"
-               class="secondary-btn">
+            <a href="#services"
+               class="watch-button">
 
-                Detect Crop Disease
+                <span class="play">
+
+                    <i class="fa-solid fa-play"></i>
+
+                </span>
+
+                Explore Features
 
             </a>
+
+        </div>
+
+
+        <!-- TRUST -->
+
+        <div class="trust">
+
+            <div class="avatars">
+
+                <span>👨‍🌾</span>
+                <span>👩‍🌾</span>
+                <span>👨‍🌾</span>
+
+            </div>
+
+            <div>
+
+                <strong>15,000+</strong>
+
+                <small>
+                    Farmers growing smarter
+                </small>
+
+            </div>
 
         </div>
 
     </div>
 
 
-    <div class="hero-image">
+    <!-- RIGHT -->
 
-        <div class="circle">
+    <div class="hero-visual">
 
-            🌾
+        <div class="sun"></div>
+
+
+        <div class="farm-circle">
+
+            <div class="farm-sky">
+
+                ☁️
+
+            </div>
+
+
+            <div class="farm">
+
+                <div class="mountain mountain-one"></div>
+
+                <div class="mountain mountain-two"></div>
+
+                <div class="field field-one"></div>
+
+                <div class="field field-two"></div>
+
+                <div class="field field-three"></div>
+
+
+                <div class="tree tree-one">
+                    🌳
+                </div>
+
+                <div class="tree tree-two">
+                    🌳
+                </div>
+
+
+                <div class="farmer">
+                    👨‍🌾
+                </div>
+
+            </div>
 
         </div>
 
-        <div class="floating-card">
 
-            <i class="fa-solid fa-seedling"></i>
+        <!-- WEATHER CARD -->
+
+        <div class="floating weather-card">
+
+            <div class="weather-icon">
+
+                ☀️
+
+            </div>
 
             <div>
 
-                <strong>Healthy Crops</strong>
+                <small>Today's Weather</small>
 
-                <small>Smart Farming</small>
+                <strong>28°C</strong>
+
+                <span>Perfect for farming</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- SOIL CARD -->
+
+        <div class="floating soil-card">
+
+            <div class="mini-icon">
+
+                <i class="fa-solid fa-seedling"></i>
+
+            </div>
+
+            <div>
+
+                <small>Soil Health</small>
+
+                <strong>92%</strong>
+
+            </div>
+
+            <div class="good">
+
+                Excellent
 
             </div>
 
@@ -158,48 +320,170 @@
 
 
 
-<!-- ================= SERVICES ================= -->
+<!-- =====================================================
+                QUICK INFORMATION
+===================================================== -->
 
-<section class="services">
+<section class="quick-info">
 
-    <div class="section-heading">
+    <div class="info-card">
 
-        <p>OUR FEATURES</p>
+        <div class="info-icon green">
 
-        <h2>Our Smart Services</h2>
+            <i class="fa-solid fa-droplet"></i>
 
-        <span>
-            Everything you need for smarter farming.
-        </span>
+        </div>
+
+        <div>
+
+            <span>Water Management</span>
+
+            <strong>Save up to 30%</strong>
+
+        </div>
 
     </div>
 
 
+    <div class="info-card">
 
-    <div class="service-container">
+        <div class="info-icon yellow">
+
+            <i class="fa-solid fa-wheat-awn"></i>
+
+        </div>
+
+        <div>
+
+            <span>Crop Recommendation</span>
+
+            <strong>120+ crops</strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="info-card">
+
+        <div class="info-icon blue">
+
+            <i class="fa-solid fa-cloud-sun"></i>
+
+        </div>
+
+        <div>
+
+            <span>Weather Updates</span>
+
+            <strong>Live insights</strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="info-card">
+
+        <div class="info-icon purple">
+
+            <i class="fa-solid fa-robot"></i>
+
+        </div>
+
+        <div>
+
+            <span>AI Assistant</span>
+
+            <strong>24/7 Support</strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+                    SERVICES
+===================================================== -->
+
+<section class="services"
+         id="services">
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-label">
+                SMART SOLUTIONS
+            </span>
+
+            <h2>
+                Everything your farm<br>
+                needs to <em>thrive.</em>
+            </h2>
+
+        </div>
+
+
+        <p>
+
+            Simple tools. Smart decisions.
+            Better farming results.
+
+        </p>
+
+    </div>
+
+
+    <div class="service-grid">
 
 
         <!-- SOIL -->
 
         <a href="soil.html"
-           class="service-card">
+           class="service-card big-card">
 
-            <div class="service-icon">
+            <div class="service-top">
 
-                <i class="fa-solid fa-seedling"></i>
+                <div class="service-icon soil">
+
+                    <i class="fa-solid fa-seedling"></i>
+
+                </div>
+
+                <span class="arrow">
+
+                    ↗
+
+                </span>
 
             </div>
 
-            <h3>Soil Analysis</h3>
+
+            <h3>
+                Soil Intelligence
+            </h3>
 
             <p>
-                Check soil quality, pH,
-                fertility and nutrients.
+
+                Understand your soil's health,
+                nutrients, pH and fertility.
+
             </p>
 
-            <strong>
-                Explore →
-            </strong>
+
+            <div class="mini-progress">
+
+                <span></span>
+
+            </div>
+
+            <small>
+                Soil health monitoring
+            </small>
 
         </a>
 
@@ -210,22 +494,31 @@
         <a href="disease.html"
            class="service-card">
 
-            <div class="service-icon">
+            <div class="service-top">
 
-                <i class="fa-solid fa-leaf"></i>
+                <div class="service-icon disease">
+
+                    <i class="fa-solid fa-leaf"></i>
+
+                </div>
+
+                <span class="arrow">
+                    ↗
+                </span>
 
             </div>
 
-            <h3>Disease Detection</h3>
+
+            <h3>
+                Crop Doctor
+            </h3>
 
             <p>
-                Detect possible crop diseases
-                using crop images.
-            </p>
 
-            <strong>
-                Detect Now →
-            </strong>
+                Upload a crop image and
+                identify possible diseases.
+
+            </p>
 
         </a>
 
@@ -236,48 +529,74 @@
         <a href="weather.html"
            class="service-card">
 
-            <div class="service-icon">
+            <div class="service-top">
 
-                <i class="fa-solid fa-cloud-sun"></i>
+                <div class="service-icon weather">
+
+                    <i class="fa-solid fa-cloud-sun"></i>
+
+                </div>
+
+                <span class="arrow">
+                    ↗
+                </span>
 
             </div>
 
-            <h3>Weather</h3>
+
+            <h3>
+                Weather Intelligence
+            </h3>
 
             <p>
-                Check weather conditions
-                for better farming decisions.
-            </p>
 
-            <strong>
-                Check Weather →
-            </strong>
+                Make better farming decisions
+                using weather information.
+
+            </p>
 
         </a>
 
 
 
-        <!-- CHATBOT -->
+        <!-- AI -->
 
         <a href="chatbot.html"
-           class="service-card">
+           class="service-card ai-card">
 
-            <div class="service-icon">
+            <div class="service-top">
 
-                <i class="fa-solid fa-robot"></i>
+                <div class="service-icon ai">
+
+                    <i class="fa-solid fa-robot"></i>
+
+                </div>
+
+                <span class="arrow">
+                    ↗
+                </span>
 
             </div>
 
-            <h3>AI Chatbot</h3>
+
+            <h3>
+                Farm AI Assistant
+            </h3>
 
             <p>
-                Ask farming questions and
-                get helpful information.
+
+                Ask questions and get
+                farming guidance anytime.
+
             </p>
 
-            <strong>
-                Ask AI →
-            </strong>
+            <div class="ai-dots">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
 
         </a>
 
@@ -288,22 +607,31 @@
         <a href="fertilizer.html"
            class="service-card">
 
-            <div class="service-icon">
+            <div class="service-top">
 
-                <i class="fa-solid fa-flask"></i>
+                <div class="service-icon fertilizer">
+
+                    <i class="fa-solid fa-flask"></i>
+
+                </div>
+
+                <span class="arrow">
+                    ↗
+                </span>
 
             </div>
 
-            <h3>Fertilizer Guide</h3>
+
+            <h3>
+                Fertilizer Guide
+            </h3>
 
             <p>
-                Learn about fertilizers
-                suitable for your soil.
-            </p>
 
-            <strong>
-                View Guide →
-            </strong>
+                Find suitable fertilizer
+                recommendations for crops.
+
+            </p>
 
         </a>
 
@@ -314,22 +642,31 @@
         <a href="crop.html"
            class="service-card">
 
-            <div class="service-icon">
+            <div class="service-top">
 
-                <i class="fa-solid fa-wheat-awn"></i>
+                <div class="service-icon crop">
+
+                    <i class="fa-solid fa-wheat-awn"></i>
+
+                </div>
+
+                <span class="arrow">
+                    ↗
+                </span>
 
             </div>
 
-            <h3>Crop Recommendation</h3>
+
+            <h3>
+                Crop Advisor
+            </h3>
 
             <p>
-                Find crops suitable for
-                different soil conditions.
-            </p>
 
-            <strong>
-                Find Crop →
-            </strong>
+                Discover which crops can
+                grow best in your soil.
+
+            </p>
 
         </a>
 
@@ -339,50 +676,78 @@
 
 
 
-<!-- ================= STATS ================= -->
+<!-- =====================================================
+                    STATISTICS
+===================================================== -->
 
-<section class="stats">
+<section class="statistics">
 
-    <div class="stat-box">
+    <div class="statistics-heading">
 
-        <i class="fa-solid fa-users"></i>
+        <span>
+            OUR IMPACT
+        </span>
 
-        <h2>15K+</h2>
-
-        <p>Farmers Helped</p>
-
-    </div>
-
-
-    <div class="stat-box">
-
-        <i class="fa-solid fa-wheat-awn"></i>
-
-        <h2>120+</h2>
-
-        <p>Crop Types</p>
+        <h2>
+            Technology that makes<br>
+            a <em>real difference.</em>
+        </h2>
 
     </div>
 
 
-    <div class="stat-box">
+    <div class="numbers">
 
-        <i class="fa-solid fa-leaf"></i>
+        <div class="number-box">
 
-        <h2>450+</h2>
+            <strong>
+                15K+
+            </strong>
 
-        <p>Disease Solutions</p>
+            <span>
+                Farmers Reached
+            </span>
 
-    </div>
+        </div>
 
 
-    <div class="stat-box">
+        <div class="number-box">
 
-        <i class="fa-solid fa-star"></i>
+            <strong>
+                120+
+            </strong>
 
-        <h2>98%</h2>
+            <span>
+                Crop Types
+            </span>
 
-        <p>User Satisfaction</p>
+        </div>
+
+
+        <div class="number-box">
+
+            <strong>
+                450+
+            </strong>
+
+            <span>
+                Crop Diseases
+            </span>
+
+        </div>
+
+
+        <div class="number-box">
+
+            <strong>
+                98%
+            </strong>
+
+            <span>
+                Satisfaction
+            </span>
+
+        </div>
 
     </div>
 
@@ -390,24 +755,35 @@
 
 
 
-<!-- ================= CTA ================= -->
+<!-- =====================================================
+                CALL TO ACTION
+===================================================== -->
 
 <section class="cta">
 
-    <div>
+    <div class="cta-content">
+
+        <span class="section-label">
+            START TODAY
+        </span>
 
         <h2>
-            Ready to Farm Smarter? 🌱
+            Your farm deserves<br>
+            <em>smarter decisions.</em>
         </h2>
 
         <p>
-            Start your smart farming journey today.
+
+            Join the next generation of
+            smart farming with Smart Agro Care.
+
         </p>
 
-        <a href="signup.html"
-           class="cta-btn">
 
-            Get Started
+        <a href="signup.html"
+           class="main-button">
+
+            Start Farming Smarter
 
             <i class="fa-solid fa-arrow-right"></i>
 
@@ -415,58 +791,146 @@
 
     </div>
 
+
+    <div class="cta-decoration">
+
+        🌱
+
+    </div>
+
 </section>
 
 
 
-<!-- ================= FOOTER ================= -->
+<!-- =====================================================
+                    FOOTER
+===================================================== -->
 
 <footer>
 
-    <div class="footer-logo">
+    <div class="footer-main">
 
-        <i class="fa-solid fa-seedling"></i>
 
-        Smart Agro Care
+        <div class="footer-brand">
+
+            <a href="index.html"
+               class="brand">
+
+                <div class="brand-icon">
+
+                    <i class="fa-solid fa-seedling"></i>
+
+                </div>
+
+                <div>
+
+                    <strong>Smart Agro</strong>
+
+                    <span>CARE</span>
+
+                </div>
+
+            </a>
+
+
+            <p>
+
+                Empowering farmers with
+                technology for a greener,
+                smarter future.
+
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>Explore</h4>
+
+            <a href="soil.html">
+                Soil Analysis
+            </a>
+
+            <a href="disease.html">
+                Disease Detection
+            </a>
+
+            <a href="weather.html">
+                Weather
+            </a>
+
+            <a href="crop.html">
+                Crop Advisor
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>Company</h4>
+
+            <a href="about.html">
+                About Us
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+            <a href="login.html">
+                Login
+            </a>
+
+            <a href="signup.html">
+                Register
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>Connect</h4>
+
+            <div class="social-links">
+
+                <a href="#">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+
+            </div>
+
+        </div>
 
     </div>
 
 
-    <p>
-        Smart technology for a better
-        agricultural future.
-    </p>
+    <div class="footer-bottom">
 
+        <span>
+            © 2026 Smart Agro Care
+        </span>
 
-    <div class="social">
-
-        <a href="#">
-            <i class="fa-brands fa-instagram"></i>
-        </a>
-
-        <a href="#">
-            <i class="fa-brands fa-facebook"></i>
-        </a>
-
-        <a href="#">
-            <i class="fa-brands fa-youtube"></i>
-        </a>
+        <span>
+            Made with 🌱 for farmers
+        </span>
 
     </div>
-
-
-    <p class="copyright">
-
-        © 2026 Smart Agro Care.
-        All Rights Reserved.
-
-    </p>
 
 </footer>
 
 
-
-<!-- JavaScript -->
+<!-- JAVASCRIPT -->
 
 <script src="script.js"></script>
 
