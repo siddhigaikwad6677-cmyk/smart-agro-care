@@ -1670,3 +1670,629 @@ footer {
     }
 
 }
+/* =========================================
+   SMART AGRO CARE AUTH PAGE
+========================================= */
+
+.auth-page {
+
+    min-height: 100vh;
+
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dff5e6,
+            #f7fff9
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px;
+
+}
+
+
+.auth-home {
+
+    position: fixed;
+
+    top: 25px;
+
+    left: 30px;
+
+    color: #145c32;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+}
+
+
+.auth-container {
+
+    width: 950px;
+
+    max-width: 100%;
+
+    min-height: 620px;
+
+    background: white;
+
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    display: grid;
+
+    grid-template-columns: 42% 58%;
+
+    box-shadow:
+        0 25px 70px
+        rgba(20,80,45,0.18);
+
+}
+
+
+/* BRAND */
+
+.auth-brand {
+
+    padding: 55px 45px;
+
+    background:
+        linear-gradient(
+            150deg,
+            #0b542f,
+            #168a45,
+            #45a96a
+        );
+
+    color: white;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+}
+
+
+.brand-icon {
+
+    width: 75px;
+
+    height: 75px;
+
+    border-radius: 22px;
+
+    background:
+        rgba(255,255,255,0.18);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 42px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.auth-brand h1 {
+
+    font-size: 38px;
+
+    margin: 0;
+
+}
+
+
+.auth-brand h1 span {
+
+    color: #c8ff9d;
+
+}
+
+
+.auth-brand p {
+
+    line-height: 1.6;
+
+    opacity: .9;
+
+}
+
+
+.brand-features {
+
+    margin-top: 25px;
+
+}
+
+
+.brand-features div {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin: 17px 0;
+
+    font-size: 14px;
+
+}
+
+
+.brand-features span {
+
+    width: 35px;
+
+    height: 35px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.15);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+/* AUTH BOX */
+
+.auth-box {
+
+    padding: 45px 55px;
+
+    background: #fffdf8;
+
+}
+
+
+/* TABS */
+
+.auth-tabs {
+
+    display: flex;
+
+    gap: 10px;
+
+    background: #edf6ef;
+
+    padding: 5px;
+
+    border-radius: 12px;
+
+    margin-bottom: 35px;
+
+}
+
+
+.auth-tab {
+
+    flex: 1;
+
+    padding: 12px;
+
+    border: none;
+
+    background: transparent;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    color: #5b7163;
+
+    font-weight: bold;
+
+}
+
+
+.auth-tab.active {
+
+    background: white;
+
+    color: #168a45;
+
+    box-shadow:
+        0 3px 10px
+        rgba(0,0,0,.08);
+
+}
+
+
+.auth-title h2 {
+
+    color: #183d27;
+
+    margin-bottom: 7px;
+
+    font-size: 29px;
+
+}
+
+
+.auth-title p {
+
+    color: #849389;
+
+    font-size: 13px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.auth-form label {
+
+    display: block;
+
+    color: #365543;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    margin-bottom: 7px;
+
+}
+
+
+.auth-input {
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    border: 1px solid #d9e7dc;
+
+    border-radius: 12px;
+
+    background: white;
+
+    padding: 0 14px;
+
+    margin-bottom: 17px;
+
+}
+
+
+.auth-input > i {
+
+    color: #168a45;
+
+}
+
+
+.auth-input input {
+
+    flex: 1;
+
+    border: none;
+
+    outline: none;
+
+    padding: 0 12px;
+
+    font-size: 13px;
+
+}
+
+
+.auth-input button {
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    color: #758579;
+
+}
+
+
+.auth-options {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 11px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.auth-options a {
+
+    color: #168a45;
+
+    text-decoration: none;
+
+}
+
+
+.main-auth-button {
+
+    width: 100%;
+
+    height: 50px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #168a45,
+            #0b6836
+        );
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+
+.main-auth-button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(22,138,69,.25);
+
+}
+
+
+/* DIVIDER */
+
+.divider {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin: 20px 0;
+
+    color: #a3afa6;
+
+    font-size: 10px;
+
+}
+
+
+.divider::before,
+.divider::after {
+
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: #dfe7e1;
+
+}
+
+
+/* SOCIAL BUTTONS */
+
+.social-button {
+
+    width: 100%;
+
+    height: 45px;
+
+    border-radius: 10px;
+
+    background: white;
+
+    border: 1px solid #dce6df;
+
+    margin-bottom: 10px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    font-weight: bold;
+
+    color: #405349;
+
+}
+
+
+.social-button:hover {
+
+    background: #f5faf6;
+
+}
+
+
+.google-icon {
+
+    color: #4285f4;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+}
+
+
+.facebook-icon {
+
+    background: #1877f2;
+
+    color: white;
+
+    width: 21px;
+
+    height: 21px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-weight: bold;
+
+}
+
+
+.switch-text {
+
+    text-align: center;
+
+    font-size: 12px;
+
+    color: #829087;
+
+    margin-top: 18px;
+
+}
+
+
+.switch-text button {
+
+    border: none;
+
+    background: none;
+
+    color: #168a45;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+
+.hidden {
+
+    display: none;
+
+}
+
+
+.terms {
+
+    font-size: 11px !important;
+
+    font-weight: normal !important;
+
+    margin: 10px 0 20px;
+
+}
+
+
+.terms a {
+
+    color: #168a45;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:750px) {
+
+    .auth-page {
+
+        padding: 15px;
+
+    }
+
+
+    .auth-container {
+
+        grid-template-columns: 1fr;
+
+        margin-top: 40px;
+
+    }
+
+
+    .auth-brand {
+
+        padding: 30px;
+
+        text-align: center;
+
+    }
+
+
+    .brand-icon {
+
+        margin:
+            0 auto 15px;
+
+    }
+
+
+    .auth-brand h1 {
+
+        font-size: 30px;
+
+    }
+
+
+    .brand-features {
+
+        display: none;
+
+    }
+
+
+    .auth-box {
+
+        padding: 30px 25px;
+
+    }
+
+}
