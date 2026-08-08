@@ -855,7 +855,85 @@
 
 
 <script src="script.js"></script>
+<!-- ================= AI CHATBOT ================= -->
 
+<div class="chatbot">
+
+    <button class="chatbot-button" onclick="toggleChat()">
+        <i class="fa-solid fa-robot"></i>
+    </button>
+
+    <div class="chat-window" id="chatWindow">
+
+        <div class="chat-header">
+
+            <div>
+                <strong>🌱 Agro Assistant</strong>
+                <small>Ask me anything about farming</small>
+            </div>
+
+            <button onclick="toggleChat()">×</button>
+
+        </div>
+
+
+        <div class="chat-messages" id="chatMessages">
+
+            <div class="bot-message">
+
+                <div class="message-icon">
+                    🤖
+                </div>
+
+                <div>
+                    Hello! 👋<br>
+                    You can ask me your farming questions
+                    in English, Hindi or Marathi.
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="chat-controls">
+
+            <button
+                onclick="startVoice()"
+                class="voice-button"
+                title="Speak">
+
+                🎤
+
+            </button>
+
+            <input
+                type="text"
+                id="chatInput"
+                placeholder="Ask your farming question..."
+                onkeydown="handleEnter(event)">
+
+            <button
+                onclick="sendMessage()"
+                class="send-button">
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+            </button>
+
+        </div>
+
+
+        <div class="voice-status"
+             id="voiceStatus">
+
+            🎤 Tap microphone and speak
+
+        </div>
+
+    </div>
+
+</div>
 </body>
 
 </html>
