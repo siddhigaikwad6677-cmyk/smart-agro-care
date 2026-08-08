@@ -1,54 +1,1718 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 
-<title>Best Crop</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="style.css">
+    <title>Crop Advisor | Smart Agro Care</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet"
+          href="style.css">
+
+
+    <style>
+
+        /* =================================
+                 CROP ADVISOR PAGE
+        ================================= */
+
+        .crop-page {
+
+            min-height: 100vh;
+
+            padding: 65px 7%;
+
+            background:
+
+                radial-gradient(
+                    circle at 10% 10%,
+                    #e2f6e5,
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 90% 90%,
+                    #fff1cf,
+                    transparent 28%
+                ),
+
+                #f7faf5;
+        }
+
+
+        .crop-heading {
+
+            max-width: 1100px;
+
+            margin: auto;
+        }
+
+
+        .crop-label {
+
+            color: #35a85b;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+        }
+
+
+        .crop-heading h1 {
+
+            font-family:
+                "Playfair Display", serif;
+
+            color: #123b27;
+
+            font-size:
+                clamp(42px,5vw,62px);
+
+            line-height: 1.1;
+
+            margin: 10px 0 15px;
+        }
+
+
+        .crop-heading h1 span {
+
+            color: #35a85b;
+
+            font-style: italic;
+        }
+
+
+        .crop-heading p {
+
+            max-width: 680px;
+
+            color: #718078;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =================================
+                 MAIN GRID
+        ================================= */
+
+        .crop-dashboard {
+
+            max-width: 1100px;
+
+            margin: 40px auto 0;
+
+            display: grid;
+
+            grid-template-columns:
+                .9fr 1.1fr;
+
+            gap: 22px;
+        }
+
+
+        /* =================================
+                 FORM CARD
+        ================================= */
+
+        .crop-form {
+
+            background: white;
+
+            border: 1px solid #e3ebe2;
+
+            border-radius: 25px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 20px 45px
+                rgba(30,70,40,.06);
+        }
+
+
+        .form-header {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .form-icon {
+
+            width: 52px;
+
+            height: 52px;
+
+            border-radius: 15px;
+
+            background: #e4f5e7;
+
+            color: #2b8b4e;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 21px;
+        }
+
+
+        .form-header h2 {
+
+            color: #173f2b;
+
+            font-size: 19px;
+        }
+
+
+        .form-header p {
+
+            color: #89958e;
+
+            font-size: 9px;
+
+            margin-top: 3px;
+        }
+
+
+        /* =================================
+                 FORM GROUP
+        ================================= */
+
+        .form-group {
+
+            margin-bottom: 17px;
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            color: #355442;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            margin-bottom: 7px;
+        }
+
+
+        .select-wrapper {
+
+            position: relative;
+        }
+
+
+        .select-wrapper i {
+
+            position: absolute;
+
+            right: 15px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: #4e9967;
+
+            pointer-events: none;
+        }
+
+
+        .form-group select {
+
+            width: 100%;
+
+            appearance: none;
+
+            border: 1px solid #dfe8df;
+
+            background: #f9fbf8;
+
+            padding: 13px 40px 13px 14px;
+
+            border-radius: 12px;
+
+            color: #46604e;
+
+            font-family: inherit;
+
+            font-size: 10px;
+
+            outline: none;
+
+            cursor: pointer;
+        }
+
+
+        .form-group select:focus {
+
+            border-color: #35a85b;
+
+            box-shadow:
+                0 0 0 4px
+                rgba(53,168,91,.08);
+        }
+
+
+        /* =================================
+                 LOCATION INPUT
+        ================================= */
+
+        .location-input {
+
+            width: 100%;
+
+            border: 1px solid #dfe8df;
+
+            background: #f9fbf8;
+
+            padding: 13px 14px;
+
+            border-radius: 12px;
+
+            color: #46604e;
+
+            font-family: inherit;
+
+            font-size: 10px;
+
+            outline: none;
+        }
+
+
+        .location-input:focus {
+
+            border-color: #35a85b;
+        }
+
+
+        /* =================================
+                 BUTTON
+        ================================= */
+
+        .recommend-button {
+
+            width: 100%;
+
+            border: none;
+
+            padding: 15px;
+
+            border-radius: 13px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #176b3a,
+                    #35a85b
+                );
+
+            color: white;
+
+            font-family: inherit;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition: .3s;
+
+            margin-top: 5px;
+        }
+
+
+        .recommend-button:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 15px 30px
+                rgba(23,107,58,.2);
+        }
+
+
+        /* =================================
+                 RESULT AREA
+        ================================= */
+
+        .crop-result {
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #153d28,
+                    #286e45
+                );
+
+            border-radius: 25px;
+
+            padding: 30px;
+
+            color: white;
+
+            position: relative;
+
+            overflow: hidden;
+
+            min-height: 570px;
+        }
+
+
+        .crop-result::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+
+            height: 300px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(125,225,151,.07);
+
+            right: -120px;
+
+            top: -120px;
+        }
+
+
+        .result-top {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .result-top h2 {
+
+            font-size: 20px;
+        }
+
+
+        .result-top p {
+
+            color: #a7c6b0;
+
+            font-size: 9px;
+
+            margin-top: 4px;
+        }
+
+
+        .smart-badge {
+
+            padding: 7px 11px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(116,219,143,.12);
+
+            color: #7be09a;
+
+            font-size: 8px;
+
+            font-weight: 800;
+        }
+
+
+        /* =================================
+                 DEFAULT RESULT
+        ================================= */
+
+        .default-result {
+
+            text-align: center;
+
+            padding: 75px 20px;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .default-icon {
+
+            width: 82px;
+
+            height: 82px;
+
+            margin: auto;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,.07);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 32px;
+
+            color: #80df9b;
+        }
+
+
+        .default-result h3 {
+
+            font-size: 18px;
+
+            margin-top: 18px;
+        }
+
+
+        .default-result p {
+
+            color: #a2bba9;
+
+            font-size: 10px;
+
+            line-height: 1.7;
+
+            max-width: 350px;
+
+            margin: 8px auto 0;
+        }
+
+
+        /* =================================
+                 RECOMMENDATIONS
+        ================================= */
+
+        .recommendations {
+
+            display: none;
+
+            position: relative;
+
+            z-index: 2;
+
+            margin-top: 35px;
+        }
+
+
+        .recommend-title {
+
+            color: #9fc0a9;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 13px;
+        }
+
+
+        .crop-list {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2,1fr);
+
+            gap: 12px;
+        }
+
+
+        .crop-card {
+
+            background:
+                rgba(255,255,255,.08);
+
+            border: 1px solid
+                rgba(255,255,255,.08);
+
+            border-radius: 16px;
+
+            padding: 17px;
+
+            transition: .3s;
+        }
+
+
+        .crop-card:hover {
+
+            transform: translateY(-4px);
+
+            background:
+                rgba(255,255,255,.12);
+        }
+
+
+        .crop-card-icon {
+
+            font-size: 27px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .crop-card h3 {
+
+            font-size: 13px;
+
+            margin-bottom: 4px;
+        }
+
+
+        .crop-card p {
+
+            color: #a9c1b0;
+
+            font-size: 8px;
+
+            line-height: 1.6;
+        }
+
+
+        .crop-match {
+
+            display: inline-block;
+
+            margin-top: 10px;
+
+            color: #7be09a;
+
+            font-size: 8px;
+
+            font-weight: 800;
+        }
+
+
+        /* =================================
+                 EXTRA INFORMATION
+        ================================= */
+
+        .crop-info {
+
+            max-width: 1100px;
+
+            margin: 25px auto 0;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 17px;
+        }
+
+
+        .info-card {
+
+            background: white;
+
+            border: 1px solid #e4ebe3;
+
+            border-radius: 18px;
+
+            padding: 21px;
+
+            transition: .3s;
+        }
+
+
+        .info-card:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 15px 30px
+                rgba(30,70,40,.07);
+        }
+
+
+        .info-icon {
+
+            width: 44px;
+
+            height: 44px;
+
+            border-radius: 12px;
+
+            background: #e5f5e7;
+
+            color: #29864b;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 13px;
+        }
+
+
+        .info-card h3 {
+
+            color: #173f2b;
+
+            font-size: 13px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .info-card p {
+
+            color: #7b887f;
+
+            font-size: 9px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =================================
+                 RESPONSIVE
+        ================================= */
+
+        @media(max-width:850px) {
+
+            .crop-dashboard {
+
+                grid-template-columns: 1fr;
+            }
+
+            .crop-info {
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media(max-width:550px) {
+
+            .crop-page {
+
+                padding: 50px 18px;
+            }
+
+            .crop-form,
+            .crop-result {
+
+                padding: 22px;
+            }
+
+            .crop-list {
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
 
 </head>
 
+
 <body>
 
-<header>
 
-<h1>🌾 Recommended Crops</h1>
+<!-- =========================================
+                    HEADER
+========================================= -->
+
+<header class="navbar">
+
+    <a href="index.html"
+       class="brand">
+
+        <div class="brand-icon">
+
+            <i class="fa-solid fa-seedling"></i>
+
+        </div>
+
+        <div>
+
+            <strong>Smart Agro</strong>
+
+            <span>CARE</span>
+
+        </div>
+
+    </a>
+
+
+    <nav class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="soil.html">
+            Soil
+        </a>
+
+        <a href="disease.html">
+            Disease
+        </a>
+
+        <a href="weather.html">
+            Weather
+        </a>
+
+        <a href="crop.html"
+           class="active">
+            Crops
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+    </nav>
+
+
+    <div class="nav-actions">
+
+        <a href="login.html"
+           class="login-link">
+            Login
+        </a>
+
+        <a href="signup.html"
+           class="nav-button">
+            Get Started
+        </a>
+
+    </div>
 
 </header>
 
-<div class="cards">
 
-<div class="card">
 
-<h2>Rice</h2>
+<!-- =========================================
+                MAIN PAGE
+========================================= -->
 
-<p>Best Soil : Alluvial</p>
+<main class="crop-page">
 
-<p>Water : 1200-1500 mm</p>
 
-</div>
+    <!-- HEADING -->
 
-<div class="card">
+    <section class="crop-heading">
 
-<h2>Cotton</h2>
+        <span class="crop-label">
+            SMART CROP ADVISOR
+        </span>
 
-<p>Best Soil : Black Soil</p>
 
-<p>Water : 700 mm</p>
+        <h1>
 
-</div>
+            Grow what your<br>
 
-<div class="card">
+            <span>land loves.</span>
 
-<h2>Groundnut</h2>
+        </h1>
 
-<p>Best Soil : Red Soil</p>
 
-<p>Water : 500 mm</p>
+        <p>
 
-</div>
+            Select your soil, season and water
+            conditions to explore crop options
+            that may suit your farming situation.
 
-</div>
+        </p>
+
+    </section>
+
+
+
+    <!-- DASHBOARD -->
+
+    <div class="crop-dashboard">
+
+
+        <!-- =====================================
+                    FORM
+        ====================================== -->
+
+        <div class="crop-form">
+
+
+            <div class="form-header">
+
+                <div class="form-icon">
+
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h2>
+                        Farm Details
+                    </h2>
+
+                    <p>
+                        Tell us about your field
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- LOCATION -->
+
+            <div class="form-group">
+
+                <label>
+                    FARM LOCATION
+                </label>
+
+                <input
+                    id="location"
+                    class="location-input"
+                    type="text"
+                    placeholder="e.g. Pune">
+
+            </div>
+
+
+
+            <!-- SOIL -->
+
+            <div class="form-group">
+
+                <label>
+                    SOIL TYPE
+                </label>
+
+
+                <div class="select-wrapper">
+
+                    <select id="soil">
+
+                        <option value="">
+                            Select soil type
+                        </option>
+
+                        <option value="black">
+                            Black Soil
+                        </option>
+
+                        <option value="red">
+                            Red Soil
+                        </option>
+
+                        <option value="alluvial">
+                            Alluvial Soil
+                        </option>
+
+                        <option value="loamy">
+                            Loamy Soil
+                        </option>
+
+                        <option value="sandy">
+                            Sandy Soil
+                        </option>
+
+                    </select>
+
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SEASON -->
+
+            <div class="form-group">
+
+                <label>
+                    SEASON
+                </label>
+
+
+                <div class="select-wrapper">
+
+                    <select id="season">
+
+                        <option value="">
+                            Select season
+                        </option>
+
+                        <option value="kharif">
+                            Kharif
+                        </option>
+
+                        <option value="rabi">
+                            Rabi
+                        </option>
+
+                        <option value="zaid">
+                            Zaid
+                        </option>
+
+                    </select>
+
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- WATER -->
+
+            <div class="form-group">
+
+                <label>
+                    WATER AVAILABILITY
+                </label>
+
+
+                <div class="select-wrapper">
+
+                    <select id="water">
+
+                        <option value="">
+                            Select water availability
+                        </option>
+
+                        <option value="high">
+                            High
+                        </option>
+
+                        <option value="medium">
+                            Medium
+                        </option>
+
+                        <option value="low">
+                            Low
+                        </option>
+
+                    </select>
+
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CLIMATE -->
+
+            <div class="form-group">
+
+                <label>
+                    CLIMATE
+                </label>
+
+
+                <div class="select-wrapper">
+
+                    <select id="climate">
+
+                        <option value="">
+                            Select climate
+                        </option>
+
+                        <option value="hot">
+                            Hot
+                        </option>
+
+                        <option value="moderate">
+                            Moderate
+                        </option>
+
+                        <option value="cool">
+                            Cool
+                        </option>
+
+                    </select>
+
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- BUTTON -->
+
+            <button
+                class="recommend-button"
+                onclick="recommendCrops()">
+
+                <i class="fa-solid fa-seedling"></i>
+
+                Find Suitable Crops
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =====================================
+                    RESULT
+        ====================================== -->
+
+        <div class="crop-result">
+
+
+            <div class="result-top">
+
+                <div>
+
+                    <h2>
+                        Crop Recommendations
+                    </h2>
+
+                    <p>
+                        Personalized field suggestions
+                    </p>
+
+                </div>
+
+
+                <div class="smart-badge">
+
+                    ✦ SMART GUIDE
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DEFAULT -->
+
+            <div
+                class="default-result"
+                id="defaultResult">
+
+                <div class="default-icon">
+
+                    <i class="fa-solid fa-leaf"></i>
+
+                </div>
+
+
+                <h3>
+                    Your crops are waiting
+                </h3>
+
+
+                <p>
+
+                    Fill in your farm details and
+                    click the button to explore
+                    suitable crop options.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- RECOMMENDATIONS -->
+
+            <div
+                class="recommendations"
+                id="recommendations">
+
+                <div class="recommend-title">
+
+                    RECOMMENDED FOR YOUR FIELD
+
+                </div>
+
+
+                <div
+                    class="crop-list"
+                    id="cropList">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================
+                    INFO CARDS
+    ====================================== -->
+
+    <div class="crop-info">
+
+
+        <div class="info-card">
+
+            <div class="info-icon">
+
+                <i class="fa-solid fa-mountain-sun"></i>
+
+            </div>
+
+            <h3>
+                Soil Matters
+            </h3>
+
+            <p>
+
+                Different crops perform better
+                under different soil conditions.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="info-card">
+
+            <div class="info-icon">
+
+                <i class="fa-solid fa-cloud-sun"></i>
+
+            </div>
+
+            <h3>
+                Follow the Season
+            </h3>
+
+            <p>
+
+                Choosing crops according to
+                seasonal conditions can improve
+                planning.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="info-card">
+
+            <div class="info-icon">
+
+                <i class="fa-solid fa-water"></i>
+
+            </div>
+
+            <h3>
+                Save Water
+            </h3>
+
+            <p>
+
+                Consider water availability when
+                selecting crops for your field.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<!-- =========================================
+                 JAVASCRIPT
+========================================= -->
+
+<script>
+
+
+function recommendCrops() {
+
+
+    const soil =
+        document.getElementById(
+            "soil"
+        ).value;
+
+
+    const season =
+        document.getElementById(
+            "season"
+        ).value;
+
+
+    const water =
+        document.getElementById(
+            "water"
+        ).value;
+
+
+    const climate =
+        document.getElementById(
+            "climate"
+        ).value;
+
+
+    const location =
+        document.getElementById(
+            "location"
+        ).value.trim();
+
+
+    if (
+        soil === "" ||
+        season === "" ||
+        water === "" ||
+        climate === ""
+    ) {
+
+        alert(
+            "Please select all farm details."
+        );
+
+        return;
+
+    }
+
+
+    let crops = [];
+
+
+    /* ==============================
+            CROP RULES
+    ============================== */
+
+
+    if (
+        soil === "black" &&
+        season === "kharif"
+    ) {
+
+        crops = [
+
+            {
+                icon: "🌱",
+                name: "Cotton",
+                text:
+                    "Often associated with black soil and warm seasonal conditions.",
+                match: "HIGH MATCH"
+            },
+
+            {
+                icon: "🌾",
+                name: "Soybean",
+                text:
+                    "A common Kharif crop suitable for several black-soil regions.",
+                match: "HIGH MATCH"
+            },
+
+            {
+                icon: "🌻",
+                name: "Sunflower",
+                text:
+                    "Can be considered depending on rainfall and field conditions.",
+                match: "GOOD MATCH"
+            },
+
+            {
+                icon: "🌽",
+                name: "Maize",
+                text:
+                    "Can be considered where moisture and nutrients are adequate.",
+                match: "GOOD MATCH"
+            }
+
+        ];
+
+    }
+
+
+    else if (
+        soil === "black" &&
+        season === "rabi"
+    ) {
+
+        crops = [
+
+            {
+                icon: "🌾",
+                name: "Wheat",
+                text:
+                    "A common Rabi crop that can perform well under suitable soil and climate conditions.",
+                match: "HIGH MATCH"
+            },
+
+            {
+                icon: "🫘",
+                name: "Chickpea",
+                text:
+                    "A useful Rabi pulse option in suitable black-soil areas.",
+                match: "HIGH MATCH"
+            },
+
+            {
+                icon: "🌻",
+                name: "Safflower",
+                text:
+                    "Can be considered in suitable low-to-moderate moisture conditions.",
+                match: "GOOD MATCH"
+            },
+
+            {
+                icon: "🌱",
+                name: "Linseed",
+                text:
+                    "May be suitable in selected Rabi farming conditions.",
+                match: "GOOD MATCH"
+            }
+
+        ];
+
+    }
+
+
+    else if (
+        soil === "red"
+    ) {
+
+        crops = [
+
+            {
+                icon: "🌾",
+                name: "Groundnut",
+                text:
+                    "Often grown in well-drained soils under suitable climate conditions.",
+                match: "HIGH MATCH"
+            },
+
+            {
+                icon: "🌱",
+                name: "Millets",
+                text:
+                    "Several millet varieties can tolerate relatively lower water availability.",
+                match: "HIGH MATCH"
+            },
+
+            {
+                icon: "🫘",
+                name: "Pigeon Pea",
+                text:
+                    "Can be considered in suitable warm and well-drained conditions.",
+                match: "GOOD MATCH"
+            },
+
+            {
+                icon: "🌽",
+                name: "Maize",
+                text:
+                    "Can perform well when moisture and nutrients are managed.",
+                match: "GOOD MATCH"
+            }
+
+        ];
+
+    }
+
+
+    else if (
+        soil === "alluvial"
+    ) {
+
+        crops = [
+
+            {
+                icon: "🌾",
+                name: "Rice",
+                text:
+                    "Suitable where water availability and field conditions support cultivation.",
+                match: "HIGH MATCH"
+            },
+
+            {
+                icon: "🌾",
+                name: "Wheat",
+                text:
+                    "A major crop that can be considered under suitable Rabi conditions.",
+                match: "HIGH MATCH"
+            },
+
+            {
+                icon: "🌱",
+                name: "Sugarcane",
+                text:
+                    "Requires substantial water and a suitable growing environment.",
+                match: "GOOD MATCH"
+            },
+
+            {
+                icon: "🫘",
+                name: "Pulses",
+                text:
+                    "Various pulses may be considered depending on season and climate.",
+                match: "GOOD MATCH"
+            }
+
+        ];
+
+    }
+
+
+    else if (
+        soil === "loamy"
+    ) {
+
+        crops = [
+
+            {
+                icon: "🌾",
+                name: "Wheat",
+                text:
+                    "Loamy soils can provide favorable conditions for wheat under suitable management.",
+                match: "HIGH MATCH"
+            },
+
+            {
+                icon: "🌽",
+                name: "Maize",
+                text:
+                    "Can perform well when nutrients and moisture are maintained.",
+                match: "HIGH MATCH"
+            },
+
+            {
+                icon: "🥕",
+                name: "Vegetables",
+                text:
+                    "Many vegetables can be grown in well-managed loamy soil.",
+                match: "GOOD MATCH"
+            },
+
+            {
+                icon: "🫘",
+                name: "Pulses",
+                text:
+                    "Suitable pulse varieties can be selected based on season.",
+                match: "GOOD MATCH"
+            }
+
+        ];
+
+    }
+
+
+    else if (
+        soil === "sandy"
+    ) {
+
+        crops = [
+
+            {
+                icon: "🥜",
+                name: "Groundnut",
+                text:
+                    "Well-drained sandy soil can be suitable for groundnut.",
+                match: "HIGH MATCH"
+            },
+
+            {
+                icon: "🌱",
+                name: "Millets",
+                text:
+                    "Some millet crops can be considered under lower-water conditions.",
+                match: "HIGH MATCH"
+            },
+
+            {
+                icon: "🍉",
+                name: "Watermelon",
+                text:
+                    "Can be considered in suitable warm conditions with adequate irrigation.",
+                match: "GOOD MATCH"
+            },
+
+            {
+                icon: "🥕",
+                name: "Root Crops",
+                text:
+                    "Some root vegetables may perform well in loose soil.",
+                match: "GOOD MATCH"
+            }
+
+        ];
+
+    }
+
+
+    else {
+
+        crops = [
+
+            {
+                icon: "🌾",
+                name: "Wheat",
+                text:
+                    "Consider suitable wheat varieties based on local conditions.",
+                match: "GOOD MATCH"
+            },
+
+            {
+                icon: "🌽",
+                name: "Maize",
+                text:
+                    "Consider maize where moisture and temperature are suitable.",
+                match: "GOOD MATCH"
+            },
+
+            {
+                icon: "🫘",
+                name: "Pulses",
+                text:
+                    "Pulses may provide another crop option depending on season.",
+                match: "GOOD MATCH"
+            },
+
+            {
+                icon: "🌱",
+                name: "Millets",
+                text:
+                    "Millets can be considered where lower water demand is useful.",
+                match: "GOOD MATCH"
+            }
+
+        ];
+
+    }
+
+
+
+    /* =================================
+             SHOW RESULT
+    ================================= */
+
+
+    const list =
+        document.getElementById(
+            "cropList"
+        );
+
+
+    list.innerHTML = "";
+
+
+    crops.forEach(
+        function(crop) {
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "crop-card";
+
+
+            card.innerHTML = `
+
+                <div class="crop-card-icon">
+                    ${crop.icon}
+                </div>
+
+                <h3>
+                    ${crop.name}
+                </h3>
+
+                <p>
+                    ${crop.text}
+                </p>
+
+                <span class="crop-match">
+                    ✓ ${crop.match}
+                </span>
+
+            `;
+
+
+            list.appendChild(card);
+
+        }
+    );
+
+
+    document.getElementById(
+        "defaultResult"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "recommendations"
+    ).style.display = "block";
+
+
+}
+
+
+</script>
+
 
 </body>
 
