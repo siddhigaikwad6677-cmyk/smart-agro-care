@@ -217,3 +217,16 @@ async function sendMessage() {
     }
 
 }
+function testVoice() {
+
+    const speech = new SpeechSynthesisUtterance(
+        "Hello, welcome to Smart Agro Care"
+    );
+
+    speech.lang = "en-IN";
+    speech.rate = 0.9;
+    speech.volume = 1;
+
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(speech);
+}
