@@ -217,16 +217,115 @@ async function sendMessage() {
     }
 
 }
-function testVoice() {
+function speakAnswer(answer, language) {
+    ...
+}
+function speakAnswer(answer, language) {
 
-    const speech = new SpeechSynthesisUtterance(
-        "Hello, welcome to Smart Agro Care"
-    );
+    if (!("speechSynthesis" in window)) {
 
-    speech.lang = "en-IN";
-    speech.rate = 0.9;
+        alert(
+            "Voice response is not supported in this browser."
+        );
+
+        return;
+    }
+
+    // Stop previous speech
+    speechSynthesis.cancel();
+
+    const speech =
+        new SpeechSynthesisUtterance(answer);
+
+    speech.lang = language;
+
+    speech.rate = 0.85;
+    speech.pitch = 1;
     speech.volume = 1;
 
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(speech);
+
+    // Get available voices
+    const voices =
+        speechSynthesis.getVoices();
+
+
+    // Find matching language voice
+    let voice =
+        voices.find(v =>
+            v.lang.toLowerCase() ===
+            language.toLowerCase()
+        );
+
+
+    // If exact voice isn't available,
+    // find same language
+    if (!voice) {
+
+        const shortLanguage =
+            language
+                .split("-")[0]
+                .toLowerCase();
+
+        voice =
+            voices.find(v =>
+                v.lang
+                    .toLowerCase()
+                    .startsWith(shortLanguage)
+            );
+
+    }
+
+
+    if (voice) {
+
+        speech.voice = voice;
+
+        console.log(
+            "Using voice:",
+            voice.name,
+            voice.lang
+        );
+
+    }
+    else {
+
+        console.log(
+            "No matching voice found."
+        );
+
+        // fallback
+        speech.lang = "en-IN";
+
+    }
+
+
+    speech.onstart = function() {
+
+        console.log(
+            "🔊 Voice started"
+        );
+
+    };
+
+
+    speech.onend = function() {
+
+        console.log(
+            "🔊 Voice finished"
+        );
+
+    };
+
+
+    speech.onerror = function(event) {
+
+        console.log(
+            "Voice error:",
+            event.error
+        );
+
+    };
+
+
+    speechSynthesis.speak(speech);
 }
