@@ -1,65 +1,1183 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Weather</title>
+    <title>Weather Intelligence | Smart Agro Care</title>
 
-<link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* ================================
+              WEATHER PAGE
+        ================================= */
+
+        .weather-page {
+            min-height: 100vh;
+            padding: 65px 7%;
+
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    #dff5e5,
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 80%,
+                    #dceeff,
+                    transparent 30%
+                ),
+                #f7faf5;
+        }
+
+
+        .weather-heading {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+
+        .weather-label {
+            color: #35a85b;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+
+        .weather-heading h1 {
+            font-family: "Playfair Display", serif;
+
+            color: #123b27;
+
+            font-size:
+                clamp(42px, 5vw, 62px);
+
+            line-height: 1.1;
+
+            margin: 10px 0 15px;
+        }
+
+
+        .weather-heading h1 span {
+            color: #35a85b;
+            font-style: italic;
+        }
+
+
+        .weather-heading p {
+            color: #718078;
+
+            max-width: 650px;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+        }
+
+
+        /* SEARCH */
+
+        .location-box {
+            max-width: 1100px;
+
+            margin: 35px auto 0;
+
+            display: flex;
+
+            gap: 10px;
+        }
+
+
+        .location-input {
+            flex: 1;
+
+            background: white;
+
+            border: 1px solid #dfe8df;
+
+            border-radius: 14px;
+
+            padding: 15px 18px;
+
+            outline: none;
+
+            font-family: inherit;
+
+            color: #234b35;
+        }
+
+
+        .location-input:focus {
+            border-color: #35a85b;
+
+            box-shadow:
+                0 0 0 4px
+                rgba(53,168,91,.08);
+        }
+
+
+        .location-button {
+            border: none;
+
+            padding: 0 23px;
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #176b3a,
+                    #35a85b
+                );
+
+            color: white;
+
+            font-family: inherit;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+
+        .location-button:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 25px
+                rgba(23,107,58,.2);
+        }
+
+
+        /* WEATHER GRID */
+
+        .weather-dashboard {
+            max-width: 1100px;
+
+            margin: 22px auto 0;
+
+            display: grid;
+
+            grid-template-columns:
+                1.1fr .9fr;
+
+            gap: 20px;
+        }
+
+
+        /* CURRENT WEATHER */
+
+        .current-weather {
+            min-height: 330px;
+
+            border-radius: 25px;
+
+            padding: 30px;
+
+            color: white;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #145c35,
+                    #2d9560
+                );
+
+            box-shadow:
+                0 20px 45px
+                rgba(23,107,58,.15);
+        }
+
+
+        .current-weather::after {
+            content: "";
+
+            position: absolute;
+
+            width: 260px;
+            height: 260px;
+
+            border-radius: 50%;
+
+            right: -90px;
+            top: -90px;
+
+            background:
+                rgba(255,255,255,.08);
+        }
+
+
+        .weather-top {
+            display: flex;
+
+            justify-content: space-between;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .weather-top h2 {
+            font-size: 20px;
+        }
+
+
+        .weather-top p {
+            color: #b8d7c1;
+
+            font-size: 10px;
+
+            margin-top: 5px;
+        }
+
+
+        .weather-icon-large {
+            font-size: 55px;
+
+            margin-top: 28px;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .temperature {
+            font-size: 64px;
+
+            font-weight: 800;
+
+            line-height: 1;
+
+            margin-top: 12px;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .condition {
+            color: #c0ddc8;
+
+            font-size: 12px;
+
+            margin-top: 7px;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .weather-location {
+            position: absolute;
+
+            right: 30px;
+            bottom: 30px;
+
+            color: #c4dfcc;
+
+            font-size: 10px;
+        }
+
+
+        /* STATS */
+
+        .weather-stats {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2,1fr);
+
+            gap: 15px;
+        }
+
+
+        .weather-stat {
+            background: white;
+
+            border: 1px solid #e4ebe3;
+
+            border-radius: 18px;
+
+            padding: 22px;
+
+            transition: .3s;
+        }
+
+
+        .weather-stat:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 15px 30px
+                rgba(30,70,40,.07);
+        }
+
+
+        .stat-icon {
+            width: 43px;
+            height: 43px;
+
+            border-radius: 12px;
+
+            background: #e6f5e8;
+
+            color: #29864b;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 15px;
+        }
+
+
+        .weather-stat strong {
+            display: block;
+
+            color: #173f2b;
+
+            font-size: 22px;
+        }
+
+
+        .weather-stat span {
+            color: #849088;
+
+            font-size: 9px;
+        }
+
+
+        /* FORECAST */
+
+        .forecast-section {
+            max-width: 1100px;
+
+            margin: 25px auto 0;
+        }
+
+
+        .section-title {
+            color: #173f2b;
+
+            font-size: 18px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .forecast {
+            display: grid;
+
+            grid-template-columns:
+                repeat(5,1fr);
+
+            gap: 12px;
+        }
+
+
+        .forecast-card {
+            background: white;
+
+            border: 1px solid #e5ece4;
+
+            border-radius: 17px;
+
+            padding: 20px 12px;
+
+            text-align: center;
+
+            transition: .3s;
+        }
+
+
+        .forecast-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 15px 30px
+                rgba(30,70,40,.07);
+        }
+
+
+        .forecast-day {
+            color: #718078;
+
+            font-size: 10px;
+
+            font-weight: 700;
+        }
+
+
+        .forecast-icon {
+            color: #48a966;
+
+            font-size: 25px;
+
+            margin: 15px 0;
+        }
+
+
+        .forecast-temp {
+            color: #173f2b;
+
+            font-size: 18px;
+
+            font-weight: 800;
+        }
+
+
+        .forecast-rain {
+            color: #6d9e80;
+
+            font-size: 8px;
+
+            margin-top: 6px;
+        }
+
+
+        /* FARMING ADVICE */
+
+        .farming-advice {
+            max-width: 1100px;
+
+            margin: 25px auto 0;
+
+            background: white;
+
+            border: 1px solid #e4ebe3;
+
+            border-radius: 22px;
+
+            padding: 25px;
+        }
+
+
+        .advice-heading {
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .advice-heading-icon {
+            width: 45px;
+            height: 45px;
+
+            border-radius: 13px;
+
+            background: #e5f5e7;
+
+            color: #28864a;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        .advice-heading h2 {
+            color: #173f2b;
+
+            font-size: 17px;
+        }
+
+
+        .advice-heading p {
+            color: #8a968e;
+
+            font-size: 9px;
+
+            margin-top: 3px;
+        }
+
+
+        .advice-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 15px;
+        }
+
+
+        .advice-item {
+            background: #f8fbf7;
+
+            border-radius: 15px;
+
+            padding: 17px;
+
+            border: 1px solid #edf2ec;
+        }
+
+
+        .advice-item i {
+            color: #36a75b;
+
+            margin-bottom: 10px;
+        }
+
+
+        .advice-item h3 {
+            color: #234b35;
+
+            font-size: 12px;
+
+            margin-bottom: 6px;
+        }
+
+
+        .advice-item p {
+            color: #7c8981;
+
+            font-size: 9px;
+
+            line-height: 1.7;
+        }
+
+
+        /* RESPONSIVE */
+
+        @media(max-width:850px) {
+
+            .weather-dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .forecast {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+            .advice-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media(max-width:550px) {
+
+            .weather-page {
+                padding: 50px 18px;
+            }
+
+            .location-box {
+                flex-direction: column;
+            }
+
+            .location-button {
+                padding: 14px;
+            }
+
+            .weather-stats {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
 
 </head>
 
+
 <body>
 
-<header>
 
-<h1>🌦 Weather Information</h1>
+<!-- ==========================================
+                    HEADER
+========================================== -->
+
+<header class="navbar">
+
+    <a href="index.html"
+       class="brand">
+
+        <div class="brand-icon">
+
+            <i class="fa-solid fa-seedling"></i>
+
+        </div>
+
+        <div>
+
+            <strong>Smart Agro</strong>
+
+            <span>CARE</span>
+
+        </div>
+
+    </a>
+
+
+    <nav class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="soil.html">
+            Soil
+        </a>
+
+        <a href="disease.html">
+            Disease
+        </a>
+
+        <a href="weather.html"
+           class="active">
+            Weather
+        </a>
+
+        <a href="crop.html">
+            Crops
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+    </nav>
+
+
+    <div class="nav-actions">
+
+        <a href="login.html"
+           class="login-link">
+            Login
+        </a>
+
+        <a href="signup.html"
+           class="nav-button">
+            Get Started
+        </a>
+
+    </div>
 
 </header>
 
-<div class="card">
 
-<h2>Today's Weather</h2>
 
-<p>🌡 Temperature : 30°C</p>
+<!-- ==========================================
+                WEATHER PAGE
+========================================== -->
 
-<p>💧 Humidity : 70%</p>
+<main class="weather-page">
 
-<p>🌧 Rainfall : Moderate</p>
 
-<p>💨 Wind Speed : 12 km/h</p>
+    <div class="weather-heading">
 
-<p>🌤 Suitable for Irrigation Today.</p>
+        <span class="weather-label">
+            WEATHER INTELLIGENCE
+        </span>
 
-</div>
+
+        <h1>
+
+            Weather that works<br>
+
+            <span>for your farm.</span>
+
+        </h1>
+
+
+        <p>
+
+            Check local weather conditions and
+            understand how temperature, rainfall,
+            humidity and wind can affect farming.
+
+        </p>
+
+    </div>
+
+
+
+    <!-- LOCATION -->
+
+    <div class="location-box">
+
+        <input
+            type="text"
+            id="locationInput"
+            class="location-input"
+            placeholder="Enter village, city or district...">
+
+        <button
+            class="location-button"
+            onclick="changeLocation()">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+            Check Weather
+
+        </button>
+
+    </div>
+
+
+
+    <!-- WEATHER DASHBOARD -->
+
+    <div class="weather-dashboard">
+
+
+        <!-- CURRENT -->
+
+        <div class="current-weather">
+
+            <div class="weather-top">
+
+                <div>
+
+                    <h2 id="locationName">
+                        Pune
+                    </h2>
+
+                    <p id="dateText">
+                        Today's weather
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="weather-icon-large">
+
+                ☀️
+
+            </div>
+
+
+            <div class="temperature">
+
+                28°
+
+            </div>
+
+
+            <div class="condition">
+
+                Sunny & Pleasant
+
+            </div>
+
+
+            <div class="weather-location">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                Maharashtra, India
+
+            </div>
+
+        </div>
+
+
+
+        <!-- STATS -->
+
+        <div class="weather-stats">
+
+
+            <div class="weather-stat">
+
+                <div class="stat-icon">
+
+                    <i class="fa-solid fa-droplet"></i>
+
+                </div>
+
+                <strong>
+                    62%
+                </strong>
+
+                <span>
+                    HUMIDITY
+                </span>
+
+            </div>
+
+
+            <div class="weather-stat">
+
+                <div class="stat-icon">
+
+                    <i class="fa-solid fa-cloud-rain"></i>
+
+                </div>
+
+                <strong>
+                    15%
+                </strong>
+
+                <span>
+                    RAIN CHANCE
+                </span>
+
+            </div>
+
+
+            <div class="weather-stat">
+
+                <div class="stat-icon">
+
+                    <i class="fa-solid fa-wind"></i>
+
+                </div>
+
+                <strong>
+                    12 km/h
+                </strong>
+
+                <span>
+                    WIND SPEED
+                </span>
+
+            </div>
+
+
+            <div class="weather-stat">
+
+                <div class="stat-icon">
+
+                    <i class="fa-solid fa-temperature-half"></i>
+
+                </div>
+
+                <strong>
+                    31°
+                </strong>
+
+                <span>
+                    FEELS LIKE
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- FORECAST -->
+
+    <section class="forecast-section">
+
+        <h2 class="section-title">
+            5-Day Forecast
+        </h2>
+
+
+        <div class="forecast">
+
+
+            <div class="forecast-card">
+
+                <div class="forecast-day">
+                    TODAY
+                </div>
+
+                <div class="forecast-icon">
+                    ☀️
+                </div>
+
+                <div class="forecast-temp">
+                    28°
+                </div>
+
+                <div class="forecast-rain">
+                    💧 15% rain
+                </div>
+
+            </div>
+
+
+            <div class="forecast-card">
+
+                <div class="forecast-day">
+                    TOMORROW
+                </div>
+
+                <div class="forecast-icon">
+                    🌤️
+                </div>
+
+                <div class="forecast-temp">
+                    29°
+                </div>
+
+                <div class="forecast-rain">
+                    💧 20% rain
+                </div>
+
+            </div>
+
+
+            <div class="forecast-card">
+
+                <div class="forecast-day">
+                    SAT
+                </div>
+
+                <div class="forecast-icon">
+                    🌦️
+                </div>
+
+                <div class="forecast-temp">
+                    27°
+                </div>
+
+                <div class="forecast-rain">
+                    💧 45% rain
+                </div>
+
+            </div>
+
+
+            <div class="forecast-card">
+
+                <div class="forecast-day">
+                    SUN
+                </div>
+
+                <div class="forecast-icon">
+                    🌧️
+                </div>
+
+                <div class="forecast-temp">
+                    25°
+                </div>
+
+                <div class="forecast-rain">
+                    💧 70% rain
+                </div>
+
+            </div>
+
+
+            <div class="forecast-card">
+
+                <div class="forecast-day">
+                    MON
+                </div>
+
+                <div class="forecast-icon">
+                    🌤️
+                </div>
+
+                <div class="forecast-temp">
+                    28°
+                </div>
+
+                <div class="forecast-rain">
+                    💧 25% rain
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- FARMING ADVICE -->
+
+    <section class="farming-advice">
+
+
+        <div class="advice-heading">
+
+            <div class="advice-heading-icon">
+
+                <i class="fa-solid fa-tractor"></i>
+
+            </div>
+
+            <div>
+
+                <h2>
+                    Today's Farming Advice
+                </h2>
+
+                <p>
+                    Simple weather-based suggestions
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="advice-grid">
+
+
+            <div class="advice-item">
+
+                <i class="fa-solid fa-droplet"></i>
+
+                <h3>
+                    Irrigation
+                </h3>
+
+                <p>
+
+                    With moderate humidity and low
+                    rain probability, check soil moisture
+                    before irrigation.
+
+                </p>
+
+            </div>
+
+
+            <div class="advice-item">
+
+                <i class="fa-solid fa-seedling"></i>
+
+                <h3>
+                    Crop Care
+                </h3>
+
+                <p>
+
+                    Morning field inspection can help
+                    identify early signs of crop stress.
+
+                </p>
+
+            </div>
+
+
+            <div class="advice-item">
+
+                <i class="fa-solid fa-cloud-sun"></i>
+
+                <h3>
+                    Field Work
+                </h3>
+
+                <p>
+
+                    Pleasant weather may be suitable
+                    for routine field activities.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<script>
+
+function changeLocation() {
+
+    const input =
+        document.getElementById(
+            "locationInput"
+        );
+
+    const locationName =
+        document.getElementById(
+            "locationName"
+        );
+
+
+    const location =
+        input.value.trim();
+
+
+    if (location === "") {
+
+        alert(
+            "Please enter a location."
+        );
+
+        return;
+
+    }
+
+
+    locationName.innerText =
+        location;
+
+
+    alert(
+        "Weather dashboard updated for " +
+        location +
+        "."
+    );
+
+}
+
+
+/* CURRENT DATE */
+
+const dateText =
+    document.getElementById(
+        "dateText"
+    );
+
+
+const today =
+    new Date();
+
+
+dateText.innerText =
+    today.toLocaleDateString(
+        "en-IN",
+        {
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        }
+    );
+
+</script>
+
 
 </body>
 
 </html>
-<h2>🌦 Today's Weather</h2>
-
-<p>Temperature : 30°C</p>
-
-<p>Humidity : 70%</p>
-
-<p>Rainfall : Moderate</p>
-
-<p>Wind : 12 km/h</p>
-<select id="district">
-
-<option>Kolhapur</option>
-
-<option>Pune</option>
-
-<option>Sangli</option>
-
-<option>Satara</option>
-
-</select>
-
-<button onclick="recommend()">
-
-Recommend Crop
-
-</button>
-
-<p id="crop"></p>
