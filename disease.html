@@ -3,153 +3,1712 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<title>Crop Disease Detection</title>
+    <title>Crop Doctor | Smart Agro Care</title>
 
-<link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- GOOGLE FONTS -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- FONT AWESOME -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <!-- MAIN CSS -->
+
+    <link rel="stylesheet"
+          href="style.css">
+
+
+    <style>
+
+        /* ==========================================
+                    DISEASE PAGE
+        ========================================== */
+
+        .disease-page {
+
+            min-height: 100vh;
+
+            padding: 65px 7%;
+
+            background:
+
+                radial-gradient(
+                    circle at 10% 10%,
+                    #e3f7e5,
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 90% 80%,
+                    #fff1cd,
+                    transparent 25%
+                ),
+
+                #f7faf5;
+
+        }
+
+
+        .disease-heading {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+        }
+
+
+        .disease-label {
+
+            color: #35a85b;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        .disease-heading h1 {
+
+            font-family:
+                "Playfair Display", serif;
+
+            color: #123b27;
+
+            font-size:
+                clamp(42px, 5vw, 62px);
+
+            line-height: 1.1;
+
+            margin: 10px 0 15px;
+
+        }
+
+
+        .disease-heading h1 span {
+
+            color: #35a85b;
+
+            font-style: italic;
+
+        }
+
+
+        .disease-heading p {
+
+            color: #718078;
+
+            max-width: 650px;
+
+            line-height: 1.8;
+
+            font-size: 14px;
+
+        }
+
+
+
+        /* ==========================================
+                    MAIN GRID
+        ========================================== */
+
+        .doctor-dashboard {
+
+            max-width: 1100px;
+
+            margin: 45px auto 0;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 22px;
+
+        }
+
+
+
+        /* ==========================================
+                    UPLOAD CARD
+        ========================================== */
+
+        .upload-card {
+
+            background: white;
+
+            border: 1px solid #e4ebe3;
+
+            border-radius: 25px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 20px 50px
+                rgba(30,70,40,.07);
+
+        }
+
+
+        .doctor-title {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .doctor-icon {
+
+            width: 52px;
+
+            height: 52px;
+
+            border-radius: 15px;
+
+            background: #e2f5e5;
+
+            color: #238149;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 22px;
+
+        }
+
+
+        .doctor-title h2 {
+
+            color: #173f2b;
+
+            font-size: 20px;
+
+        }
+
+
+        .doctor-title p {
+
+            color: #89958e;
+
+            font-size: 10px;
+
+            margin-top: 3px;
+
+        }
+
+
+
+        /* ==========================================
+                    DROP ZONE
+        ========================================== */
+
+        .drop-zone {
+
+            min-height: 320px;
+
+            border: 2px dashed #b9d9be;
+
+            border-radius: 20px;
+
+            background: #f8fcf8;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 25px;
+
+            cursor: pointer;
+
+            transition: .3s;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .drop-zone:hover {
+
+            border-color: #35a85b;
+
+            background: #f1faf2;
+
+        }
+
+
+        .drop-zone.dragover {
+
+            border-color: #35a85b;
+
+            background: #e7f7e9;
+
+            transform: scale(1.01);
+
+        }
+
+
+        .upload-icon {
+
+            width: 75px;
+
+            height: 75px;
+
+            border-radius: 22px;
+
+            background: #e3f5e6;
+
+            color: #2d9853;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 30px;
+
+            margin-bottom: 17px;
+
+        }
+
+
+        .drop-zone h3 {
+
+            color: #234b35;
+
+            font-size: 17px;
+
+        }
+
+
+        .drop-zone p {
+
+            color: #8a968e;
+
+            font-size: 10px;
+
+            margin-top: 7px;
+
+        }
+
+
+        .browse-button {
+
+            margin-top: 18px;
+
+            padding: 10px 17px;
+
+            border-radius: 20px;
+
+            background: #176b3a;
+
+            color: white;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+        }
+
+
+        .file-info {
+
+            margin-top: 13px;
+
+            color: #7c8981;
+
+            font-size: 9px;
+
+        }
+
+
+        #fileInput {
+
+            display: none;
+
+        }
+
+
+
+        /* ==========================================
+                    IMAGE PREVIEW
+        ========================================== */
+
+        .preview {
+
+            display: none;
+
+            width: 100%;
+
+            height: 300px;
+
+            object-fit: cover;
+
+            border-radius: 17px;
+
+        }
+
+
+        .remove-image {
+
+            display: none;
+
+            position: absolute;
+
+            right: 15px;
+
+            top: 15px;
+
+            width: 35px;
+
+            height: 35px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: rgba(20,50,30,.8);
+
+            color: white;
+
+            cursor: pointer;
+
+        }
+
+
+
+        /* ==========================================
+                    ANALYZE BUTTON
+        ========================================== */
+
+        .detect-button {
+
+            width: 100%;
+
+            border: none;
+
+            margin-top: 18px;
+
+            padding: 16px;
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #176b3a,
+                    #35a85b
+                );
+
+            color: white;
+
+            font-family: inherit;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 9px;
+
+            transition: .3s;
+
+        }
+
+
+        .detect-button:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 15px 30px
+                rgba(23,107,58,.25);
+
+        }
+
+
+
+        /* ==========================================
+                    RESULT CARD
+        ========================================== */
+
+        .diagnosis-card {
+
+            background: #173f2b;
+
+            color: white;
+
+            border-radius: 25px;
+
+            padding: 30px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            min-height: 500px;
+
+        }
+
+
+        .diagnosis-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+
+            height: 300px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(105,210,133,.08);
+
+            right: -130px;
+
+            top: -130px;
+
+        }
+
+
+        .diagnosis-header {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            justify-content: space-between;
+
+            position: relative;
+
+            z-index: 2;
+
+        }
+
+
+        .diagnosis-header h2 {
+
+            font-size: 20px;
+
+        }
+
+
+        .diagnosis-header p {
+
+            color: #a9c6b2;
+
+            font-size: 10px;
+
+            margin-top: 4px;
+
+        }
+
+
+        .ai-status {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            padding: 7px 10px;
+
+            background:
+                rgba(111,215,142,.12);
+
+            color: #7be09a;
+
+            border-radius: 20px;
+
+            font-size: 8px;
+
+            font-weight: 700;
+
+        }
+
+
+        .ai-dot {
+
+            width: 6px;
+
+            height: 6px;
+
+            border-radius: 50%;
+
+            background: #72d991;
+
+            box-shadow:
+                0 0 0 4px
+                rgba(114,217,145,.12);
+
+        }
+
+
+
+        /* ==========================================
+                    DIAGNOSIS RESULT
+        ========================================== */
+
+        .diagnosis-result {
+
+            position: relative;
+
+            z-index: 2;
+
+            margin-top: 35px;
+
+        }
+
+
+        .result-placeholder {
+
+            text-align: center;
+
+            padding: 55px 20px;
+
+        }
+
+
+        .result-placeholder-icon {
+
+            width: 80px;
+
+            height: 80px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,.07);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin: auto;
+
+            font-size: 30px;
+
+            color: #77d993;
+
+        }
+
+
+        .result-placeholder h3 {
+
+            margin-top: 18px;
+
+            font-size: 17px;
+
+        }
+
+
+        .result-placeholder p {
+
+            color: #91ad9a;
+
+            font-size: 10px;
+
+            line-height: 1.7;
+
+            margin-top: 7px;
+
+        }
+
+
+
+        /* RESULT CONTENT */
+
+        .result-content {
+
+            display: none;
+
+        }
+
+
+        .disease-name {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+        }
+
+
+        .disease-status-icon {
+
+            width: 48px;
+
+            height: 48px;
+
+            border-radius: 14px;
+
+            background: rgba(255,255,255,.08);
+
+            color: #7be09a;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 20px;
+
+        }
+
+
+        .disease-name h3 {
+
+            font-size: 20px;
+
+        }
+
+
+        .disease-name span {
+
+            display: block;
+
+            color: #9ebaa7;
+
+            font-size: 9px;
+
+            margin-top: 3px;
+
+        }
+
+
+
+        /* ==========================================
+                    CONFIDENCE
+        ========================================== */
+
+        .confidence {
+
+            margin-top: 28px;
+
+        }
+
+
+        .confidence-head {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            font-size: 10px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .confidence-head span {
+
+            color: #a5bda9;
+
+        }
+
+
+        .confidence-head strong {
+
+            color: #78df97;
+
+        }
+
+
+        .confidence-bar {
+
+            height: 8px;
+
+            border-radius: 20px;
+
+            background: #315640;
+
+            overflow: hidden;
+
+        }
+
+
+        .confidence-fill {
+
+            width: 91%;
+
+            height: 100%;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #46bc6c,
+                    #82e29c
+                );
+
+        }
+
+
+
+        /* ==========================================
+                    ADVICE
+        ========================================== */
+
+        .advice {
+
+            margin-top: 25px;
+
+            padding: 18px;
+
+            background:
+                rgba(255,255,255,.06);
+
+            border: 1px solid
+                rgba(255,255,255,.08);
+
+            border-radius: 15px;
+
+        }
+
+
+        .advice-title {
+
+            display: flex;
+
+            gap: 8px;
+
+            align-items: center;
+
+            color: #7be09a;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+        }
+
+
+        .advice p {
+
+            color: #a9c2af;
+
+            font-size: 10px;
+
+            line-height: 1.7;
+
+            margin-top: 8px;
+
+        }
+
+
+
+        /* ==========================================
+                    TIPS
+        ========================================== */
+
+        .tips {
+
+            max-width: 1100px;
+
+            margin: 25px auto 0;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 18px;
+
+        }
+
+
+        .tip-card {
+
+            background: white;
+
+            padding: 22px;
+
+            border-radius: 18px;
+
+            border: 1px solid #e5ece4;
+
+            transition: .3s;
+
+        }
+
+
+        .tip-card:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 15px 35px
+                rgba(30,70,40,.08);
+
+        }
+
+
+        .tip-icon {
+
+            width: 44px;
+
+            height: 44px;
+
+            border-radius: 12px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #e5f5e7;
+
+            color: #29844a;
+
+            margin-bottom: 14px;
+
+        }
+
+
+        .tip-card h3 {
+
+            color: #173f2b;
+
+            font-size: 14px;
+
+            margin-bottom: 6px;
+
+        }
+
+
+        .tip-card p {
+
+            color: #7b887f;
+
+            font-size: 10px;
+
+            line-height: 1.7;
+
+        }
+
+
+
+        /* ==========================================
+                    RESPONSIVE
+        ========================================== */
+
+        @media(max-width:850px) {
+
+            .doctor-dashboard {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .tips {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+
+        @media(max-width:550px) {
+
+            .disease-page {
+
+                padding: 50px 18px;
+
+            }
+
+
+            .upload-card,
+            .diagnosis-card {
+
+                padding: 22px;
+
+            }
+
+
+            .drop-zone {
+
+                min-height: 260px;
+
+            }
+
+        }
+
+    </style>
 
 </head>
 
+
 <body>
 
-<header>
 
-<div class="logo">
+<!-- ==========================================
+                    HEADER
+========================================== -->
 
-🌾 Smart Agro Care
+<header class="navbar">
 
-</div>
+    <a href="index.html"
+       class="brand">
 
-<nav>
+        <div class="brand-icon">
 
-<a href="index.html">Home</a>
+            <i class="fa-solid fa-seedling"></i>
 
-<a href="soil.html">Soil</a>
+        </div>
 
-<a href="disease.html">Disease</a>
+        <div>
 
-<a href="fertilizer.html">Fertilizer</a>
+            <strong>Smart Agro</strong>
 
-<a href="chatbot.html">AI Chatbot</a>
+            <span>CARE</span>
 
-<a href="contact.html">Contact</a>
+        </div>
 
-</nav>
+    </a>
+
+
+    <nav class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="soil.html">
+            Soil
+        </a>
+
+        <a href="disease.html"
+           class="active">
+            Disease
+        </a>
+
+        <a href="weather.html">
+            Weather
+        </a>
+
+        <a href="crop.html">
+            Crops
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+    </nav>
+
+
+    <div class="nav-actions">
+
+        <a href="login.html"
+           class="login-link">
+            Login
+        </a>
+
+        <a href="signup.html"
+           class="nav-button">
+            Get Started
+        </a>
+
+    </div>
 
 </header>
 
-<section class="disease-page">
 
-<h1>🌿 AI Crop Disease Detection</h1>
 
-<p>
+<!-- ==========================================
+                DISEASE PAGE
+========================================== -->
 
-Upload a crop image to detect diseases and get treatment suggestions.
+<main class="disease-page">
 
-</p>
 
-<div class="disease-container">
+    <!-- HEADING -->
 
-<div class="upload-box">
+    <div class="disease-heading">
 
-<img src="images/upload.png" width="120">
+        <span class="disease-label">
+            CROP DOCTOR • AI ASSISTANCE
+        </span>
 
-<h2>Upload Crop Image</h2>
+        <h1>
 
-<input type="file" id="cropImage">
+            Your crops deserve<br>
 
-<button onclick="detectDisease()">
+            <span>a healthy diagnosis.</span>
 
-🔍 Detect Disease
+        </h1>
 
-</button>
+        <p>
 
-</div>
+            Upload a clear image of your crop leaf.
+            Smart Agro Care can demonstrate how an
+            AI-powered crop health system could
+            organize a disease assessment.
 
-<div class="result-box">
+        </p>
 
-<h2>Detection Result</h2>
+    </div>
 
-<p><b>Disease:</b> <span id="disease">-</span></p>
 
-<p><b>Confidence:</b> <span id="accuracy">-</span></p>
 
-<p><b>Treatment:</b> <span id="treatment">-</span></p>
+    <!-- DASHBOARD -->
 
-<p><b>Prevention:</b> <span id="prevention">-</span></p>
+    <div class="doctor-dashboard">
 
-</div>
 
-</div>
+        <!-- ======================================
+                    UPLOAD
+        ======================================= -->
 
-</section>
+        <div class="upload-card">
+
+
+            <div class="doctor-title">
+
+                <div class="doctor-icon">
+
+                    <i class="fa-solid fa-camera"></i>
+
+                </div>
+
+                <div>
+
+                    <h2>
+                        Upload Crop Image
+                    </h2>
+
+                    <p>
+                        Use a clear photo of the leaf
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DROP ZONE -->
+
+            <div class="drop-zone"
+                 id="dropZone"
+                 onclick="openFilePicker()">
+
+
+                <img id="preview"
+                     class="preview"
+                     alt="Crop preview">
+
+
+                <button class="remove-image"
+                        id="removeImage"
+                        onclick="removeImage(event)">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+
+                <div id="uploadContent">
+
+                    <div class="upload-icon">
+
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                    </div>
+
+
+                    <h3>
+
+                        Drop your crop image here
+
+                    </h3>
+
+
+                    <p>
+
+                        or select an image from your device
+
+                    </p>
+
+
+                    <span class="browse-button">
+
+                        Browse Image
+
+                    </span>
+
+
+                    <div class="file-info">
+
+                        JPG • PNG • WEBP
+
+                    </div>
+
+                </div>
+
+
+                <input
+                    type="file"
+                    id="fileInput"
+                    accept="image/*">
+
+            </div>
+
+
+
+            <!-- DETECT -->
+
+            <button class="detect-button"
+                    onclick="analyzeCrop()">
+
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                Analyze Crop Health
+
+            </button>
+
+        </div>
+
+
+
+        <!-- ======================================
+                    RESULT
+        ======================================= -->
+
+        <div class="diagnosis-card">
+
+
+            <div class="diagnosis-header">
+
+                <div>
+
+                    <h2>
+                        Crop Diagnosis
+                    </h2>
+
+                    <p>
+                        Smart health assessment
+                    </p>
+
+                </div>
+
+
+                <div class="ai-status">
+
+                    <span class="ai-dot"></span>
+
+                    AI READY
+
+                </div>
+
+            </div>
+
+
+
+            <div class="diagnosis-result">
+
+
+                <!-- PLACEHOLDER -->
+
+                <div class="result-placeholder"
+                     id="placeholder">
+
+                    <div class="result-placeholder-icon">
+
+                        <i class="fa-solid fa-leaf"></i>
+
+                    </div>
+
+
+                    <h3>
+
+                        Waiting for your image
+
+                    </h3>
+
+
+                    <p>
+
+                        Upload a crop image and click
+                        "Analyze Crop Health" to see
+                        the demonstration result.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- RESULT -->
+
+                <div class="result-content"
+                     id="resultContent">
+
+
+                    <div class="disease-name">
+
+                        <div class="disease-status-icon">
+
+                            <i class="fa-solid fa-circle-check"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3 id="diseaseName">
+
+                                Healthy Leaf
+
+                            </h3>
+
+                            <span>
+
+                                Preliminary demonstration
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- CONFIDENCE -->
+
+                    <div class="confidence">
+
+                        <div class="confidence-head">
+
+                            <span>
+                                Assessment confidence
+                            </span>
+
+                            <strong>
+                                91%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="confidence-bar">
+
+                            <div class="confidence-fill"></div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ADVICE -->
+
+                    <div class="advice">
+
+                        <div class="advice-title">
+
+                            <i class="fa-solid fa-lightbulb"></i>
+
+                            WHAT TO DO
+
+                        </div>
+
+
+                        <p id="adviceText">
+
+                            The uploaded image is being
+                            shown as a healthy-leaf
+                            demonstration. For real
+                            diagnosis, use a validated
+                            crop-disease model or consult
+                            an agricultural expert.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+                    TIPS
+    =========================================== -->
+
+    <div class="tips">
+
+
+        <div class="tip-card">
+
+            <div class="tip-icon">
+
+                <i class="fa-solid fa-camera"></i>
+
+            </div>
+
+            <h3>
+                Take a Clear Photo
+            </h3>
+
+            <p>
+
+                Use good lighting and make sure
+                the affected leaf is clearly visible.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="tip-card">
+
+            <div class="tip-icon">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </div>
+
+            <h3>
+                Check Early
+            </h3>
+
+            <p>
+
+                Early identification can help
+                farmers investigate crop problems sooner.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="tip-card">
+
+            <div class="tip-icon">
+
+                <i class="fa-solid fa-user-doctor"></i>
+
+            </div>
+
+            <h3>
+                Get Expert Advice
+            </h3>
+
+            <p>
+
+                For uncertain or serious crop problems,
+                consult a qualified agricultural expert.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<!-- ==========================================
+                    JAVASCRIPT
+========================================== -->
 
 <script>
 
-function detectDisease(){
+const fileInput =
+    document.getElementById("fileInput");
 
-document.getElementById("disease").innerHTML="Leaf Blight";
+const dropZone =
+    document.getElementById("dropZone");
 
-document.getElementById("accuracy").innerHTML="97%";
+const preview =
+    document.getElementById("preview");
 
-document.getElementById("treatment").innerHTML="Use Copper Fungicide once every 7 days.";
+const uploadContent =
+    document.getElementById("uploadContent");
 
-document.getElementById("prevention").innerHTML="Avoid excess watering, remove infected leaves, and maintain proper spacing.";
+const removeButton =
+    document.getElementById("removeImage");
+
+
+
+/* OPEN FILE PICKER */
+
+function openFilePicker() {
+
+    fileInput.click();
 
 }
 
+
+
+/* FILE SELECTED */
+
+fileInput.addEventListener(
+    "change",
+    function() {
+
+        if (this.files.length > 0) {
+
+            showImage(this.files[0]);
+
+        }
+
+    }
+);
+
+
+
+/* SHOW IMAGE */
+
+function showImage(file) {
+
+    if (!file.type.startsWith("image/")) {
+
+        alert("Please select an image file.");
+
+        return;
+
+    }
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload =
+        function(event) {
+
+            preview.src =
+                event.target.result;
+
+            preview.style.display =
+                "block";
+
+            uploadContent.style.display =
+                "none";
+
+            removeButton.style.display =
+                "flex";
+
+            removeButton.style.alignItems =
+                "center";
+
+            removeButton.style.justifyContent =
+                "center";
+
+        };
+
+
+    reader.readAsDataURL(file);
+
+}
+
+
+
+/* REMOVE IMAGE */
+
+function removeImage(event) {
+
+    event.stopPropagation();
+
+    fileInput.value = "";
+
+    preview.src = "";
+
+    preview.style.display = "none";
+
+    uploadContent.style.display = "block";
+
+    removeButton.style.display = "none";
+
+}
+
+
+
+/* DRAG OVER */
+
+dropZone.addEventListener(
+    "dragover",
+    function(event) {
+
+        event.preventDefault();
+
+        dropZone.classList.add("dragover");
+
+    }
+);
+
+
+
+/* DRAG LEAVE */
+
+dropZone.addEventListener(
+    "dragleave",
+    function() {
+
+        dropZone.classList.remove("dragover");
+
+    }
+);
+
+
+
+/* DROP */
+
+dropZone.addEventListener(
+    "drop",
+    function(event) {
+
+        event.preventDefault();
+
+        dropZone.classList.remove("dragover");
+
+
+        const files =
+            event.dataTransfer.files;
+
+
+        if (files.length > 0) {
+
+            fileInput.files = files;
+
+            showImage(files[0]);
+
+        }
+
+    }
+);
+
+
+
+/* ==========================================
+        DEMONSTRATION ANALYSIS
+========================================== */
+
+function analyzeCrop() {
+
+    const result =
+        document.getElementById("resultContent");
+
+    const placeholder =
+        document.getElementById("placeholder");
+
+    const diseaseName =
+        document.getElementById("diseaseName");
+
+    const advice =
+        document.getElementById("adviceText");
+
+
+    if (!fileInput.files.length) {
+
+        alert(
+            "Please upload a crop image first."
+        );
+
+        return;
+
+    }
+
+
+    placeholder.style.display =
+        "none";
+
+    result.style.display =
+        "block";
+
+
+    /*
+       This is a front-end demonstration.
+       It does NOT perform real AI disease
+       classification.
+    */
+
+    diseaseName.innerText =
+        "Healthy Leaf";
+
+
+    advice.innerText =
+        "This page is demonstrating the user interface for a crop-disease system. For actual disease identification, connect a validated image-classification model or an agricultural expert service.";
+
+}
+
+
+
+/* ==========================================
+                NAV MOBILE
+========================================== */
+
 </script>
+
 
 </body>
 
 </html>
-<section class="services">
-
-<div class="card">
-
-<img src="images/soil.png">
-
-<h2>Soil Analysis</h2>
-
-<p>Check Soil Health</p>
-
-</div>
-
-<div class="card">
-
-<img src="images/disease.png">
-
-<h2>Disease Detection</h2>
-
-<p>Detect Crop Diseases</p>
-
-</div>
-
-<div class="card">
-
-<img src="images/weather.png">
-
-<h2>Weather Forecast</h2>
-
-<p>Live Weather Updates</p>
-
-</div>
-
-<div class="card">
-
-<img src="images/chatbot.png">
-
-<h2>AI Chatbot</h2>
-
-<p>24×7 Farming Help</p>
-
-</div>
-
-</section>
