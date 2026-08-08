@@ -1,157 +1,1513 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<title>Smart Agro Care - Login</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="style.css">
+    <title>Login | Smart Agro Care</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- GOOGLE FONTS -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- ICONS -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            font-family: "DM Sans", sans-serif;
+
+            min-height: 100vh;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0b3920,
+                    #17643b,
+                    #3a8f55
+                );
+
+            color: white;
+
+        }
+
+
+        /* =====================================
+                    BACKGROUND
+        ====================================== */
+
+        .login-page {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 30px;
+
+        }
+
+
+        .background-circle {
+
+            position: absolute;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,.06);
+
+            animation:
+                floatCircle 8s ease-in-out infinite;
+
+        }
+
+
+        .circle-one {
+
+            width: 420px;
+
+            height: 420px;
+
+            top: -180px;
+
+            left: -120px;
+
+        }
+
+
+        .circle-two {
+
+            width: 500px;
+
+            height: 500px;
+
+            bottom: -260px;
+
+            right: -150px;
+
+            animation-delay: 2s;
+
+        }
+
+
+        .circle-three {
+
+            width: 180px;
+
+            height: 180px;
+
+            top: 20%;
+
+            right: 12%;
+
+            animation-delay: 4s;
+
+        }
+
+
+        @keyframes floatCircle {
+
+            0%,100% {
+
+                transform:
+                    translateY(0)
+                    scale(1);
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(-20px)
+                    scale(1.04);
+
+            }
+
+        }
+
+
+        /* =====================================
+                    FLOATING LEAVES
+        ====================================== */
+
+        .leaf {
+
+            position: absolute;
+
+            color:
+                rgba(255,255,255,.22);
+
+            font-size: 30px;
+
+            animation:
+                floatingLeaf 7s linear infinite;
+
+        }
+
+
+        .leaf:nth-child(1) {
+
+            left: 8%;
+
+            top: 20%;
+
+            animation-delay: 0s;
+
+        }
+
+
+        .leaf:nth-child(2) {
+
+            left: 17%;
+
+            bottom: 12%;
+
+            font-size: 23px;
+
+            animation-delay: 2s;
+
+        }
+
+
+        .leaf:nth-child(3) {
+
+            right: 7%;
+
+            top: 28%;
+
+            font-size: 25px;
+
+            animation-delay: 1s;
+
+        }
+
+
+        .leaf:nth-child(4) {
+
+            right: 20%;
+
+            bottom: 10%;
+
+            font-size: 35px;
+
+            animation-delay: 3s;
+
+        }
+
+
+        @keyframes floatingLeaf {
+
+            0% {
+
+                transform:
+                    translateY(30px)
+                    rotate(0deg);
+
+                opacity: .1;
+
+            }
+
+            50% {
+
+                opacity: .4;
+
+            }
+
+            100% {
+
+                transform:
+                    translateY(-80px)
+                    rotate(180deg);
+
+                opacity: 0;
+
+            }
+
+        }
+
+
+        /* =====================================
+                    LOGIN CONTAINER
+        ====================================== */
+
+        .login-container {
+
+            width: min(950px, 100%);
+
+            min-height: 570px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            border-radius: 30px;
+
+            overflow: hidden;
+
+            background:
+                rgba(255,255,255,.10);
+
+            border:
+                1px solid
+                rgba(255,255,255,.18);
+
+            box-shadow:
+                0 30px 80px
+                rgba(0,0,0,.25);
+
+            backdrop-filter:
+                blur(20px);
+
+            position: relative;
+
+            z-index: 5;
+
+        }
+
+
+        /* =====================================
+                    LEFT SIDE
+        ====================================== */
+
+        .login-visual {
+
+            padding: 55px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-between;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(5,48,25,.65),
+                    rgba(42,128,73,.35)
+                );
+
+            position: relative;
+
+        }
+
+
+        .brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            text-decoration: none;
+
+            color: white;
+
+        }
+
+
+        .brand-icon {
+
+            width: 45px;
+
+            height: 45px;
+
+            border-radius: 13px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                rgba(255,255,255,.14);
+
+            border:
+                1px solid
+                rgba(255,255,255,.18);
+
+            font-size: 20px;
+
+        }
+
+
+        .brand-text strong {
+
+            display: block;
+
+            font-size: 15px;
+
+        }
+
+
+        .brand-text span {
+
+            display: block;
+
+            font-size: 8px;
+
+            letter-spacing: 3px;
+
+            color: #a9e5b8;
+
+            margin-top: 2px;
+
+        }
+
+
+        .visual-content {
+
+            margin-top: 60px;
+
+        }
+
+
+        .visual-content small {
+
+            color: #a9e5b8;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            font-weight: 800;
+
+        }
+
+
+        .visual-content h1 {
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size:
+                clamp(38px,4vw,57px);
+
+            line-height: 1.08;
+
+            margin-top: 12px;
+
+        }
+
+
+        .visual-content h1 span {
+
+            color: #91e7a6;
+
+            font-style: italic;
+
+        }
+
+
+        .visual-content p {
+
+            color: #c2d8c9;
+
+            max-width: 360px;
+
+            font-size: 11px;
+
+            line-height: 1.8;
+
+            margin-top: 17px;
+
+        }
+
+
+        /* =====================================
+                    FARM ICONS
+        ====================================== */
+
+        .farm-icons {
+
+            display: flex;
+
+            gap: 13px;
+
+            margin-top: 30px;
+
+        }
+
+
+        .farm-icon {
+
+            width: 44px;
+
+            height: 44px;
+
+            border-radius: 13px;
+
+            background:
+                rgba(255,255,255,.08);
+
+            border:
+                1px solid
+                rgba(255,255,255,.08);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: #a8e5b7;
+
+            transition: .3s;
+
+        }
+
+
+        .farm-icon:hover {
+
+            transform:
+                translateY(-5px)
+                rotate(4deg);
+
+            background:
+                rgba(255,255,255,.15);
+
+        }
+
+
+        .visual-bottom {
+
+            color: #a9c8b1;
+
+            font-size: 8px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+        }
+
+
+        .visual-bottom i {
+
+            color: #84df9c;
+
+        }
+
+
+        /* =====================================
+                    RIGHT SIDE
+        ====================================== */
+
+        .login-form-area {
+
+            background:
+                rgba(255,255,255,.94);
+
+            color: #173f2b;
+
+            padding: 55px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+        }
+
+
+        .form-top {
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .form-top .small-title {
+
+            color: #35a85b;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        .form-top h2 {
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size: 35px;
+
+            margin-top: 7px;
+
+            color: #123b27;
+
+        }
+
+
+        .form-top p {
+
+            color: #829087;
+
+            font-size: 10px;
+
+            margin-top: 7px;
+
+        }
+
+
+        /* =====================================
+                    INPUT
+        ====================================== */
+
+        .input-group {
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .input-group label {
+
+            display: block;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            color: #46604e;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .input-box {
+
+            position: relative;
+
+        }
+
+
+        .input-box > i {
+
+            position: absolute;
+
+            left: 14px;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            color: #72a47e;
+
+            font-size: 12px;
+
+        }
+
+
+        .input-box input {
+
+            width: 100%;
+
+            padding:
+                13px 42px;
+
+            border:
+                1px solid #dfe7df;
+
+            background: #f8faf8;
+
+            border-radius: 12px;
+
+            outline: none;
+
+            font-family: inherit;
+
+            font-size: 10px;
+
+            color: #234b35;
+
+            transition: .25s;
+
+        }
+
+
+        .input-box input:focus {
+
+            border-color: #35a85b;
+
+            box-shadow:
+                0 0 0 4px
+                rgba(53,168,91,.08);
+
+            background: white;
+
+        }
+
+
+        .password-toggle {
+
+            position: absolute;
+
+            right: 13px;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            border: none;
+
+            background: transparent;
+
+            color: #7b8d81;
+
+            cursor: pointer;
+
+        }
+
+
+        /* =====================================
+                    OPTIONS
+        ====================================== */
+
+        .form-options {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin: 4px 0 22px;
+
+        }
+
+
+        .remember {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            font-size: 8px;
+
+            color: #718078;
+
+        }
+
+
+        .remember input {
+
+            accent-color: #35a85b;
+
+        }
+
+
+        .forgot {
+
+            color: #29904c;
+
+            font-size: 8px;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+        }
+
+
+        /* =====================================
+                    LOGIN BUTTON
+        ====================================== */
+
+        .login-button {
+
+            width: 100%;
+
+            border: none;
+
+            padding: 14px;
+
+            border-radius: 12px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #176b3a,
+                    #35a85b
+                );
+
+            font-family: inherit;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition: .3s;
+
+        }
+
+
+        .login-button:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 13px 25px
+                rgba(23,107,58,.22);
+
+        }
+
+
+        /* =====================================
+                    DIVIDER
+        ====================================== */
+
+        .divider {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin: 23px 0;
+
+            color: #a0aaa3;
+
+            font-size: 8px;
+
+        }
+
+
+        .divider::before,
+        .divider::after {
+
+            content: "";
+
+            flex: 1;
+
+            height: 1px;
+
+            background: #e4e9e4;
+
+        }
+
+
+        /* =====================================
+                    SIGNUP
+        ====================================== */
+
+        .signup-text {
+
+            text-align: center;
+
+            font-size: 9px;
+
+            color: #829087;
+
+        }
+
+
+        .signup-text a {
+
+            color: #29904c;
+
+            text-decoration: none;
+
+            font-weight: 800;
+
+        }
+
+
+        /* =====================================
+                    BACK HOME
+        ====================================== */
+
+        .back-home {
+
+            position: absolute;
+
+            top: 25px;
+
+            left: 30px;
+
+            color:
+                rgba(255,255,255,.75);
+
+            text-decoration: none;
+
+            font-size: 9px;
+
+            z-index: 10;
+
+            display: flex;
+
+            gap: 6px;
+
+            align-items: center;
+
+            transition: .3s;
+
+        }
+
+
+        .back-home:hover {
+
+            color: white;
+
+            transform:
+                translateX(-3px);
+
+        }
+
+
+        /* =====================================
+                    MESSAGE
+        ====================================== */
+
+        #loginMessage {
+
+            display: none;
+
+            margin-top: 12px;
+
+            padding: 10px;
+
+            border-radius: 9px;
+
+            background: #edf8ef;
+
+            color: #278348;
+
+            font-size: 8px;
+
+            text-align: center;
+
+        }
+
+
+        /* =====================================
+                    RESPONSIVE
+        ====================================== */
+
+        @media(max-width:800px) {
+
+            body {
+
+                overflow: auto;
+
+            }
+
+
+            .login-page {
+
+                padding: 60px 18px 25px;
+
+            }
+
+
+            .login-container {
+
+                grid-template-columns: 1fr;
+
+                min-height: auto;
+
+            }
+
+
+            .login-visual {
+
+                min-height: 360px;
+
+                padding: 35px;
+
+            }
+
+
+            .visual-content {
+
+                margin-top: 35px;
+
+            }
+
+
+            .login-form-area {
+
+                padding: 35px;
+
+            }
+
+        }
+
+
+        @media(max-width:500px) {
+
+            .login-visual {
+
+                min-height: 330px;
+
+                padding: 25px;
+
+            }
+
+
+            .login-form-area {
+
+                padding: 28px 22px;
+
+            }
+
+
+            .form-top h2 {
+
+                font-size: 30px;
+
+            }
+
+        }
+
+    </style>
 
 </head>
 
-<body class="login-page">
 
-<div class="overlay">
+<body>
 
-<div class="login-container">
 
-<div class="left-side">
+<div class="login-page">
 
-<h1>🌾 Smart Agro Care</h1>
 
-<h2>AI Powered Agriculture Solution</h2>
+    <!-- BACK HOME -->
 
-<p>
-Helping Farmers with AI, Soil Analysis,
-Weather Forecast, Disease Detection,
-Crop Recommendation and Smart Farming.
-</p>
+    <a href="index.html"
+       class="back-home">
 
-<div class="features">
+        <i class="fa-solid fa-arrow-left"></i>
 
-<div class="feature">
-<i class="fa-solid fa-seedling"></i>
-<span>Soil Analysis</span>
+        Back to Home
+
+    </a>
+
+
+
+    <!-- BACKGROUND CIRCLES -->
+
+    <div class="background-circle circle-one"></div>
+
+    <div class="background-circle circle-two"></div>
+
+    <div class="background-circle circle-three"></div>
+
+
+
+    <!-- FLOATING LEAVES -->
+
+    <div class="leaf">
+
+        <i class="fa-solid fa-leaf"></i>
+
+    </div>
+
+
+    <div class="leaf">
+
+        <i class="fa-solid fa-seedling"></i>
+
+    </div>
+
+
+    <div class="leaf">
+
+        <i class="fa-solid fa-leaf"></i>
+
+    </div>
+
+
+    <div class="leaf">
+
+        <i class="fa-solid fa-seedling"></i>
+
+    </div>
+
+
+
+    <!-- =====================================
+                LOGIN CONTAINER
+    ====================================== -->
+
+    <div class="login-container">
+
+
+        <!-- =================================
+                    LEFT
+        ================================== -->
+
+        <section class="login-visual">
+
+
+            <!-- BRAND -->
+
+            <a href="index.html"
+               class="brand">
+
+                <div class="brand-icon">
+
+                    <i class="fa-solid fa-seedling"></i>
+
+                </div>
+
+
+                <div class="brand-text">
+
+                    <strong>
+                        Smart Agro
+                    </strong>
+
+                    <span>
+                        CARE
+                    </span>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- CONTENT -->
+
+            <div class="visual-content">
+
+                <small>
+                    WELCOME BACK, FARMER
+                </small>
+
+
+                <h1>
+
+                    Let's grow<br>
+
+                    <span>something better.</span>
+
+                </h1>
+
+
+                <p>
+
+                    Your digital farming companion
+                    is ready to help you understand
+                    your soil, crops and farm.
+
+                </p>
+
+
+                <div class="farm-icons">
+
+                    <div class="farm-icon">
+
+                        <i class="fa-solid fa-seedling"></i>
+
+                    </div>
+
+
+                    <div class="farm-icon">
+
+                        <i class="fa-solid fa-tractor"></i>
+
+                    </div>
+
+
+                    <div class="farm-icon">
+
+                        <i class="fa-solid fa-cloud-sun"></i>
+
+                    </div>
+
+
+                    <div class="farm-icon">
+
+                        <i class="fa-solid fa-wheat-awn"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="visual-bottom">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Smart tools for smarter farming
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+                    RIGHT
+        ================================== -->
+
+        <section class="login-form-area">
+
+
+            <div class="form-top">
+
+                <span class="small-title">
+
+                    SIGN IN
+
+                </span>
+
+
+                <h2>
+
+                    Welcome back 👋
+
+                </h2>
+
+
+                <p>
+
+                    Enter your details to continue
+                    to your farming dashboard.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- EMAIL -->
+
+            <div class="input-group">
+
+                <label>
+                    EMAIL ADDRESS
+                </label>
+
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+
+                    <input
+                        id="email"
+                        type="email"
+                        placeholder="farmer@example.com">
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PASSWORD -->
+
+            <div class="input-group">
+
+                <label>
+                    PASSWORD
+                </label>
+
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-lock"></i>
+
+
+                    <input
+                        id="password"
+                        type="password"
+                        placeholder="Enter your password">
+
+
+                    <button
+                        type="button"
+                        class="password-toggle"
+                        onclick="togglePassword()">
+
+                        <i
+                            id="eyeIcon"
+                            class="fa-solid fa-eye">
+                        </i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- OPTIONS -->
+
+            <div class="form-options">
+
+                <label class="remember">
+
+                    <input
+                        type="checkbox">
+
+                    Remember me
+
+                </label>
+
+
+                <a href="#"
+                   class="forgot"
+                   onclick="forgotPassword()">
+
+                    Forgot password?
+
+                </a>
+
+            </div>
+
+
+
+            <!-- LOGIN -->
+
+            <button
+                class="login-button"
+                onclick="loginUser()">
+
+                <i class="fa-solid fa-right-to-bracket"></i>
+
+                &nbsp; Sign In
+
+            </button>
+
+
+            <div
+                id="loginMessage">
+
+                Login successful! Welcome to
+                Smart Agro Care 🌱
+
+            </div>
+
+
+
+            <!-- DIVIDER -->
+
+            <div class="divider">
+
+                OR
+
+            </div>
+
+
+
+            <!-- SIGNUP -->
+
+            <div class="signup-text">
+
+                Don't have an account?
+
+                <a href="signup.html">
+
+                    Create account
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </div>
+
 </div>
 
-<div class="feature">
-<i class="fa-solid fa-leaf"></i>
-<span>Disease Detection</span>
-</div>
 
-<div class="feature">
-<i class="fa-solid fa-cloud-sun"></i>
-<span>Weather Forecast</span>
-</div>
 
-<div class="feature">
-<i class="fa-solid fa-robot"></i>
-<span>AI Chatbot</span>
-</div>
+<script>
 
-</div>
 
-</div>
+/* =====================================
+        SHOW / HIDE PASSWORD
+===================================== */
 
-<div class="right-side">
 
-<div class="login-box">
+function togglePassword() {
 
-<h2>Welcome Back 👋</h2>
 
-<p>Login to continue</p>
+    const password =
+        document.getElementById(
+            "password"
+        );
 
-<form>
 
-<div class="input-box">
+    const icon =
+        document.getElementById(
+            "eyeIcon"
+        );
 
-<i class="fa-solid fa-envelope"></i>
 
-<input type="email"
-placeholder="Email Address"
-required>
+    if (
+        password.type === "password"
+    ) {
 
-</div>
+        password.type = "text";
 
-<div class="input-box">
+        icon.className =
+            "fa-solid fa-eye-slash";
 
-<i class="fa-solid fa-lock"></i>
+    }
 
-<input type="password"
-placeholder="Password"
-required>
+    else {
 
-</div>
+        password.type = "password";
 
-<div class="remember">
+        icon.className =
+            "fa-solid fa-eye";
 
-<label>
+    }
 
-<input type="checkbox">
+}
 
-Remember Me
 
-</label>
 
-<a href="#">Forgot Password?</a>
+/* =====================================
+                LOGIN
+===================================== */
 
-</div>
 
-<button class="login-btn">
+function loginUser() {
 
-Login
 
-</button>
+    const email =
+        document.getElementById(
+            "email"
+        ).value.trim();
 
-<div class="social">
 
-<p>or continue with</p>
+    const password =
+        document.getElementById(
+            "password"
+        ).value.trim();
 
-<button type="button" class="google">
 
-<i class="fab fa-google"></i>
+    if (
+        email === "" ||
+        password === ""
+    ) {
 
-Google
+        alert(
+            "Please enter your email and password."
+        );
 
-</button>
+        return;
 
-<button type="button" class="facebook">
+    }
 
-<i class="fab fa-facebook"></i>
 
-Facebook
+    if (
+        !email.includes("@")
+    ) {
 
-</button>
+        alert(
+            "Please enter a valid email address."
+        );
 
-</div>
+        return;
 
-<p class="signup">
+    }
 
-Don't have an account?
 
-<a href="signup.html">
+    document.getElementById(
+        "loginMessage"
+    ).style.display =
+        "block";
 
-Create Account
 
-</a>
+    setTimeout(
+        function() {
 
-</p>
+            window.location.href =
+                "index.html";
 
-</form>
+        },
+        1500
+    );
 
-</div>
+}
 
-</div>
 
-</div>
 
-</div>
+/* =====================================
+             FORGOT PASSWORD
+===================================== */
+
+
+function forgotPassword() {
+
+    alert(
+        "Password recovery will be connected to your backend later."
+    );
+
+}
+
+
+</script>
+
 
 </body>
+
 </html>
