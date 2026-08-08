@@ -75,3 +75,145 @@ cards.forEach(card => {
 
 
 console.log("🌱 Smart Agro Care loaded successfully!");
+async function sendMessage() {
+
+    const input =
+        document.getElementById("chatInput");
+
+    const message =
+        input.value.trim();
+
+
+    if (!message) return;
+
+
+    addUserMessage(message);
+
+    input.value = "";
+
+
+    const language =
+        detectLanguage(message);
+
+
+    addBotMessage("🤔 Thinking...");
+
+
+    try {
+
+        const response =
+            await fetch(
+                "http://localhost:3000/chat",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body: JSON.stringify({
+
+                        message: message,
+
+                        language: language
+
+                    })
+
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!data.success) {
+
+            throw new Error(
+                "AI response failed"
+            );
+
+        }
+
+
+        /*
+        Remove "Thinking..."
+        */
+
+        const messages =
+            document.getElementById(
+                "chatMessages"
+            );
+
+
+        const lastMessage =
+            messages.lastElementChild;
+
+
+        if (lastMessage) {
+
+            lastMessage.remove();
+
+        }
+
+
+        /*
+        Add AI answer
+        */
+
+        addBotMessage(
+            data.answer
+        );
+
+
+        /*
+        Speak answer in
+        user's language
+        */
+
+        speakAnswer(
+            data.answer,
+            language
+        );
+
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+
+        const messages =
+            document.getElementById(
+                "chatMessages"
+            );
+
+
+        const lastMessage =
+            messages.lastElementChild;
+
+
+        if (lastMessage) {
+
+            lastMessage.remove();
+
+        }
+
+
+        addBotMessage(`
+
+            ❌ Sorry, I couldn't connect
+            to the AI server.
+
+            <br><br>
+
+            Please make sure your
+            backend server is running.
+
+        `);
+
+    }
+
+}
