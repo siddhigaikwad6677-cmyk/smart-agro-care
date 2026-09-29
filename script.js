@@ -949,3 +949,68 @@ async function startVoiceInput() {
 
     }
 }
+function speakResponse(text, language) {
+
+    if (!window.speechSynthesis) {
+        alert("Your browser does not support voice output.");
+        return;
+    }
+
+    // Stop previous speech
+    window.speechSynthesis.cancel();
+
+    const speech =
+        new SpeechSynthesisUtterance(text);
+
+    // Voice language
+    speech.lang = language;
+
+    // Voice settings
+    speech.rate = 0.9;
+    speech.pitch = 1;
+    speech.volume = 1;
+
+    // Get available voices
+    const voices =
+        window.speechSynthesis.getVoices();
+
+    // Find matching language voice
+    let voice = voices.find(function (v) {
+        return v.lang === language;
+    });
+
+    // If exact voice isn't available
+    if (!voice) {
+
+        voice = voices.find(function (v) {
+            return v.lang.startsWith(
+                language.split("-")[0]
+            );
+        });
+    }
+
+    if (voice) {
+        speech.voice = voice;
+    }
+
+    // Show status
+    document.getElementById("voiceStatus").innerHTML =
+        "🔊 Smart Agro AI is speaking...";
+
+    // SPEAK
+    window.speechSynthesis.speak(speech);
+
+    speech.onend = function () {
+
+        document.getElementById("voiceStatus").innerHTML =
+            "🎤 You can speak again";
+    };
+
+    speech.onerror = function (event) {
+
+        console.log("Speech output error:", event);
+
+        document.getElementById("voiceStatus").innerHTML =
+            "❌ Could not play voice";
+    };
+}
