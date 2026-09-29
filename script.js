@@ -75,6 +75,45 @@ cards.forEach(card => {
 
 
 console.log("🌱 Smart Agro Care loaded successfully!");
+
+function sendMessage(voiceText = null) {
+
+    const message =
+        voiceText ||
+        document.getElementById("userInput").value.trim();
+
+    if (message === "") return;
+
+    // Show user's question
+    addUserMessage(message);
+
+    document.getElementById("userInput").value = "";
+
+    // Detect language
+    let language = detectLanguage(message);
+
+    // Use selected language
+    const selectedLanguage =
+        document.getElementById("language").value;
+
+    if (selectedLanguage !== "auto") {
+        language = selectedLanguage;
+    }
+
+    // Get answer
+    const answer =
+        getFarmingResponse(message, language);
+
+    // Show answer after small delay
+    setTimeout(function () {
+
+        addBotMessage(answer);
+
+        // 🔊 MAKE CHATBOT TALK
+        speakResponse(answer, language);
+
+    }, 700);
+}
 async function sendMessage() {
 function sendMessage(voiceText = null) {
 
