@@ -347,3 +347,64 @@ speechSynthesis.onvoiceschanged =
     loadVoices;
 
 loadVoices();
+function startVoiceInput() {
+
+    const SpeechRecognition =
+        window.SpeechRecognition ||
+        window.webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
+        alert("Voice input is not supported. Please use Google Chrome.");
+        return;
+    }
+
+    const recognition = new SpeechRecognition();
+
+    recognition.continuous = false;
+    recognition.interimResults = false;
+
+    // Language
+    recognition.lang = document.getElementById("language").value;
+
+    // If Auto Detect is selected
+    if (recognition.lang === "auto") {
+        recognition.lang = "mr-IN";
+    }
+
+    recognition.start();
+
+    document.getElementById("voiceStatus").innerHTML =
+        "🎤 Listening... Speak now";
+
+    document.getElementById("micButton").classList.add("listening");
+
+    recognition.onresult = function(event) {
+
+        const text = event.results[0][0].transcript;
+
+        document.getElementById("userInput").value = text;
+
+        document.getElementById("voiceStatus").innerHTML =
+            "✅ Voice received";
+
+        document.getElementById("micButton").classList.remove("listening");
+
+        // Automatically send the question
+        sendMessage(text);
+    };
+
+    recognition.onerror = function(event) {
+
+        console.log("Voice error:", event.error);
+
+        document.getElementById("voiceStatus").innerHTML =
+            "❌ Could not understand. Please try again.";
+
+        document.getElementById("micButton").classList.remove("listening");
+    };
+
+    recognition.onend = function() {
+
+        document.getElementById("micButton").classList.remove("listening");
+    };
+}
