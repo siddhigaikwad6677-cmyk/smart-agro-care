@@ -642,3 +642,98 @@ function startVoiceInput() {
     };
 }
 </script>
+let recognition;
+let isListening = false;
+
+function startVoiceInput() {
+
+    const SpeechRecognition =
+        window.SpeechRecognition ||
+        window.webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
+
+        alert(
+            "Voice recognition is not supported.\n" +
+            "Please use Google Chrome."
+        );
+
+        return;
+    }
+
+    if (isListening) {
+        recognition.stop();
+        return;
+    }
+
+    recognition = new SpeechRecognition();
+
+    recognition.continuous = false;
+    recognition.interimResults = false;
+
+    let language =
+        document.getElementById("language").value;
+
+    // Auto detection fallback
+    if (language === "auto") {
+        language = "en-IN";
+    }
+
+    recognition.lang = language;
+
+    try {
+
+        recognition.start();
+
+        isListening = true;
+
+        document.getElementById("micButton").innerHTML =
+            "🔴";
+
+        document.getElementById("voiceStatus").innerHTML =
+            "🎤 Listening... Speak now";
+
+    } catch (error) {
+
+        console.log(error);
+
+    }
+
+    recognition.onresult = function(event) {
+
+        const spokenText =
+            event.results[0][0].transcript;
+
+        console.log("You said:", spokenText);
+
+        document.getElementById("userInput").value =
+            spokenText;
+
+        document.getElementById("voiceStatus").innerHTML =
+            "✅ Got it!";
+
+        // Send question automatically
+        sendMessage(spokenText);
+    };
+
+    recognition.onerror = function(event) {
+
+        console.log("Voice error:", event.error);
+
+        document.getElementById("voiceStatus").innerHTML =
+            "❌ Could not understand your voice";
+
+        isListening = false;
+
+        document.getElementById("micButton").innerHTML =
+            "🎤";
+    };
+
+    recognition.onend = function() {
+
+        isListening = false;
+
+        document.getElementById("micButton").innerHTML =
+            "🎤";
+    };
+}
