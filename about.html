@@ -2216,3 +2216,22 @@
     <option value="mr-IN">🇮🇳 Marathi</option>
     <option value="hi-IN">🇮🇳 Hindi</option>
 </select>
+<div class="chat-input-area">
+
+    <input type="text"
+           id="userInput"
+           placeholder="Ask your farming question...">
+
+    <button id="micButton"
+            onclick="startVoiceInput()">
+        🎤
+    </button>
+
+    <button class="send-button"
+            onclick="sendMessage()">
+        ➤
+    </button>
+
+</div>
+
+<p id="voiceStatus" class="voice-status"></p>
