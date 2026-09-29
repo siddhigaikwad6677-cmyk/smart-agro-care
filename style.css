@@ -2501,3 +2501,41 @@ footer {
     }
 
 }
+#micButton {
+    background: #e8f5e9;
+    color: #2e7d32;
+    font-size: 22px;
+}
+
+#micButton:hover {
+    background: #c8e6c9;
+    transform: scale(1.05);
+}
+
+#micButton.listening {
+    background: #2e7d32;
+    color: white;
+    animation: micPulse 1s infinite;
+}
+
+@keyframes micPulse {
+
+    0% {
+        box-shadow: 0 0 0 0 rgba(46,125,50,0.5);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(46,125,50,0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(46,125,50,0);
+    }
+}
+
+.voice-status {
+    text-align: center;
+    color: #2e7d32;
+    margin-top: 10px;
+    font-size: 14px;
+}
