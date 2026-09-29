@@ -408,3 +408,146 @@ function startVoiceInput() {
         document.getElementById("micButton").classList.remove("listening");
     };
 }
+<script>
+let recognition;
+let isListening = false;
+
+function startVoiceInput() {
+
+    // Check browser support
+    const SpeechRecognition =
+        window.SpeechRecognition ||
+        window.webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
+        alert(
+            "Voice input is not supported in this browser.\n\n" +
+            "Please open the website in Google Chrome."
+        );
+        return;
+    }
+
+    // Stop if already listening
+    if (isListening && recognition) {
+        recognition.stop();
+        return;
+    }
+
+    try {
+
+        recognition = new SpeechRecognition();
+
+        recognition.continuous = false;
+        recognition.interimResults = false;
+
+        // Select language
+        const languageElement = document.getElementById("language");
+
+        let selectedLanguage = "en-IN";
+
+        if (languageElement) {
+            selectedLanguage = languageElement.value;
+
+            // Auto Detect
+            if (selectedLanguage === "auto") {
+                selectedLanguage = "en-IN";
+            }
+        }
+
+        recognition.lang = selectedLanguage;
+
+        // Start microphone
+        recognition.start();
+
+        isListening = true;
+
+        document.getElementById("voiceBtn").innerHTML =
+            "🔴 Listening...";
+
+        document.getElementById("voiceStatus").innerHTML =
+            "🎤 Listening... Speak now.";
+
+        document.getElementById("voiceBtn").classList.add("listening");
+
+    } catch (error) {
+
+        console.error("Voice start error:", error);
+
+        isListening = false;
+
+        document.getElementById("voiceStatus").innerHTML =
+            "❌ Voice input could not be started.";
+
+        document.getElementById("voiceBtn").classList.remove("listening");
+    }
+
+
+    // When speech is recognized
+    recognition.onresult = function(event) {
+
+        const spokenText =
+            event.results[0][0].transcript;
+
+        console.log("User said:", spokenText);
+
+        document.getElementById("userInput").value =
+            spokenText;
+
+        document.getElementById("voiceStatus").innerHTML =
+            "✅ Voice received";
+
+        // Automatically send message
+        sendMessage(spokenText);
+    };
+
+
+    // Error handling
+    recognition.onerror = function(event) {
+
+        console.error("Speech recognition error:",
+            event.error);
+
+        isListening = false;
+
+        document.getElementById("voiceBtn").innerHTML =
+            "🎤 Voice Input";
+
+        document.getElementById("voiceBtn")
+            .classList.remove("listening");
+
+        if (event.error === "not-allowed") {
+
+            document.getElementById("voiceStatus").innerHTML =
+                "🎤 Microphone permission denied. Please allow microphone access.";
+
+        } else if (event.error === "no-speech") {
+
+            document.getElementById("voiceStatus").innerHTML =
+                "🔇 No speech detected. Please try again.";
+
+        } else if (event.error === "audio-capture") {
+
+            document.getElementById("voiceStatus").innerHTML =
+                "🎤 No microphone detected.";
+
+        } else {
+
+            document.getElementById("voiceStatus").innerHTML =
+                "❌ Voice input error. Please try again.";
+        }
+    };
+
+
+    // Recognition finished
+    recognition.onend = function() {
+
+        isListening = false;
+
+        document.getElementById("voiceBtn").innerHTML =
+            "🎤 Voice Input";
+
+        document.getElementById("voiceBtn")
+            .classList.remove("listening");
+    };
+}
+</script>
