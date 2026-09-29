@@ -103,6 +103,62 @@ function sendMessage(voiceText = null) {
     const response = getFarmingResponse(message, language);
 
     // Show and SPEAK answer
+    function speakResponse(text, language) {
+
+    // Check speech support
+    if (!("speechSynthesis" in window)) {
+
+        console.log("Text-to-speech is not supported.");
+
+        return;
+    }
+
+    // Stop previous speech
+    window.speechSynthesis.cancel();
+
+    const speech =
+        new SpeechSynthesisUtterance(text);
+
+    // Set chatbot language
+    speech.lang = language;
+
+    speech.rate = 0.9;
+    speech.pitch = 1;
+    speech.volume = 1;
+
+    // Try to select correct voice
+    const voices =
+        window.speechSynthesis.getVoices();
+
+    let selectedVoice = voices.find(
+        voice => voice.lang === language
+    );
+
+    if (!selectedVoice) {
+
+        selectedVoice = voices.find(
+            voice => voice.lang.startsWith(
+                language.split("-")[0]
+            )
+        );
+    }
+
+    if (selectedVoice) {
+        speech.voice = selectedVoice;
+    }
+
+    // Speak
+    window.speechSynthesis.speak(speech);
+
+    document.getElementById("voiceStatus").innerHTML =
+        "🔊 Smart Agro AI is speaking...";
+    
+    speech.onend = function() {
+
+        document.getElementById("voiceStatus").innerHTML =
+            "🎤 You can speak again";
+    };
+}
     setTimeout(function() {
 
         addBotMessage(response);
