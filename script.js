@@ -1014,3 +1014,10 @@ function speakResponse(text, language) {
             "❌ Could not play voice";
     };
 }
+window.speechSynthesis.onvoiceschanged = function () {
+
+    const voices =
+        window.speechSynthesis.getVoices();
+
+    console.log("Available voices:", voices);
+};
