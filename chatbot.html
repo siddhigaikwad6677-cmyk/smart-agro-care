@@ -2372,3 +2372,728 @@ function startVoice() {
 <button onclick="testVoice()">
     🔊 Test Voice
 </button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Farming Assistant | Smart Agro Care</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body class="chatbot-page">
+
+<header>
+    <div class="logo">🌾 Smart Agro Care</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="soil.html">Soil</a>
+        <a href="disease.html">Disease</a>
+        <a href="fertilizer.html">Fertilizer</a>
+        <a href="weather.html">Weather</a>
+        <a href="market.html">Market</a>
+        <a href="chatbot.html">AI Chatbot</a>
+    </nav>
+</header>
+
+
+<main class="chatbot-container">
+
+    <div class="chatbot-header">
+
+        <div class="bot-icon">
+            🤖
+        </div>
+
+        <div>
+            <h1>Smart Agro AI Assistant</h1>
+            <p>Ask your farming questions in your own language 🌱</p>
+        </div>
+
+    </div>
+
+
+    <!-- Language Selection -->
+
+    <div class="language-box">
+
+        <label for="language">
+            🌐 Response Language
+        </label>
+
+        <select id="language">
+
+            <option value="auto">
+                🎤 Auto Detect
+            </option>
+
+            <option value="en-IN">
+                🇬🇧 English
+            </option>
+
+            <option value="mr-IN">
+                🇮🇳 Marathi
+            </option>
+
+            <option value="hi-IN">
+                🇮🇳 Hindi
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <!-- Chat Area -->
+
+    <div id="chatBox" class="chat-box">
+
+        <div class="bot-message">
+
+            <span>🤖</span>
+
+            <div>
+                <b>Smart Agro AI</b>
+
+                <p>
+                    Hello! 👋 Ask me anything about
+                    soil, crops, fertilizer, diseases or farming.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Input Area -->
+
+    <div class="chat-input-area">
+
+        <input
+            type="text"
+            id="userInput"
+            placeholder="Type your farming question..."
+        >
+
+        <button
+            id="micButton"
+            onclick="startVoiceInput()"
+            title="Speak"
+        >
+            🎤
+        </button>
+
+        <button
+            onclick="sendMessage()"
+            class="send-button"
+        >
+            <i class="fa-solid fa-paper-plane"></i>
+        </button>
+
+    </div>
+
+
+    <p id="voiceStatus" class="voice-status"></p>
+
+</main>
+
+
+<script>
+
+/* ==========================================
+   SMART AGRO AI CHATBOT
+   LANGUAGE DETECTION + VOICE INPUT
+========================================== */
+
+const chatBox = document.getElementById("chatBox");
+
+const userInput = document.getElementById("userInput");
+
+const languageSelect = document.getElementById("language");
+
+const voiceStatus = document.getElementById("voiceStatus");
+
+
+/* ==========================================
+   VOICE INPUT
+========================================== */
+
+function startVoiceInput() {
+
+    const SpeechRecognition =
+        window.SpeechRecognition ||
+        window.webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
+
+        alert(
+            "Voice recognition is not supported in this browser. Please use Google Chrome."
+        );
+
+        return;
+    }
+
+
+    const recognition = new SpeechRecognition();
+
+    recognition.continuous = false;
+
+    recognition.interimResults = false;
+
+
+    /* Get selected language */
+
+    let selectedLanguage = languageSelect.value;
+
+
+    /*
+       If Auto Detect is selected,
+       start with Marathi.
+       We will also detect the recognized text.
+    */
+
+    if (selectedLanguage === "auto") {
+
+        selectedLanguage = "mr-IN";
+
+    }
+
+
+    recognition.lang = selectedLanguage;
+
+
+    recognition.start();
+
+
+    voiceStatus.innerHTML =
+        "🎤 Listening... Please speak now.";
+
+
+    document.getElementById("micButton").classList.add("listening");
+
+
+    recognition.onresult = function(event) {
+
+        const text =
+            event.results[0][0].transcript;
+
+
+        userInput.value = text;
+
+
+        voiceStatus.innerHTML =
+            "✅ Voice received";
+
+
+        document.getElementById("micButton")
+        .classList.remove("listening");
+
+
+        /*
+           Automatically send the message
+        */
+
+        sendMessage(text);
+
+    };
+
+
+    recognition.onerror = function(event) {
+
+        console.log(event.error);
+
+        voiceStatus.innerHTML =
+            "❌ Could not understand your voice.";
+
+        document.getElementById("micButton")
+        .classList.remove("listening");
+
+    };
+
+
+    recognition.onend = function() {
+
+        document.getElementById("micButton")
+        .classList.remove("listening");
+
+    };
+
+}
+
+
+/* ==========================================
+   SEND MESSAGE
+========================================== */
+
+function sendMessage(voiceText = null) {
+
+    let message =
+        voiceText || userInput.value.trim();
+
+
+    if (message === "") {
+
+        return;
+
+    }
+
+
+    addUserMessage(message);
+
+
+    userInput.value = "";
+
+
+    /*
+       Detect language from user's message
+    */
+
+    let detectedLanguage =
+        detectLanguage(message);
+
+
+    /*
+       If user manually selected a language,
+       use that language instead.
+    */
+
+    if (languageSelect.value !== "auto") {
+
+        detectedLanguage =
+            languageSelect.value;
+
+    }
+
+
+    /*
+       Create chatbot response
+    */
+
+    const response =
+        getFarmingResponse(
+            message,
+            detectedLanguage
+        );
+
+
+    setTimeout(function() {
+
+        addBotMessage(response);
+
+
+        /*
+           Speak answer in same language
+        */
+
+        speakResponse(
+            response,
+            detectedLanguage
+        );
+
+    }, 500);
+
+}
+
+
+/* ==========================================
+   LANGUAGE DETECTION
+========================================== */
+
+function detectLanguage(text) {
+
+    /*
+       Marathi Unicode range:
+       Devanagari characters + common Marathi words
+    */
+
+    const marathiWords = [
+
+        "माती",
+        "पीक",
+        "शेती",
+        "पाणी",
+        "खत",
+        "शेतकरी",
+        "रोग",
+        "कापूस",
+        "सोयाबीन",
+        "गहू",
+        "तांदूळ",
+        "जमीन",
+        "पिकाला",
+        "काय",
+        "कसे",
+        "किती"
+
+    ];
+
+
+    const hindiWords = [
+
+        "मिट्टी",
+        "फसल",
+        "पानी",
+        "खाद",
+        "किसान",
+        "खेती",
+        "रोग",
+        "गेहूं",
+        "धान",
+        "कैसे",
+        "क्या",
+        "कितना"
+
+    ];
+
+
+    /*
+       Check Marathi
+    */
+
+    for (let word of marathiWords) {
+
+        if (text.includes(word)) {
+
+            return "mr-IN";
+
+        }
+
+    }
+
+
+    /*
+       Check Hindi
+    */
+
+    for (let word of hindiWords) {
+
+        if (text.includes(word)) {
+
+            return "hi-IN";
+
+        }
+
+    }
+
+
+    /*
+       Check Devanagari characters
+    */
+
+    if (/[\u0900-\u097F]/.test(text)) {
+
+        /*
+           If Devanagari but no Marathi-specific
+           word was found, use Hindi.
+        */
+
+        return "hi-IN";
+
+    }
+
+
+    return "en-IN";
+
+}
+
+
+/* ==========================================
+   FARMING RESPONSE
+========================================== */
+
+function getFarmingResponse(message, language) {
+
+    const text =
+        message.toLowerCase();
+
+
+    /* ---------- MARATHI ---------- */
+
+    if (language === "mr-IN") {
+
+        if (
+            text.includes("माती") ||
+            text.includes("soil")
+        ) {
+
+            return "मातीची गुणवत्ता तपासण्यासाठी pH, नायट्रोजन, फॉस्फरस आणि पोटॅशियम तपासा. त्यानुसार योग्य पीक निवडा.";
+
+        }
+
+
+        if (
+            text.includes("पाणी") ||
+            text.includes("water")
+        ) {
+
+            return "पिकाला लागणारे पाणी मातीचा प्रकार, पीक आणि हवामानावर अवलंबून असते. मातीमध्ये जास्त पाणी साचू देऊ नका.";
+
+        }
+
+
+        if (
+            text.includes("खत") ||
+            text.includes("fertilizer")
+        ) {
+
+            return "योग्य खत निवडण्यासाठी मातीतील NPK मूल्य तपासा. शक्य असल्यास माती परीक्षण अहवालानुसार खताचा वापर करा.";
+
+        }
+
+
+        if (
+            text.includes("कापूस") ||
+            text.includes("cotton")
+        ) {
+
+            return "कापूस पिकासाठी चांगली निचरा होणारी जमीन आणि योग्य आर्द्रता आवश्यक आहे. माती परीक्षणानुसार खत व्यवस्थापन करा.";
+
+        }
+
+
+        return "मी तुम्हाला माती, पीक, पाणी, खत, रोग आणि शेती व्यवस्थापनाबद्दल माहिती देऊ शकतो. तुमचा प्रश्न पुन्हा थोडा स्पष्ट विचारा.";
+
+    }
+
+
+    /* ---------- HINDI ---------- */
+
+    if (language === "hi-IN") {
+
+        if (
+            text.includes("मिट्टी") ||
+            text.includes("soil")
+        ) {
+
+            return "मिट्टी की गुणवत्ता जानने के लिए pH, नाइट्रोजन, फॉस्फोरस और पोटैशियम की जांच करें। इसके अनुसार फसल चुनें.";
+
+        }
+
+
+        if (
+            text.includes("पानी") ||
+            text.includes("water")
+        ) {
+
+            return "फसल की पानी की आवश्यकता मिट्टी, फसल और मौसम पर निर्भर करती है। खेत में पानी जमा न होने दें.";
+
+        }
+
+
+        if (
+            text.includes("खाद") ||
+            text.includes("fertilizer")
+        ) {
+
+            return "सही खाद चुनने के लिए मिट्टी के NPK स्तर की जांच करें और मिट्टी परीक्षण रिपोर्ट के अनुसार खाद का उपयोग करें.";
+
+        }
+
+
+        return "मैं मिट्टी, फसल, पानी, खाद, रोग और खेती से संबंधित सवालों में आपकी मदद कर सकता हूं.";
+
+    }
+
+
+    /* ---------- ENGLISH ---------- */
+
+    if (
+        text.includes("soil") ||
+        text.includes("land")
+    ) {
+
+        return "For good soil management, check pH, nitrogen, phosphorus and potassium levels. Choose a crop according to the soil condition.";
+
+    }
+
+
+    if (
+        text.includes("water") ||
+        text.includes("irrigation")
+    ) {
+
+        return "Water requirements depend on the crop, soil type and weather. Avoid excessive irrigation and waterlogging.";
+
+    }
+
+
+    if (
+        text.includes("fertilizer") ||
+        text.includes("fertiliser")
+    ) {
+
+        return "Check the NPK levels of your soil before choosing fertilizer. Follow the recommendations from your soil test report.";
+
+    }
+
+
+    if (
+        text.includes("crop") ||
+        text.includes("plant")
+    ) {
+
+        return "Crop selection should consider soil type, pH, water availability, climate and season.";
+
+    }
+
+
+    return "I can help you with soil analysis, crop selection, fertilizer, irrigation, crop diseases and farming practices. Please ask your farming question.";
+
+}
+
+
+/* ==========================================
+   ADD USER MESSAGE
+========================================== */
+
+function addUserMessage(message) {
+
+    const div =
+        document.createElement("div");
+
+    div.className = "user-message";
+
+    div.innerHTML = `
+
+        <div>
+
+            <b>You</b>
+
+            <p>${escapeHTML(message)}</p>
+
+        </div>
+
+        <span>👨‍🌾</span>
+
+    `;
+
+    chatBox.appendChild(div);
+
+    scrollChat();
+
+}
+
+
+/* ==========================================
+   ADD BOT MESSAGE
+========================================== */
+
+function addBotMessage(message) {
+
+    const div =
+        document.createElement("div");
+
+    div.className = "bot-message";
+
+    div.innerHTML = `
+
+        <span>🤖</span>
+
+        <div>
+
+            <b>Smart Agro AI</b>
+
+            <p>${escapeHTML(message)}</p>
+
+        </div>
+
+    `;
+
+    chatBox.appendChild(div);
+
+    scrollChat();
+
+}
+
+
+/* ==========================================
+   TEXT TO SPEECH
+========================================== */
+
+function speakResponse(text, language) {
+
+    if (!("speechSynthesis" in window)) {
+
+        return;
+
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    const speech =
+        new SpeechSynthesisUtterance(text);
+
+
+    speech.lang = language;
+
+    speech.rate = 0.9;
+
+    speech.pitch = 1;
+
+
+    window.speechSynthesis.speak(speech);
+
+}
+
+
+/* ==========================================
+   SCROLL CHAT
+========================================== */
+
+function scrollChat() {
+
+    chatBox.scrollTop =
+        chatBox.scrollHeight;
+
+}
+
+
+/* ==========================================
+   SECURITY
+========================================== */
+
+function escapeHTML(text) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+
+}
+
+
+/* ==========================================
+   ENTER KEY
+========================================== */
+
+userInput.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+
+            sendMessage();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
