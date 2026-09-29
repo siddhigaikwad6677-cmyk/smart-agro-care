@@ -2206,13 +2206,8 @@
 <div class="chat-input-area">
     <input type="text" id="userInput" placeholder="Ask your farming question...">
 
-    <button id="micButton" onclick="startVoiceInput()" title="Speak">
-        🎤
-    </button>
+   <button id="voiceBtn" type="button" onclick="startVoiceInput()">
+    🎤 Voice Input
+</button>
 
-    <button onclick="sendMessage()" class="send-button">
-        ➤
-    </button>
-</div>
-
-<p id="voiceStatus" class="voice-status"></p>
+<p id="voiceStatus"></p>
