@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Farmer Dashboard | Smart Agro Care</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="logo">
+            🌾 Smart Agro Care
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="soil.html">Soil Test</a>
+            <a href="disease.html">Disease</a>
+            <a href="fertilizer.html">Fertilizer</a>
+            <a href="irrigation.html">Irrigation</a>
+            <a href="chatbot.html">AI Chatbot</a>
+            <a href="weather.html">Weather</a>
+            <a href="market.html">Market</a>
+            <a href="dashboard.html" class="active">Dashboard</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+    </header>
+
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <main class="dashboard-page">
+
+        <!-- Welcome -->
+
+        <section class="dashboard-welcome">
+
+            <div>
+                <span class="welcome-small">
+                    🌱 Welcome back, Farmer
+                </span>
+
+                <h1>
+                    Farmer Dashboard
+                </h1>
+
+                <p>
+                    Monitor your farm, crops, soil, irrigation and
+                    agricultural information in one place.
+                </p>
+            </div>
+
+            <div class="farmer-icon">
+                👨‍🌾
+            </div>
+
+        </section>
+
+
+        <!-- ================= STAT CARDS ================= -->
+
+        <section class="dashboard-stats">
+
+            <div class="dashboard-stat-card">
+
+                <div class="stat-icon green">
+                    <i class="fa-solid fa-seedling"></i>
+                </div>
+
+                <div>
+                    <h3 id="cropCount">4</h3>
+                    <p>Total Crops</p>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-stat-card">
+
+                <div class="stat-icon blue">
+                    <i class="fa-solid fa-droplet"></i>
+                </div>
+
+                <div>
+                    <h3 id="waterValue">72%</h3>
+                    <p>Water Level</p>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-stat-card">
+
+                <div class="stat-icon orange">
+                    <i class="fa-solid fa-flask"></i>
+                </div>
+
+                <div>
+                    <h3 id="soilValue">82%</h3>
+                    <p>Soil Health</p>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-stat-card">
+
+                <div class="stat-icon red">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+
+                <div>
+                    <h3 id="alertValue">2</h3>
+                    <p>Alerts</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= QUICK ACTIONS ================= -->
+
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Quick Actions</h2>
+
+                    <p>
+                        Access important farming tools quickly.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="quick-actions">
+
+                <a href="soil.html" class="action-card">
+
+                    <i class="fa-solid fa-flask"></i>
+
+                    <h3>Soil Analysis</h3>
+
+                    <p>
+                        Check your soil health
+                    </p>
+
+                </a>
+
+
+                <a href="disease.html" class="action-card">
+
+                    <i class="fa-solid fa-leaf"></i>
+
+                    <h3>Disease Detection</h3>
+
+                    <p>
+                        Detect crop diseases
+                    </p>
+
+                </a>
+
+
+                <a href="irrigation.html" class="action-card">
+
+                    <i class="fa-solid fa-droplet"></i>
+
+                    <h3>Irrigation</h3>
+
+                    <p>
+                        Calculate water needs
+                    </p>
+
+                </a>
+
+
+                <a href="fertilizer.html" class="action-card">
+
+                    <i class="fa-solid fa-bag-seedling"></i>
+
+                    <h3>Fertilizer</h3>
+
+                    <p>
+                        Get fertilizer advice
+                    </p>
+
+                </a>
+
+
+                <a href="weather.html" class="action-card">
+
+                    <i class="fa-solid fa-cloud-sun"></i>
+
+                    <h3>Weather</h3>
+
+                    <p>
+                        Check weather forecast
+                    </p>
+
+                </a>
+
+
+                <a href="market.html" class="action-card">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <h3>Market Prices</h3>
+
+                    <p>
+                        View crop prices
+                    </p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FARM OVERVIEW ================= -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- Crop Overview -->
+
+            <div class="dashboard-box">
+
+                <div class="box-title">
+
+                    <div>
+                        <h2>🌱 Crop Overview</h2>
+                        <p>Your current crops</p>
+                    </div>
+
+                    <button onclick="addCrop()">
+                        + Add Crop
+                    </button>
+
+                </div>
+
+
+                <div class="crop-table">
+
+                    <div class="crop-row crop-heading">
+
+                        <span>Crop</span>
+                        <span>Area</span>
+                        <span>Status</span>
+
+                    </div>
+
+
+                    <div class="crop-row">
+
+                        <span>🌾 Wheat</span>
+
+                        <span>2 Acres</span>
+
+                        <span class="status healthy">
+                            Healthy
+                        </span>
+
+                    </div>
+
+
+                    <div class="crop-row">
+
+                        <span>🌱 Soybean</span>
+
+                        <span>3 Acres</span>
+
+                        <span class="status healthy">
+                            Healthy
+                        </span>
+
+                    </div>
+
+
+                    <div class="crop-row">
+
+                        <span>🌽 Maize</span>
+
+                        <span>1.5 Acres</span>
+
+                        <span class="status warning">
+                            Attention
+                        </span>
+
+                    </div>
+
+
+                    <div class="crop-row">
+
+                        <span>🍅 Tomato</span>
+
+                        <span>1 Acre</span>
+
+                        <span class="status healthy">
+                            Healthy
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Soil Health -->
+
+            <div class="dashboard-box">
+
+                <div class="box-title">
+
+                    <div>
+                        <h2>🧪 Soil Health</h2>
+
+                        <p>
+                            Latest soil analysis
+                        </p>
+                    </div>
+
+                    <a href="soil.html">
+                        View
+                    </a>
+
+                </div>
+
+
+                <div class="soil-score">
+
+                    <div class="score-circle">
+
+                        <span>
+                            82%
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Good Soil Health
+                    </h3>
+
+                    <p>
+                        Your soil is suitable for most crops.
+                    </p>
+
+                </div>
+
+
+                <div class="soil-values">
+
+                    <div>
+                        <strong>6.8</strong>
+                        <span>pH</span>
+                    </div>
+
+                    <div>
+                        <strong>68</strong>
+                        <span>N</span>
+                    </div>
+
+                    <div>
+                        <strong>42</strong>
+                        <span>P</span>
+                    </div>
+
+                    <div>
+                        <strong>55</strong>
+                        <span>K</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ================= WEATHER + IRRIGATION ================= -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- Weather -->
+
+            <div class="dashboard-box weather-dashboard">
+
+                <div class="box-title">
+
+                    <div>
+                        <h2>🌦️ Today's Weather</h2>
+
+                        <p>
+                            Farm weather information
+                        </p>
+                    </div>
+
+                    <a href="weather.html">
+                        More
+                    </a>
+
+                </div>
+
+
+                <div class="weather-main">
+
+                    <div class="weather-symbol">
+                        ☀️
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            28°C
+                        </h2>
+
+                        <p>
+                            Sunny
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="weather-details">
+
+                    <div>
+                        💧
+                        <strong>62%</strong>
+                        Humidity
+                    </div>
+
+                    <div>
+                        💨
+                        <strong>14 km/h</strong>
+                        Wind
+                    </div>
+
+                    <div>
+                        🌧️
+                        <strong>10%</strong>
+                        Rain
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Irrigation -->
+
+            <div class="dashboard-box">
+
+                <div class="box-title">
+
+                    <div>
+                        <h2>💧 Irrigation Status</h2>
+
+                        <p>
+                            Today's water requirement
+                        </p>
+                    </div>
+
+                    <a href="irrigation.html">
+                        Calculate
+                    </a>
+
+                </div>
+
+
+                <div class="water-progress">
+
+                    <div class="water-progress-top">
+
+                        <span>
+                            Water Required
+                        </span>
+
+                        <strong>
+                            8.6 KL
+                        </strong>
+
+                    </div>
+
+
+                    <div class="progress-bar">
+
+                        <div class="progress-fill">
+                        </div>
+
+                    </div>
+
+
+                    <p>
+                        💧 Water level is normal.
+                    </p>
+
+                </div>
+
+
+                <div class="irrigation-tip">
+
+                    <strong>
+                        💡 Smart Tip
+                    </strong>
+
+                    <p>
+                        Irrigate early morning or evening
+                        to reduce water loss.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ================= ALERTS ================= -->
+
+        <section class="dashboard-box alerts-box">
+
+            <div class="box-title">
+
+                <div>
+                    <h2>🔔 Farm Alerts</h2>
+
+                    <p>
+                        Important updates for your farm
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="alert-item warning-alert">
+
+                <div class="alert-icon">
+                    ⚠️
+                </div>
+
+                <div>
+
+                    <strong>
+                        Maize needs attention
+                    </strong>
+
+                    <p>
+                        Check your maize crop for possible
+                        disease symptoms.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="alert-item info-alert">
+
+                <div class="alert-icon">
+                    💧
+                </div>
+
+                <div>
+
+                    <strong>
+                        Irrigation reminder
+                    </strong>
+
+                    <p>
+                        Your farm may need irrigation
+                        tomorrow morning.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="alert-item success-alert">
+
+                <div class="alert-icon">
+                    🌱
+                </div>
+
+                <div>
+
+                    <strong>
+                        Soil health is good
+                    </strong>
+
+                    <p>
+                        Your latest soil analysis shows
+                        good fertility.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= MARKET ================= -->
+
+        <section class="dashboard-box">
+
+            <div class="box-title">
+
+                <div>
+                    <h2>💰 Market Prices</h2>
+
+                    <p>
+                        Example crop prices
+                    </p>
+                </div>
+
+                <a href="market.html">
+                    View Market
+                </a>
+
+            </div>
+
+
+            <div class="market-grid">
+
+                <div class="market-card">
+
+                    <span>
+                        🌾 Wheat
+                    </span>
+
+                    <strong>
+                        ₹2,450
+                    </strong>
+
+                    <small>
+                        / Quintal
+                    </small>
+
+                    <em>
+                        ↑ 4.2%
+                    </em>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <span>
+                        🌱 Soybean
+                    </span>
+
+                    <strong>
+                        ₹4,650
+                    </strong>
+
+                    <small>
+                        / Quintal
+                    </small>
+
+                    <em>
+                        ↑ 2.8%
+                    </em>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <span>
+                        🌽 Maize
+                    </span>
+
+                    <strong>
+                        ₹2,150
+                    </strong>
+
+                    <small>
+                        / Quintal
+                    </small>
+
+                    <em>
+                        ↑ 1.5%
+                    </em>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <span>
+                        🍅 Tomato
+                    </span>
+
+                    <strong>
+                        ₹3,200
+                    </strong>
+
+                    <small>
+                        / Quintal
+                    </small>
+
+                    <em>
+                        ↑ 6.1%
+                    </em>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Smart Agro Care |
+            AI Powered Agriculture 🌾
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        function addCrop() {
+
+            const cropName = prompt("Enter crop name:");
+
+            if (cropName === null || cropName.trim() === "") {
+                return;
+            }
+
+            alert(
+                "🌱 " +
+                cropName +
+                " added successfully to your farm!"
+            );
+
+        }
+
+
+        /* Small dashboard animation */
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const cards =
+                document.querySelectorAll(
+                    ".dashboard-stat-card, .action-card, .dashboard-box"
+                );
+
+            cards.forEach(function (card, index) {
+
+                card.style.opacity = "0";
+                card.style.transform = "translateY(20px)";
+
+                setTimeout(function () {
+
+                    card.style.transition =
+                        "all 0.5s ease";
+
+                    card.style.opacity = "1";
+                    card.style.transform =
+                        "translateY(0)";
+
+                }, index * 100);
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
