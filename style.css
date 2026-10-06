@@ -2581,3 +2581,31 @@ footer {
         box-shadow: 0 0 0 0 rgba(211,47,47,0);
     }
 }
+.language-box {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.language-box span {
+    font-size: 18px;
+}
+
+.language-box select {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #222;
+}
+
+.language-box select option {
+    background: white;
+    color: #222;
+}
