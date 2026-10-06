@@ -1021,3 +1021,585 @@ window.speechSynthesis.onvoiceschanged = function () {
 
     console.log("Available voices:", voices);
 };
+const translations = {
+
+    en: {
+        home: "Home",
+        soil: "Soil Test",
+        disease: "Disease Detection",
+        fertilizer: "Fertilizer",
+        chatbot: "AI Chatbot",
+        weather: "Weather",
+        market: "Market",
+        about: "About",
+        contact: "Contact",
+
+        welcome: "Welcome to Smart Agro Care",
+        tagline: "Smart Farming. Better Future.",
+        subtitle: "Your digital farming assistant",
+        getStarted: "Get Started",
+        learnMore: "Learn More",
+
+        soilTitle: "Soil Test",
+        soilText: "Check your soil health and get suitable crop recommendations.",
+
+        diseaseTitle: "Crop Disease Detection",
+        diseaseText: "Upload a crop image to identify possible diseases.",
+
+        fertilizerTitle: "Fertilizer Recommendation",
+        fertilizerText: "Get fertilizer recommendations based on your soil.",
+
+        weatherTitle: "Weather",
+        weatherText: "Get the latest weather information for your location.",
+
+        marketTitle: "Market Prices",
+        marketText: "Check current crop and agricultural market prices.",
+
+        chatbotTitle: "AI Farming Assistant",
+        chatbotText: "Ask questions about crops, soil, diseases and farming.",
+
+        aboutTitle: "About Smart Agro Care",
+        contactTitle: "Contact Us",
+
+        footer: "Smart Agro Care © 2026. All Rights Reserved."
+    },
+
+    mr: {
+        home: "मुख्यपृष्ठ",
+        soil: "माती तपासणी",
+        disease: "पिकांचे रोग ओळख",
+        fertilizer: "खत",
+        chatbot: "AI चॅटबॉट",
+        weather: "हवामान",
+        market: "बाजारभाव",
+        about: "आमच्याबद्दल",
+        contact: "संपर्क",
+
+        welcome: "स्मार्ट ॲग्रो केअरमध्ये आपले स्वागत आहे",
+        tagline: "स्मार्ट शेती. चांगले भविष्य.",
+        subtitle: "तुमचा डिजिटल शेती सहाय्यक",
+        getStarted: "सुरुवात करा",
+        learnMore: "अधिक जाणून घ्या",
+
+        soilTitle: "माती तपासणी",
+        soilText: "तुमच्या मातीचे आरोग्य तपासा आणि योग्य पिकांची शिफारस मिळवा.",
+
+        diseaseTitle: "पिकांचे रोग ओळख",
+        diseaseText: "पिकाचा फोटो अपलोड करून संभाव्य रोग ओळखा.",
+
+        fertilizerTitle: "खताची शिफारस",
+        fertilizerText: "तुमच्या मातीच्या आधारावर योग्य खताची शिफारस मिळवा.",
+
+        weatherTitle: "हवामान",
+        weatherText: "तुमच्या ठिकाणची नवीनतम हवामान माहिती मिळवा.",
+
+        marketTitle: "बाजारभाव",
+        marketText: "पिकांचे आणि कृषी उत्पादनांचे सध्याचे बाजारभाव पहा.",
+
+        chatbotTitle: "AI शेती सहाय्यक",
+        chatbotText: "पिके, माती, रोग आणि शेतीबद्दल प्रश्न विचारा.",
+
+        aboutTitle: "स्मार्ट ॲग्रो केअरबद्दल",
+        contactTitle: "आमच्याशी संपर्क साधा",
+
+        footer: "स्मार्ट ॲग्रो केअर © 2026. सर्व हक्क राखीव."
+    },
+
+    hi: {
+        home: "होम",
+        soil: "मिट्टी जांच",
+        disease: "फसल रोग पहचान",
+        fertilizer: "उर्वरक",
+        chatbot: "AI चैटबॉट",
+        weather: "मौसम",
+        market: "बाजार भाव",
+        about: "हमारे बारे में",
+        contact: "संपर्क",
+
+        welcome: "स्मार्ट एग्रो केयर में आपका स्वागत है",
+        tagline: "स्मार्ट खेती। बेहतर भविष्य।",
+        subtitle: "आपका डिजिटल कृषि सहायक",
+        getStarted: "शुरू करें",
+        learnMore: "और जानें",
+
+        soilTitle: "मिट्टी जांच",
+        soilText: "अपनी मिट्टी की गुणवत्ता जांचें और उपयुक्त फसल की जानकारी प्राप्त करें।",
+
+        diseaseTitle: "फसल रोग पहचान",
+        diseaseText: "संभावित रोग की पहचान करने के लिए फसल की तस्वीर अपलोड करें।",
+
+        fertilizerTitle: "उर्वरक सुझाव",
+        fertilizerText: "अपनी मिट्टी के अनुसार सही उर्वरक की जानकारी प्राप्त करें।",
+
+        weatherTitle: "मौसम",
+        weatherText: "अपने स्थान की नवीनतम मौसम जानकारी प्राप्त करें।",
+
+        marketTitle: "बाजार भाव",
+        marketText: "फसलों और कृषि उत्पादों के वर्तमान बाजार भाव देखें।",
+
+        chatbotTitle: "AI कृषि सहायक",
+        chatbotText: "फसल, मिट्टी, रोग और खेती के बारे में प्रश्न पूछें।",
+
+        aboutTitle: "स्मार्ट एग्रो केयर के बारे में",
+        contactTitle: "हमसे संपर्क करें",
+
+        footer: "स्मार्ट एग्रो केयर © 2026. सर्वाधिकार सुरक्षित।"
+    },
+
+    gu: {
+        home: "હોમ",
+        soil: "માટી તપાસ",
+        disease: "રોગ ઓળખ",
+        fertilizer: "ખાતર",
+        chatbot: "AI ચેટબોટ",
+        weather: "હવામાન",
+        market: "બજાર ભાવ",
+        about: "અમારા વિશે",
+        contact: "સંપર્ક",
+
+        welcome: "સ્માર્ટ એગ્રો કેરમાં આપનું સ્વાગત છે",
+        tagline: "સ્માર્ટ ખેતી. સારું ભવિષ્ય.",
+        subtitle: "તમારો ડિજિટલ ખેતી સહાયક",
+        getStarted: "શરૂ કરો",
+        learnMore: "વધુ જાણો",
+
+        soilTitle: "માટી તપાસ",
+        soilText: "તમારી માટીની ગુણવત્તા તપાસો અને યોગ્ય પાકની ભલામણ મેળવો.",
+
+        diseaseTitle: "પાક રોગ ઓળખ",
+        diseaseText: "રોગ ઓળખવા માટે પાકનો ફોટો અપલોડ કરો.",
+
+        fertilizerTitle: "ખાતર ભલામણ",
+        fertilizerText: "તમારી માટી અનુસાર યોગ્ય ખાતરની ભલામણ મેળવો.",
+
+        weatherTitle: "હવામાન",
+        weatherText: "તમારા સ્થાનની નવીનતમ હવામાન માહિતી મેળવો.",
+
+        marketTitle: "બજાર ભાવ",
+        marketText: "પાકના વર્તમાન બજાર ભાવ તપાસો.",
+
+        chatbotTitle: "AI ખેતી સહાયક",
+        chatbotText: "પાક, માટી અને ખેતી વિશે પ્રશ્નો પૂછો.",
+
+        aboutTitle: "સ્માર્ટ એગ્રો કેર વિશે",
+        contactTitle: "અમારો સંપર્ક કરો",
+
+        footer: "સ્માર્ટ એગ્રો કેર © 2026. સર્વાધિકાર સુરક્ષિત."
+    },
+
+    kn: {
+        home: "ಮುಖಪುಟ",
+        soil: "ಮಣ್ಣಿನ ಪರೀಕ್ಷೆ",
+        disease: "ರೋಗ ಪತ್ತೆ",
+        fertilizer: "ರಸಗೊಬ್ಬರ",
+        chatbot: "AI ಚಾಟ್‌ಬಾಟ್",
+        weather: "ಹವಾಮಾನ",
+        market: "ಮಾರುಕಟ್ಟೆ ಬೆಲೆ",
+        about: "ನಮ್ಮ ಬಗ್ಗೆ",
+        contact: "ಸಂಪರ್ಕ",
+
+        welcome: "ಸ್ಮಾರ್ಟ್ ಅಗ್ರೋ ಕೇರ್‌ಗೆ ಸ್ವಾಗತ",
+        tagline: "ಸ್ಮಾರ್ಟ್ ಕೃಷಿ. ಉತ್ತಮ ಭವಿಷ್ಯ.",
+        subtitle: "ನಿಮ್ಮ ಡಿಜಿಟಲ್ ಕೃಷಿ ಸಹಾಯಕ",
+        getStarted: "ಪ್ರಾರಂಭಿಸಿ",
+        learnMore: "ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ",
+
+        soilTitle: "ಮಣ್ಣಿನ ಪರೀಕ್ಷೆ",
+        soilText: "ನಿಮ್ಮ ಮಣ್ಣಿನ ಆರೋಗ್ಯವನ್ನು ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಸೂಕ್ತ ಬೆಳೆಗಳ ಶಿಫಾರಸು ಪಡೆಯಿರಿ.",
+
+        diseaseTitle: "ಬೆಳೆ ರೋಗ ಪತ್ತೆ",
+        diseaseText: "ರೋಗವನ್ನು ಗುರುತಿಸಲು ಬೆಳೆ ಚಿತ್ರವನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ.",
+
+        fertilizerTitle: "ರಸಗೊಬ್ಬರ ಶಿಫಾರಸು",
+        fertilizerText: "ನಿಮ್ಮ ಮಣ್ಣಿನ ಆಧಾರದ ಮೇಲೆ ಸೂಕ್ತ ರಸಗೊಬ್ಬರ ಪಡೆಯಿರಿ.",
+
+        weatherTitle: "ಹವಾಮಾನ",
+        weatherText: "ನಿಮ್ಮ ಸ್ಥಳದ ಇತ್ತೀಚಿನ ಹವಾಮಾನ ಮಾಹಿತಿ ಪಡೆಯಿರಿ.",
+
+        marketTitle: "ಮಾರುಕಟ್ಟೆ ಬೆಲೆ",
+        marketText: "ಬೆಳೆಗಳ ಪ್ರಸ್ತುತ ಮಾರುಕಟ್ಟೆ ಬೆಲೆಗಳನ್ನು ಪರಿಶೀಲಿಸಿ.",
+
+        chatbotTitle: "AI ಕೃಷಿ ಸಹಾಯಕ",
+        chatbotText: "ಬೆಳೆ, ಮಣ್ಣು ಮತ್ತು ಕೃಷಿಯ ಬಗ್ಗೆ ಪ್ರಶ್ನೆಗಳನ್ನು ಕೇಳಿ.",
+
+        aboutTitle: "ಸ್ಮಾರ್ಟ್ ಅಗ್ರೋ ಕೇರ್ ಬಗ್ಗೆ",
+        contactTitle: "ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ",
+
+        footer: "ಸ್ಮಾರ್ಟ್ ಅಗ್ರೋ ಕೇರ್ © 2026. ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ."
+    },
+
+    te: {
+        home: "హోమ్",
+        soil: "నేల పరీక్ష",
+        disease: "వ్యాధి గుర్తింపు",
+        fertilizer: "ఎరువులు",
+        chatbot: "AI చాట్‌బాట్",
+        weather: "వాతావరణం",
+        market: "మార్కెట్ ధరలు",
+        about: "మా గురించి",
+        contact: "సంప్రదించండి",
+
+        welcome: "స్మార్ట్ అగ్రో కేర్‌కు స్వాగతం",
+        tagline: "స్మార్ట్ వ్యవసాయం. మంచి భవిష్యత్తు.",
+        subtitle: "మీ డిజిటల్ వ్యవసాయ సహాయకుడు",
+        getStarted: "ప్రారంభించండి",
+        learnMore: "మరింత తెలుసుకోండి",
+
+        soilTitle: "నేల పరీక్ష",
+        soilText: "మీ నేల ఆరోగ్యాన్ని తనిఖీ చేసి తగిన పంటల సూచనలు పొందండి.",
+
+        diseaseTitle: "పంట వ్యాధి గుర్తింపు",
+        diseaseText: "వ్యాధిని గుర్తించడానికి పంట చిత్రాన్ని అప్‌లోడ్ చేయండి.",
+
+        fertilizerTitle: "ఎరువుల సూచన",
+        fertilizerText: "మీ నేల ఆధారంగా సరైన ఎరువుల సూచన పొందండి.",
+
+        weatherTitle: "వాతావరణం",
+        weatherText: "మీ ప్రాంతానికి తాజా వాతావరణ సమాచారాన్ని పొందండి.",
+
+        marketTitle: "మార్కెట్ ధరలు",
+        marketText: "పంటల ప్రస్తుత మార్కెట్ ధరలను చూడండి.",
+
+        chatbotTitle: "AI వ్యవసాయ సహాయకుడు",
+        chatbotText: "పంటలు, నేల మరియు వ్యవసాయం గురించి ప్రశ్నలు అడగండి.",
+
+        aboutTitle: "స్మార్ట్ అగ్రో కేర్ గురించి",
+        contactTitle: "మమ్మల్ని సంప్రదించండి",
+
+        footer: "స్మార్ట్ అగ్రో కేర్ © 2026. అన్ని హక్కులు రిజర్వ్ చేయబడ్డాయి."
+    },
+
+    ta: {
+        home: "முகப்பு",
+        soil: "மண் பரிசோதனை",
+        disease: "நோய் கண்டறிதல்",
+        fertilizer: "உரம்",
+        chatbot: "AI சாட்பாட்",
+        weather: "வானிலை",
+        market: "சந்தை விலை",
+        about: "எங்களை பற்றி",
+        contact: "தொடர்பு",
+
+        welcome: "ஸ்மார்ட் அக்ரோ கேர் வரவேற்கிறது",
+        tagline: "ஸ்மார்ட் விவசாயம். சிறந்த எதிர்காலம்.",
+        subtitle: "உங்கள் டிஜிட்டல் விவசாய உதவியாளர்",
+        getStarted: "தொடங்குங்கள்",
+        learnMore: "மேலும் அறிக",
+
+        soilTitle: "மண் பரிசோதனை",
+        soilText: "உங்கள் மண்ணின் ஆரோக்கியத்தை சரிபார்த்து பொருத்தமான பயிர் பரிந்துரைகளைப் பெறுங்கள்.",
+
+        diseaseTitle: "பயிர் நோய் கண்டறிதல்",
+        diseaseText: "நோயை கண்டறிய பயிரின் படத்தை பதிவேற்றவும்.",
+
+        fertilizerTitle: "உர பரிந்துரை",
+        fertilizerText: "உங்கள் மண்ணின் அடிப்படையில் சரியான உரத்தைப் பெறுங்கள்.",
+
+        weatherTitle: "வானிலை",
+        weatherText: "உங்கள் இடத்தின் சமீபத்திய வானிலை தகவலைப் பெறுங்கள்.",
+
+        marketTitle: "சந்தை விலை",
+        marketText: "பயிர்களின் தற்போதைய சந்தை விலைகளைப் பார்க்கவும்.",
+
+        chatbotTitle: "AI விவசாய உதவியாளர்",
+        chatbotText: "பயிர்கள், மண் மற்றும் விவசாயம் பற்றி கேள்விகள் கேளுங்கள்.",
+
+        aboutTitle: "ஸ்மார்ட் அக்ரோ கேர் பற்றி",
+        contactTitle: "எங்களை தொடர்பு கொள்ளுங்கள்",
+
+        footer: "ஸ்மார்ட் அக்ரோ கேர் © 2026. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை."
+    },
+
+    bn: {
+        home: "হোম",
+        soil: "মাটি পরীক্ষা",
+        disease: "রোগ শনাক্তকরণ",
+        fertilizer: "সার",
+        chatbot: "AI চ্যাটবট",
+        weather: "আবহাওয়া",
+        market: "বাজার দর",
+        about: "আমাদের সম্পর্কে",
+        contact: "যোগাযোগ",
+
+        welcome: "স্মার্ট অ্যাগ্রো কেয়ারে স্বাগতম",
+        tagline: "স্মার্ট কৃষি। উন্নত ভবিষ্যৎ।",
+        subtitle: "আপনার ডিজিটাল কৃষি সহায়ক",
+        getStarted: "শুরু করুন",
+        learnMore: "আরও জানুন",
+
+        soilTitle: "মাটি পরীক্ষা",
+        soilText: "আপনার মাটির স্বাস্থ্য পরীক্ষা করুন এবং উপযুক্ত ফসলের পরামর্শ পান।",
+
+        diseaseTitle: "ফসলের রোগ শনাক্তকরণ",
+        diseaseText: "রোগ শনাক্ত করতে ফসলের ছবি আপলোড করুন।",
+
+        fertilizerTitle: "সার পরামর্শ",
+        fertilizerText: "আপনার মাটির উপর ভিত্তি করে সঠিক সার নির্বাচন করুন।",
+
+        weatherTitle: "আবহাওয়া",
+        weatherText: "আপনার এলাকার সর্বশেষ আবহাওয়ার তথ্য পান।",
+
+        marketTitle: "বাজার দর",
+        marketText: "ফসলের বর্তমান বাজার দর দেখুন।",
+
+        chatbotTitle: "AI কৃষি সহায়ক",
+        chatbotText: "ফসল, মাটি এবং কৃষি সম্পর্কে প্রশ্ন করুন।",
+
+        aboutTitle: "স্মার্ট অ্যাগ্রো কেয়ার সম্পর্কে",
+        contactTitle: "যোগাযোগ করুন",
+
+        footer: "স্মার্ট অ্যাগ্রো কেয়ার © 2026. সর্বস্বত্ব সংরক্ষিত।"
+    },
+
+    pa: {
+        home: "ਮੁੱਖ ਪੰਨਾ",
+        soil: "ਮਿੱਟੀ ਜਾਂਚ",
+        disease: "ਬਿਮਾਰੀ ਪਛਾਣ",
+        fertilizer: "ਖਾਦ",
+        chatbot: "AI ਚੈਟਬੋਟ",
+        weather: "ਮੌਸਮ",
+        market: "ਮੰਡੀ ਭਾਅ",
+        about: "ਸਾਡੇ ਬਾਰੇ",
+        contact: "ਸੰਪਰਕ",
+
+        welcome: "ਸਮਾਰਟ ਐਗਰੋ ਕੇਅਰ ਵਿੱਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ",
+        tagline: "ਸਮਾਰਟ ਖੇਤੀ। ਬਿਹਤਰ ਭਵਿੱਖ।",
+        subtitle: "ਤੁਹਾਡਾ ਡਿਜੀਟਲ ਖੇਤੀ ਸਹਾਇਕ",
+        getStarted: "ਸ਼ੁਰੂ ਕਰੋ",
+        learnMore: "ਹੋਰ ਜਾਣੋ",
+
+        soilTitle: "ਮਿੱਟੀ ਜਾਂਚ",
+        soilText: "ਆਪਣੀ ਮਿੱਟੀ ਦੀ ਸਿਹਤ ਜਾਂਚੋ ਅਤੇ ਢੁਕਵੀਂ ਫਸਲ ਦੀ ਸਿਫਾਰਸ਼ ਪ੍ਰਾਪਤ ਕਰੋ।",
+
+        diseaseTitle: "ਫਸਲ ਦੀ ਬਿਮਾਰੀ ਪਛਾਣ",
+        diseaseText: "ਬਿਮਾਰੀ ਦੀ ਪਛਾਣ ਕਰਨ ਲਈ ਫਸਲ ਦੀ ਤਸਵੀਰ ਅਪਲੋਡ ਕਰੋ।",
+
+        fertilizerTitle: "ਖਾਦ ਦੀ ਸਿਫਾਰਸ਼",
+        fertilizerText: "ਆਪਣੀ ਮਿੱਟੀ ਦੇ ਅਧਾਰ 'ਤੇ ਸਹੀ ਖਾਦ ਦੀ ਸਿਫਾਰਸ਼ ਪ੍ਰਾਪਤ ਕਰੋ।",
+
+        weatherTitle: "ਮੌਸਮ",
+        weatherText: "ਆਪਣੇ ਸਥਾਨ ਦੀ ਤਾਜ਼ਾ ਮੌਸਮ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰੋ।",
+
+        marketTitle: "ਮੰਡੀ ਭਾਅ",
+        marketText: "ਫਸਲਾਂ ਦੇ ਮੌਜੂਦਾ ਮੰਡੀ ਭਾਅ ਵੇਖੋ।",
+
+        chatbotTitle: "AI ਖੇਤੀ ਸਹਾਇਕ",
+        chatbotText: "ਫਸਲਾਂ, ਮਿੱਟੀ ਅਤੇ ਖੇਤੀ ਬਾਰੇ ਸਵਾਲ ਪੁੱਛੋ।",
+
+        aboutTitle: "ਸਮਾਰਟ ਐਗਰੋ ਕੇਅਰ ਬਾਰੇ",
+        contactTitle: "ਸਾਡੇ ਨਾਲ ਸੰਪਰਕ ਕਰੋ",
+
+        footer: "ਸਮਾਰਟ ਐਗਰੋ ਕੇਅਰ © 2026. ਸਾਰੇ ਹੱਕ ਰਾਖਵੇਂ ਹਨ।"
+    },
+
+    ml: {
+        home: "ഹോം",
+        soil: "മണ്ണ് പരിശോധന",
+        disease: "രോഗനിർണയം",
+        fertilizer: "വളം",
+        chatbot: "AI ചാറ്റ്ബോട്ട്",
+        weather: "കാലാവസ്ഥ",
+        market: "വിപണി വില",
+        about: "ഞങ്ങളെക്കുറിച്ച്",
+        contact: "ബന്ധപ്പെടുക",
+
+        welcome: "സ്മാർട്ട് അഗ്രോ കെയറിലേക്ക് സ്വാഗതം",
+        tagline: "സ്മാർട്ട് കൃഷി. മികച്ച ഭാവി.",
+        subtitle: "നിങ്ങളുടെ ഡിജിറ്റൽ കൃഷി സഹായി",
+        getStarted: "ആരംഭിക്കുക",
+        learnMore: "കൂടുതൽ അറിയുക",
+
+        soilTitle: "മണ്ണ് പരിശോധന",
+        soilText: "നിങ്ങളുടെ മണ്ണിന്റെ ആരോഗ്യം പരിശോധിച്ച് അനുയോജ്യമായ വിളകൾ കണ്ടെത്തുക.",
+
+        diseaseTitle: "വിള രോഗനിർണയം",
+        diseaseText: "രോഗം കണ്ടെത്താൻ വിളയുടെ ചിത്രം അപ്‌ലോഡ് ചെയ്യുക.",
+
+        fertilizerTitle: "വള ശുപാർശ",
+        fertilizerText: "നിങ്ങളുടെ മണ്ണിന്റെ അടിസ്ഥാനത്തിൽ ശരിയായ വളം തിരഞ്ഞെടുക്കുക.",
+
+        weatherTitle: "കാലാവസ്ഥ",
+        weatherText: "നിങ്ങളുടെ പ്രദേശത്തെ ഏറ്റവും പുതിയ കാലാവസ്ഥാ വിവരങ്ങൾ നേടുക.",
+
+        marketTitle: "വിപണി വില",
+        marketText: "വിളകളുടെ നിലവിലെ വിപണി വില പരിശോധിക്കുക.",
+
+        chatbotTitle: "AI കൃഷി സഹായി",
+        chatbotText: "വിളകൾ, മണ്ണ്, കൃഷി എന്നിവയെക്കുറിച്ച് ചോദ്യങ്ങൾ ചോദിക്കുക.",
+
+        aboutTitle: "സ്മാർട്ട് അഗ്രോ കെയറിനെക്കുറിച്ച്",
+        contactTitle: "ഞങ്ങളെ ബന്ധപ്പെടുക",
+
+        footer: "സ്മാർട്ട് അഗ്രോ കെയർ © 2026. എല്ലാ അവകാശങ്ങളും സംരക്ഷിച്ചിരിക്കുന്നു."
+    },
+
+    or: {
+        home: "ମୁଖ୍ୟ ପୃଷ୍ଠା",
+        soil: "ମାଟି ପରୀକ୍ଷା",
+        disease: "ରୋଗ ଚିହ୍ନଟ",
+        fertilizer: "ସାର",
+        chatbot: "AI ଚାଟବଟ",
+        weather: "ପାଣିପାଗ",
+        market: "ବଜାର ଦର",
+        about: "ଆମ ବିଷୟରେ",
+        contact: "ଯୋଗାଯୋଗ",
+
+        welcome: "ସ୍ମାର୍ଟ ଏଗ୍ରୋ କେୟାରକୁ ସ୍ୱାଗତ",
+        tagline: "ସ୍ମାର୍ଟ କୃଷି। ଉନ୍ନତ ଭବିଷ୍ୟତ।",
+        subtitle: "ଆପଣଙ୍କ ଡିଜିଟାଲ କୃଷି ସହାୟକ",
+        getStarted: "ଆରମ୍ଭ କରନ୍ତୁ",
+        learnMore: "ଅଧିକ ଜାଣନ୍ତୁ",
+
+        soilTitle: "ମାଟି ପରୀକ୍ଷା",
+        soilText: "ଆପଣଙ୍କ ମାଟିର ସ୍ୱାସ୍ଥ୍ୟ ପରୀକ୍ଷା କରନ୍ତୁ ଏବଂ ଉପଯୁକ୍ତ ଫସଲର ପରାମର୍ଶ ପାଆନ୍ତୁ।",
+
+        diseaseTitle: "ଫସଲ ରୋଗ ଚିହ୍ନଟ",
+        diseaseText: "ରୋଗ ଚିହ୍ନଟ ପାଇଁ ଫସଲର ଫଟୋ ଅପଲୋଡ କରନ୍ତୁ।",
+
+        fertilizerTitle: "ସାର ପରାମର୍ଶ",
+        fertilizerText: "ଆପଣଙ୍କ ମାଟି ଅନୁସାରେ ଉପଯୁକ୍ତ ସାରର ପରାମର୍ଶ ପାଆନ୍ତୁ।",
+
+        weatherTitle: "ପାଣିପାଗ",
+        weatherText: "ଆପଣଙ୍କ ସ୍ଥାନର ସର୍ବଶେଷ ପାଣିପାଗ ସୂଚନା ପାଆନ୍ତୁ।",
+
+        marketTitle: "ବଜାର ଦର",
+        marketText: "ଫସଲର ବର୍ତ୍ତମାନ ବଜାର ଦର ଦେଖନ୍ତୁ।",
+
+        chatbotTitle: "AI କୃଷି ସହାୟକ",
+        chatbotText: "ଫସଲ, ମାଟି ଏବଂ କୃଷି ବିଷୟରେ ପ୍ରଶ୍ନ ପଚାରନ୍ତୁ।",
+
+        aboutTitle: "ସ୍ମାର୍ଟ ଏଗ୍ରୋ କେୟାର ବିଷୟରେ",
+        contactTitle: "ଆମ ସହିତ ଯୋଗାଯୋଗ କରନ୍ତୁ",
+
+        footer: "ସ୍ମାର୍ଟ ଏଗ୍ରୋ କେୟାର © 2026. ସମସ୍ତ ଅଧିକାର ସଂରକ୍ଷିତ।"
+    },
+
+    as: {
+        home: "মুখ্য পৃষ্ঠা",
+        soil: "মাটি পৰীক্ষা",
+        disease: "ৰোগ চিনাক্তকৰণ",
+        fertilizer: "সাৰ",
+        chatbot: "AI চেটবট",
+        weather: "বতৰ",
+        market: "বজাৰ মূল্য",
+        about: "আমাৰ বিষয়ে",
+        contact: "যোগাযোগ",
+
+        welcome: "স্মাৰ্ট এগ্ৰো কেয়াৰলৈ স্বাগতম",
+        tagline: "স্মাৰ্ট কৃষি। উন্নত ভৱিষ্যৎ।",
+        subtitle: "আপোনাৰ ডিজিটেল কৃষি সহায়ক",
+        getStarted: "আৰম্ভ কৰক",
+        learnMore: "অধিক জানক",
+
+        soilTitle: "মাটি পৰীক্ষা",
+        soilText: "আপোনাৰ মাটিৰ স্বাস্থ্য পৰীক্ষা কৰি উপযুক্ত শস্যৰ পৰামৰ্শ লাভ কৰক।",
+
+        diseaseTitle: "শস্যৰ ৰোগ চিনাক্তকৰণ",
+        diseaseText: "ৰোগ চিনাক্ত কৰিবলৈ শস্যৰ ছবি আপলোড কৰক।",
+
+        fertilizerTitle: "সাৰৰ পৰামৰ্শ",
+        fertilizerText: "আপোনাৰ মাটিৰ ওপৰত ভিত্তি কৰি সঠিক সাৰৰ পৰামৰ্শ লাভ কৰক।",
+
+        weatherTitle: "বতৰ",
+        weatherText: "আপোনাৰ স্থানৰ শেহতীয়া বতৰৰ তথ্য লাভ কৰক।",
+
+        marketTitle: "বজাৰ মূল্য",
+        marketText: "শস্যৰ বৰ্তমান বজাৰ মূল্য চাওক।",
+
+        chatbotTitle: "AI কৃষি সহায়ক",
+        chatbotText: "শস্য, মাটি আৰু কৃষিৰ বিষয়ে প্ৰশ্ন সোধক।",
+
+        aboutTitle: "স্মাৰ্ট এগ্ৰো কেয়াৰৰ বিষয়ে",
+        contactTitle: "আমাৰ সৈতে যোগাযোগ কৰক",
+
+        footer: "স্মাৰ্ট এগ্ৰো কেয়াৰ © 2026. সকলো অধিকাৰ সংৰক্ষিত।"
+    },
+
+    ur: {
+        home: "ہوم",
+        soil: "مٹی کی جانچ",
+        disease: "بیماری کی شناخت",
+        fertilizer: "کھاد",
+        chatbot: "AI چیٹ بوٹ",
+        weather: "موسم",
+        market: "بازار کی قیمت",
+        about: "ہمارے بارے میں",
+        contact: "رابطہ",
+
+        welcome: "اسمارٹ ایگرو کیئر میں خوش آمدید",
+        tagline: "اسمارٹ کاشتکاری۔ بہتر مستقبل۔",
+        subtitle: "آپ کا ڈیجیٹل زرعی معاون",
+        getStarted: "شروع کریں",
+        learnMore: "مزید جانیں",
+
+        soilTitle: "مٹی کی جانچ",
+        soilText: "اپنی مٹی کی صحت چیک کریں اور مناسب فصل کی سفارش حاصل کریں۔",
+
+        diseaseTitle: "فصل کی بیماری کی شناخت",
+        diseaseText: "بیماری کی شناخت کے لیے فصل کی تصویر اپ لوڈ کریں۔",
+
+        fertilizerTitle: "کھاد کی سفارش",
+        fertilizerText: "اپنی مٹی کے مطابق مناسب کھاد کی سفارش حاصل کریں۔",
+
+        weatherTitle: "موسم",
+        weatherText: "اپنے علاقے کی تازہ ترین موسم کی معلومات حاصل کریں۔",
+
+        marketTitle: "بازار کی قیمت",
+        marketText: "فصلوں کی موجودہ بازار قیمتیں دیکھیں۔",
+
+        chatbotTitle: "AI زرعی معاون",
+        chatbotText: "فصل، مٹی اور کاشتکاری کے بارے میں سوال پوچھیں۔",
+
+        aboutTitle: "اسمارٹ ایگرو کیئر کے بارے میں",
+        contactTitle: "ہم سے رابطہ کریں",
+
+        footer: "اسمارٹ ایگرو کیئر © 2026۔ جملہ حقوق محفوظ ہیں۔"
+    }
+};
+
+
+// Change language
+function changeLanguage(lang) {
+
+    const elements = document.querySelectorAll("[data-i18n]");
+
+    elements.forEach(element => {
+
+        const key = element.getAttribute("data-i18n");
+
+        if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+        }
+
+    });
+
+    // Save selected language
+    localStorage.setItem("selectedLanguage", lang);
+
+    // Set document language
+    document.documentElement.lang = lang;
+
+    // Urdu right-to-left
+    if (lang === "ur") {
+        document.body.dir = "rtl";
+    } else {
+        document.body.dir = "ltr";
+    }
+}
+
+
+// Load saved language
+document.addEventListener("DOMContentLoaded", () => {
+
+    const savedLanguage =
+        localStorage.getItem("selectedLanguage") || "en";
+
+    const selector =
+        document.getElementById("languageSelect");
+
+    if (selector) {
+        selector.value = savedLanguage;
+    }
+
+    changeLanguage(savedLanguage);
+});
