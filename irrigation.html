@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Irrigation | Smart Agro Care</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body class="irrigation-page">
+
+<header>
+
+    <div class="logo">
+        🌾 Smart Agro Care
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="soil.html">Soil</a>
+        <a href="disease.html">Disease</a>
+        <a href="fertilizer.html">Fertilizer</a>
+        <a href="irrigation.html">Irrigation</a>
+        <a href="weather.html">Weather</a>
+        <a href="market.html">Market</a>
+        <a href="chatbot.html">AI Chatbot</a>
+    </nav>
+
+</header>
+
+
+<main class="irrigation-container">
+
+    <div class="irrigation-title">
+
+        <div class="water-icon">
+            💧
+        </div>
+
+        <h1>Smart Irrigation Calculator</h1>
+
+        <p>
+            Calculate the approximate water requirement
+            for your crop 🌱
+        </p>
+
+    </div>
+
+
+    <div class="irrigation-card">
+
+        <div class="form-group">
+
+            <label>
+                🌱 Select Crop
+            </label>
+
+            <select id="crop">
+                <option value="">Select Crop</option>
+                <option value="cotton">Cotton</option>
+                <option value="soybean">Soybean</option>
+                <option value="wheat">Wheat</option>
+                <option value="rice">Rice</option>
+                <option value="maize">Maize</option>
+                <option value="sugarcane">Sugarcane</option>
+                <option value="tomato">Tomato</option>
+                <option value="onion">Onion</option>
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                📐 Farm Area
+            </label>
+
+            <div class="input-with-unit">
+
+                <input
+                    type="number"
+                    id="area"
+                    placeholder="Enter farm area"
+                    min="0.1"
+                    step="0.1">
+
+                <span>Acres</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                🌡️ Temperature
+            </label>
+
+            <div class="input-with-unit">
+
+                <input
+                    type="number"
+                    id="temperature"
+                    placeholder="Example: 30"
+                    min="0"
+                    max="60">
+
+                <span>°C</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                🪨 Soil Type
+            </label>
+
+            <select id="soil">
+
+                <option value="">
+                    Select Soil Type
+                </option>
+
+                <option value="black">
+                    Black Soil
+                </option>
+
+                <option value="red">
+                    Red Soil
+                </option>
+
+                <option value="alluvial">
+                    Alluvial Soil
+                </option>
+
+                <option value="sandy">
+                    Sandy Soil
+                </option>
+
+                <option value="clay">
+                    Clay Soil
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <button
+            class="calculate-btn"
+            onclick="calculateWater()">
+
+            💧 Calculate Water Requirement
+
+        </button>
+
+
+        <div
+            id="result"
+            class="irrigation-result">
+
+            <div class="result-icon">
+                💧
+            </div>
+
+            <h2 id="waterAmount">
+                --
+            </h2>
+
+            <p id="waterText">
+                Enter your farm details to calculate
+                water requirement.
+            </p>
+
+            <div class="recommendation"
+                id="recommendation">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<script>
+
+function calculateWater() {
+
+    const crop =
+        document.getElementById("crop").value;
+
+    const area =
+        parseFloat(
+            document.getElementById("area").value
+        );
+
+    const temperature =
+        parseFloat(
+            document.getElementById("temperature").value
+        );
+
+    const soil =
+        document.getElementById("soil").value;
+
+
+    // Validation
+
+    if (!crop ||
+        !area ||
+        !temperature ||
+        !soil) {
+
+        alert(
+            "Please fill all the details."
+        );
+
+        return;
+    }
+
+
+    if (area <= 0) {
+
+        alert(
+            "Please enter a valid farm area."
+        );
+
+        return;
+    }
+
+
+    if (temperature < 0 ||
+        temperature > 60) {
+
+        alert(
+            "Please enter a valid temperature."
+        );
+
+        return;
+    }
+
+
+    /*
+       Approximate crop water factor.
+       These are simplified project/demo
+       values, not irrigation prescriptions.
+    */
+
+    const cropFactor = {
+
+        cotton: 0.75,
+        soybean: 0.65,
+        wheat: 0.55,
+        rice: 1.00,
+        maize: 0.70,
+        sugarcane: 1.10,
+        tomato: 0.80,
+        onion: 0.65
+
+    };
+
+
+    const soilFactor = {
+
+        black: 0.85,
+        red: 1.00,
+        alluvial: 0.90,
+        sandy: 1.20,
+        clay: 0.75
+
+    };
+
+
+    /*
+       Base water requirement
+       in litres per acre per day.
+    */
+
+    let baseWater = 12000;
+
+
+    // Crop adjustment
+
+    let water =
+        baseWater *
+        cropFactor[crop];
+
+
+    // Soil adjustment
+
+    water =
+        water *
+        soilFactor[soil];
+
+
+    // Temperature adjustment
+
+    if (temperature >= 35) {
+
+        water = water * 1.20;
+
+    } else if (temperature >= 30) {
+
+        water = water * 1.10;
+
+    } else if (temperature <= 20) {
+
+        water = water * 0.85;
+
+    }
+
+
+    // Total farm water
+
+    const totalWater =
+        water * area;
+
+
+    // Convert to litres
+
+    const litres =
+        Math.round(totalWater);
+
+
+    // Convert to thousand litres
+
+    const thousandLitres =
+        (litres / 1000).toFixed(1);
+
+
+    // Display
+
+    document.getElementById(
+        "waterAmount"
+    ).innerHTML =
+        thousandLitres + " KL/day";
+
+
+    document.getElementById(
+        "waterText"
+    ).innerHTML =
+        "Approximate water requirement for " +
+        area +
+        " acre(s) of your selected crop.";
+
+
+    // Recommendation
+
+    let advice = "";
+
+
+    if (temperature >= 35) {
+
+        advice =
+            "☀️ High temperature detected. " +
+            "Consider irrigation during early morning " +
+            "or evening to reduce evaporation.";
+
+    } else if (soil === "sandy") {
+
+        advice =
+            "💧 Sandy soil drains quickly. " +
+            "Use smaller and more frequent irrigation.";
+
+    } else if (soil === "clay") {
+
+        advice =
+            "🌱 Clay soil holds water longer. " +
+            "Avoid over-irrigation and waterlogging.";
+
+    } else {
+
+        advice =
+            "✅ Use drip or sprinkler irrigation " +
+            "where suitable to reduce water wastage.";
+
+    }
+
+
+    document.getElementById(
+        "recommendation"
+    ).innerHTML = advice;
+
+
+    // Show result
+
+    document.getElementById(
+        "result"
+    ).classList.add("show");
+
+}
+
+</script>
+
+</body>
+</html>
