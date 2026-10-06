@@ -3025,3 +3025,1149 @@ footer {
         font-size: 32px;
     }
 
+/* =====================================================
+   FARMER DASHBOARD
+===================================================== */
+
+.dashboard-page {
+
+    padding: 130px 60px 70px;
+
+    background:
+        linear-gradient(
+            rgba(245,255,245,0.96),
+            rgba(245,255,245,0.96)
+        );
+
+    min-height: 100vh;
+
+}
+
+
+/* ================= WELCOME ================= */
+
+.dashboard-welcome {
+
+    max-width: 1400px;
+
+    margin: auto;
+
+    padding: 45px;
+
+    border-radius: 30px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1b5e20,
+            #43a047,
+            #81c784
+        );
+
+    color: white;
+
+    box-shadow:
+        0 15px 40px
+        rgba(46,125,50,0.25);
+
+}
+
+
+.welcome-small {
+
+    font-size: 16px;
+
+    opacity: 0.9;
+
+}
+
+
+.dashboard-welcome h1 {
+
+    font-size: 42px;
+
+    margin: 8px 0 10px;
+
+}
+
+
+.dashboard-welcome p {
+
+    max-width: 650px;
+
+    line-height: 1.7;
+
+    opacity: 0.92;
+
+}
+
+
+.farmer-icon {
+
+    width: 120px;
+
+    height: 120px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 65px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.18);
+
+    backdrop-filter: blur(10px);
+
+}
+
+
+/* ================= STATS ================= */
+
+.dashboard-stats {
+
+    max-width: 1400px;
+
+    margin: 30px auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 22px;
+
+}
+
+
+.dashboard-stat-card {
+
+    background: white;
+
+    border-radius: 22px;
+
+    padding: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,0.08);
+
+    transition: 0.3s;
+
+}
+
+
+.dashboard-stat-card:hover {
+
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 18px 35px
+        rgba(0,0,0,0.12);
+
+}
+
+
+.stat-icon {
+
+    width: 60px;
+
+    height: 60px;
+
+    border-radius: 17px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 25px;
+
+}
+
+
+.stat-icon.green {
+
+    background: #e8f5e9;
+
+    color: #2e7d32;
+
+}
+
+
+.stat-icon.blue {
+
+    background: #e3f2fd;
+
+    color: #1976d2;
+
+}
+
+
+.stat-icon.orange {
+
+    background: #fff3e0;
+
+    color: #ef6c00;
+
+}
+
+
+.stat-icon.red {
+
+    background: #ffebee;
+
+    color: #d32f2f;
+
+}
+
+
+.dashboard-stat-card h3 {
+
+    font-size: 30px;
+
+    color: #222;
+
+}
+
+
+.dashboard-stat-card p {
+
+    color: #777;
+
+    font-size: 14px;
+
+}
+
+
+/* ================= SECTIONS ================= */
+
+.dashboard-section {
+
+    max-width: 1400px;
+
+    margin: 45px auto;
+
+}
+
+
+.section-heading {
+
+    margin-bottom: 25px;
+
+}
+
+
+.section-heading h2 {
+
+    color: #1b5e20;
+
+    font-size: 28px;
+
+}
+
+
+.section-heading p {
+
+    color: #777;
+
+    margin-top: 5px;
+
+}
+
+
+/* ================= QUICK ACTIONS ================= */
+
+.quick-actions {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(6,1fr);
+
+    gap: 18px;
+
+}
+
+
+.action-card {
+
+    background: white;
+
+    padding: 25px 15px;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    color: #222;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,0.07);
+
+    transition: 0.3s;
+
+}
+
+
+.action-card:hover {
+
+    transform: translateY(-8px);
+
+    background: #f1fff2;
+
+}
+
+
+.action-card i {
+
+    font-size: 32px;
+
+    color: #2e7d32;
+
+    margin-bottom: 15px;
+
+}
+
+
+.action-card h3 {
+
+    font-size: 16px;
+
+    margin-bottom: 7px;
+
+}
+
+
+.action-card p {
+
+    font-size: 12px;
+
+    color: #777;
+
+}
+
+
+/* ================= DASHBOARD GRID ================= */
+
+.dashboard-grid {
+
+    max-width: 1400px;
+
+    margin: 25px auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 25px;
+
+}
+
+
+.dashboard-box {
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,0.07);
+
+    margin-bottom: 25px;
+
+}
+
+
+.box-title {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+
+}
+
+
+.box-title h2 {
+
+    color: #1b5e20;
+
+    font-size: 22px;
+
+}
+
+
+.box-title p {
+
+    color: #777;
+
+    font-size: 13px;
+
+    margin-top: 5px;
+
+}
+
+
+.box-title a {
+
+    text-decoration: none;
+
+    color: #2e7d32;
+
+    font-weight: 600;
+
+}
+
+
+.box-title button {
+
+    border: none;
+
+    background: #2e7d32;
+
+    color: white;
+
+    padding: 10px 18px;
+
+    border-radius: 25px;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+}
+
+
+.box-title button:hover {
+
+    background: #1b5e20;
+
+}
+
+
+/* ================= CROP TABLE ================= */
+
+.crop-table {
+
+    width: 100%;
+
+}
+
+
+.crop-row {
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr 1fr 1fr;
+
+    padding: 15px 10px;
+
+    border-bottom: 1px solid #eee;
+
+    align-items: center;
+
+}
+
+
+.crop-heading {
+
+    color: #777;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+
+.crop-row span {
+
+    font-size: 14px;
+
+}
+
+
+.status {
+
+    display: inline-block;
+
+    width: fit-content;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    font-size: 11px !important;
+
+    font-weight: 600;
+
+}
+
+
+.healthy {
+
+    background: #e8f5e9;
+
+    color: #2e7d32;
+
+}
+
+
+.warning {
+
+    background: #fff3e0;
+
+    color: #ef6c00;
+
+}
+
+
+/* ================= SOIL SCORE ================= */
+
+.soil-score {
+
+    text-align: center;
+
+    padding: 10px;
+
+}
+
+
+.score-circle {
+
+    width: 135px;
+
+    height: 135px;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+
+        conic-gradient(
+            #43a047 82%,
+            #e8f5e9 82%
+        );
+
+    position: relative;
+
+}
+
+
+.score-circle::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+
+    height: 100px;
+
+    border-radius: 50%;
+
+    background: white;
+
+}
+
+
+.score-circle span {
+
+    position: relative;
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+    color: #2e7d32;
+
+}
+
+
+.soil-score h3 {
+
+    margin-top: 15px;
+
+    color: #2e7d32;
+
+}
+
+
+.soil-score p {
+
+    color: #777;
+
+    font-size: 13px;
+
+    margin-top: 5px;
+
+}
+
+
+/* ================= SOIL VALUES ================= */
+
+.soil-values {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+}
+
+
+.soil-values div {
+
+    background: #f5fff5;
+
+    padding: 15px 5px;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+}
+
+
+.soil-values strong {
+
+    display: block;
+
+    color: #2e7d32;
+
+    font-size: 18px;
+
+}
+
+
+.soil-values span {
+
+    font-size: 11px;
+
+    color: #777;
+
+}
+
+
+/* ================= WEATHER ================= */
+
+.weather-main {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 10px 0 25px;
+
+}
+
+
+.weather-symbol {
+
+    font-size: 65px;
+
+}
+
+
+.weather-main h2 {
+
+    font-size: 42px;
+
+    color: #2e7d32;
+
+}
+
+
+.weather-main p {
+
+    color: #777;
+
+}
+
+
+.weather-details {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 10px;
+
+}
+
+
+.weather-details div {
+
+    background: #f5fff5;
+
+    padding: 15px 8px;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    font-size: 11px;
+
+    color: #777;
+
+}
+
+
+.weather-details strong {
+
+    display: block;
+
+    color: #333;
+
+    margin: 5px;
+
+}
+
+
+/* ================= WATER ================= */
+
+.water-progress {
+
+    padding: 10px 0;
+
+}
+
+
+.water-progress-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 12px;
+
+}
+
+
+.water-progress-top strong {
+
+    color: #1976d2;
+
+}
+
+
+.progress-bar {
+
+    width: 100%;
+
+    height: 13px;
+
+    background: #e3f2fd;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+}
+
+
+.progress-fill {
+
+    width: 72%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #1976d2,
+            #64b5f6
+        );
+
+    border-radius: 20px;
+
+}
+
+
+.water-progress p {
+
+    margin-top: 12px;
+
+    color: #777;
+
+    font-size: 13px;
+
+}
+
+
+.irrigation-tip {
+
+    margin-top: 20px;
+
+    padding: 18px;
+
+    border-radius: 15px;
+
+    background: #f0f8ff;
+
+}
+
+
+.irrigation-tip strong {
+
+    color: #1976d2;
+
+}
+
+
+.irrigation-tip p {
+
+    color: #666;
+
+    margin-top: 5px;
+
+    font-size: 13px;
+
+}
+
+
+/* ================= ALERTS ================= */
+
+.alerts-box {
+
+    max-width: 1400px;
+
+    margin: 25px auto;
+
+}
+
+
+.alert-item {
+
+    display: flex;
+
+    gap: 15px;
+
+    align-items: center;
+
+    padding: 18px;
+
+    border-radius: 15px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.alert-icon {
+
+    font-size: 25px;
+
+}
+
+
+.alert-item strong {
+
+    font-size: 15px;
+
+}
+
+
+.alert-item p {
+
+    color: #666;
+
+    font-size: 13px;
+
+    margin-top: 4px;
+
+}
+
+
+.warning-alert {
+
+    background: #fff8e1;
+
+}
+
+
+.info-alert {
+
+    background: #e3f2fd;
+
+}
+
+
+.success-alert {
+
+    background: #e8f5e9;
+
+}
+
+
+/* ================= MARKET ================= */
+
+.market-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 15px;
+
+}
+
+
+.market-card {
+
+    padding: 20px;
+
+    background: #f8fff8;
+
+    border-radius: 17px;
+
+}
+
+
+.market-card span {
+
+    display: block;
+
+    color: #555;
+
+    margin-bottom: 10px;
+
+}
+
+
+.market-card strong {
+
+    font-size: 23px;
+
+    color: #2e7d32;
+
+}
+
+
+.market-card small {
+
+    color: #777;
+
+}
+
+
+.market-card em {
+
+    display: block;
+
+    margin-top: 8px;
+
+    color: #2e7d32;
+
+    font-size: 12px;
+
+    font-style: normal;
+
+    font-weight: 600;
+
+}
+
+
+/* ================= FOOTER ================= */
+
+.dashboard-page + footer {
+
+    margin-top: 0;
+
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+
+    .quick-actions {
+
+        grid-template-columns:
+            repeat(3,1fr);
+
+    }
+
+    .dashboard-stats {
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+    .market-grid {
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+}
+
+
+@media (max-width: 850px) {
+
+    header {
+
+        padding: 15px 20px;
+
+        flex-direction: column;
+
+        gap: 10px;
+
+    }
+
+    nav {
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+    }
+
+    nav a {
+
+        margin: 5px 8px;
+
+        font-size: 13px;
+
+    }
+
+    .dashboard-page {
+
+        padding:
+            180px 20px 50px;
+
+    }
+
+    .dashboard-welcome {
+
+        padding: 30px;
+
+    }
+
+    .dashboard-welcome h1 {
+
+        font-size: 32px;
+
+    }
+
+    .farmer-icon {
+
+        width: 90px;
+
+        height: 90px;
+
+        font-size: 45px;
+
+    }
+
+    .dashboard-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .dashboard-stats {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .quick-actions {
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+    .dashboard-welcome {
+
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 20px;
+
+    }
+
+    .market-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .soil-values {
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+    .dashboard-box {
+
+        padding: 20px;
+
+    }
+
+    .crop-row {
+
+        grid-template-columns:
+            1.3fr 1fr 1fr;
+
+        font-size: 12px;
+
+    }
+
+}
